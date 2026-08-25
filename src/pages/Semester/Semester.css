@@ -1,0 +1,327 @@
+/* =========================================================
+   SEMESTER PAGE
+========================================================= */
+
+.semester {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+/* ---------------- BREADCRUMB ---------------- */
+
+.semester__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--doc-muted, #64748b);
+}
+
+.semester__crumbs a {
+  color: var(--doc-muted, #64748b);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.semester__crumbs a:hover {
+  color: var(--doc-accent, #7c3aed);
+}
+
+.semester__crumbs strong {
+  color: var(--doc-heading, #0f172a);
+  font-weight: 600;
+}
+
+/* ---------------- HEADER ---------------- */
+
+.semester__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.semester__header-main {
+  flex: 1;
+  min-width: 280px;
+}
+
+.semester__eyebrow {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--doc-accent, #7c3aed);
+}
+
+.semester__title {
+  margin: 0 0 0.55rem;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--doc-heading, #0f172a);
+}
+
+.semester__desc {
+  margin: 0;
+  max-width: 720px;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--doc-muted, #64748b);
+}
+
+/* ---------------- STATS ---------------- */
+
+.semester__stats {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.semester__stat {
+  min-width: 74px;
+  padding: 0.7rem 0.9rem;
+  text-align: center;
+  border: 1px solid var(--doc-border, #e2e8f0);
+  border-radius: 12px;
+  background: var(--doc-surface, #ffffff);
+}
+
+.semester__stat strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--doc-accent, #7c3aed);
+}
+
+.semester__stat span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--doc-muted, #94a3b8);
+}
+
+/* ---------------- TABS ---------------- */
+
+.semester__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.25rem;
+}
+
+.semester__tab {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  color: var(--doc-muted, #64748b);
+  background: var(--doc-table-head, #f1f5f9);
+  border: 1px solid var(--doc-border, #e2e8f0);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.semester__tab:hover {
+  color: var(--doc-accent, #7c3aed);
+  border-color: var(--doc-accent, #7c3aed);
+}
+
+.semester__tab.is-active {
+  color: #fff;
+  background: var(--doc-accent, #7c3aed);
+  border-color: var(--doc-accent, #7c3aed);
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+.semester__section {
+  margin-bottom: 2.5rem;
+}
+
+.semester__section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--doc-heading, #0f172a);
+}
+
+.semester__count {
+  padding: 0.1rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 999px;
+  background: var(--doc-accent, #7c3aed);
+}
+
+.semester__count.is-elective {
+  background: #f59e0b;
+}
+
+/* ---------------- GRID ---------------- */
+
+.semester__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* ---------------- EMPTY ---------------- */
+
+.semester__empty {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  border: 1px dashed var(--doc-border, #cbd5e1);
+  border-radius: 16px;
+}
+
+.semester__empty h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: var(--doc-heading, #0f172a);
+}
+
+.semester__empty p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--doc-muted, #94a3b8);
+}
+
+/* ---------------- PREV / NEXT ---------------- */
+
+.semester__nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.semester__nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  border: 1px solid var(--doc-border, #e2e8f0);
+  border-radius: 10px;
+  background: var(--doc-surface, #ffffff);
+  transition: all 0.15s ease;
+}
+
+.semester__nav-link:hover {
+  border-color: var(--doc-accent, #7c3aed);
+  transform: translateY(-1px);
+}
+
+.semester__nav-link.is-next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.semester__nav-dir {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--doc-accent, #7c3aed);
+}
+
+.semester__nav-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--doc-heading, #0f172a);
+}
+
+/* ---------------- MISSING ---------------- */
+
+.semester__missing {
+  max-width: 460px;
+  margin: 5rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.semester__missing h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  color: var(--doc-heading, #0f172a);
+}
+
+.semester__missing p {
+  margin: 0 0 1.2rem;
+  color: var(--doc-muted, #64748b);
+}
+
+.semester__back {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  background: var(--doc-accent, #7c3aed);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 820px) {
+  .semester__header {
+    flex-direction: column;
+  }
+
+  .semester__stats {
+    width: 100%;
+  }
+
+  .semester__stat {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .semester__title {
+    font-size: 1.6rem;
+  }
+
+  .semester__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .semester__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .semester__nav-link.is-next {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] .semester__stat,
+[data-theme="dark"] .semester__nav-link {
+  background: var(--doc-surface, #1e293b);
+}

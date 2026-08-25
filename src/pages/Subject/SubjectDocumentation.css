@@ -1,0 +1,126 @@
+/* =========================================================
+   SUBJECT DOCUMENTATION PAGE
+========================================================= */
+
+.subject-doc {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+/* ---------------- BREADCRUMB ---------------- */
+
+.subject-doc__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--doc-muted, #64748b);
+}
+
+.subject-doc__crumbs a {
+  color: var(--doc-muted, #64748b);
+  text-decoration: none;
+}
+
+.subject-doc__crumbs a:hover {
+  color: var(--doc-accent, #7c3aed);
+}
+
+.subject-doc__crumbs strong {
+  color: var(--doc-heading, #0f172a);
+  font-weight: 600;
+}
+
+/* ---------------- LAYOUT ---------------- */
+
+.subject-doc__layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.subject-doc__main {
+  min-width: 0;
+}
+
+/* ---------------- MOBILE MENU ---------------- */
+
+.subject-doc__menu-btn {
+  display: none;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--doc-accent, #7c3aed);
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ---------------- NOT FOUND ---------------- */
+
+.subject-doc__missing {
+  max-width: 460px;
+  margin: 5rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.subject-doc__missing h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  color: var(--doc-heading, #0f172a);
+}
+
+.subject-doc__missing p {
+  margin: 0 0 1.2rem;
+  color: var(--doc-muted, #64748b);
+}
+
+.subject-doc__back {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  background: var(--doc-accent, #7c3aed);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 960px) {
+  .subject-doc__layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .subject-doc__menu-btn {
+    display: block;
+  }
+
+  .subject-doc__aside {
+    display: none;
+  }
+
+  .subject-doc__aside.is-open {
+    display: block;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 12px;
+    background: var(--doc-surface, #fff);
+  }
+
+  .subject-doc__aside.is-open .doc-sidebar {
+    position: static;
+    max-height: 60vh;
+  }
+}

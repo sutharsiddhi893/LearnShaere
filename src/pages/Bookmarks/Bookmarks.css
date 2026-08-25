@@ -1,0 +1,119 @@
+.bookmarks-page {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0 4rem;
+}
+
+.bookmarks-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 197, 94, 0.08));
+  box-shadow: var(--shadow-sm);
+}
+
+.bookmarks-hero h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+}
+
+.bookmarks-hero p {
+  margin: 0;
+  color: var(--muted-text);
+  max-width: 680px;
+}
+
+.bookmarks-summary-card {
+  min-width: 160px;
+  padding: 1.1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.bookmarks-summary-card strong {
+  display: block;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.bookmarks-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.bookmark-group-card {
+  padding: 1.2rem;
+  border-radius: 22px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.bookmark-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.bookmark-group-header span {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.bookmark-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.bookmark-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  background: var(--background-color);
+}
+
+.bookmark-item h3 {
+  margin: 0 0 0.3rem;
+}
+
+.bookmark-item p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.bookmark-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.bookmark-actions a,
+.bookmark-actions button {
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.bookmark-actions button {
+  color: var(--danger-color);
+}
+
+@media (max-width: 800px) {
+  .bookmarks-hero,
+  .bookmark-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

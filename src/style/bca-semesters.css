@@ -1,0 +1,685 @@
+/* =========================================================
+   BCA SEMESTERS PAGE
+========================================================= */
+
+.bca-page {
+    --bca-primary: var(--primary, #22c55e);
+    --bca-secondary: var(--secondary, #10b981);
+    --bca-heading: var(--heading, #0f172a);
+    --bca-text: var(--text, #475569);
+    --bca-muted: var(--muted, #64748b);
+    --bca-border: var(--border, #e2e8f0);
+
+    min-height: 100vh;
+    padding: 56px 20px 90px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(34, 197, 94, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(180deg, #f8fffb 0%, #f8fafc 100%);
+
+    color: var(--bca-text);
+}
+
+.bca-page,
+.bca-page * {
+    box-sizing: border-box;
+}
+
+.bca-container {
+    width: min(1220px, 100%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.bca-page-header {
+    max-width: 760px;
+    margin: 0 auto 46px;
+    text-align: center;
+}
+
+.bca-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 14px;
+    padding: 7px 13px;
+
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 100px;
+
+    background: #ecfdf5;
+    color: #16a34a;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.bca-page-header h1,
+.bca-selected-header h1 {
+    margin: 0;
+
+    color: var(--bca-heading);
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 850;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.bca-page-header p,
+.bca-selected-header p {
+    margin: 18px 0 0;
+
+    color: var(--bca-muted);
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   SEMESTER CARDS
+========================================================= */
+
+.bca-semester-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.bca-semester-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 300px;
+    padding: 24px;
+
+    border: 1px solid var(--bca-border);
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.94);
+    color: inherit;
+
+    font: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.bca-semester-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        var(--bca-primary),
+        var(--bca-secondary)
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.bca-semester-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(34, 197, 94, 0.4);
+
+    box-shadow:
+        0 24px 55px rgba(15, 23, 42, 0.1),
+        0 8px 24px rgba(34, 197, 94, 0.08);
+}
+
+.bca-semester-card:hover::before {
+    transform: scaleX(1);
+}
+
+.bca-semester-card:focus-visible {
+    outline: 3px solid rgba(34, 197, 94, 0.3);
+    outline-offset: 4px;
+}
+
+.bca-semester-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.bca-year-badge,
+.bca-credit-badge,
+.bca-track-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 100px;
+
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+.bca-year-badge {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.bca-credit-badge {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.bca-track-badge {
+    margin-top: 8px;
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.bca-semester-number {
+    margin-top: 30px;
+
+    color: #dcfce7;
+
+    font-size: 4.8rem;
+    font-weight: 900;
+    letter-spacing: -5px;
+    line-height: 0.9;
+
+    transition: color 0.3s ease;
+}
+
+.bca-semester-card:hover .bca-semester-number {
+    color: #bbf7d0;
+}
+
+.bca-semester-card h2 {
+    margin: 12px 0 0;
+
+    color: var(--bca-heading);
+
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.bca-semester-information {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+
+    margin-top: 20px;
+
+    color: var(--bca-muted);
+
+    font-size: 0.84rem;
+}
+
+.bca-view-subjects {
+    position: absolute;
+    right: 24px;
+    bottom: 22px;
+    left: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 16px;
+
+    border-top: 1px solid var(--bca-border);
+
+    color: #16a34a;
+
+    font-size: 0.9rem;
+    font-weight: 750;
+}
+
+.bca-view-subjects span {
+    font-size: 1.2rem;
+    transition: transform 0.25s ease;
+}
+
+.bca-semester-card:hover .bca-view-subjects span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.bca-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 28px;
+    padding: 10px 15px;
+
+    border: 1px solid var(--bca-border);
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: var(--bca-text);
+
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bca-back-button:hover {
+    color: #16a34a;
+    border-color: #86efac;
+    transform: translateX(-3px);
+}
+
+/* =========================================================
+   SELECTED SEMESTER HEADER
+========================================================= */
+
+.bca-selected-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+
+    padding: 36px;
+
+    border: 1px solid var(--bca-border);
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    box-shadow: 0 15px 45px rgba(15, 23, 42, 0.06);
+}
+
+.bca-selected-header h1 small {
+    color: #16a34a;
+    font-size: 0.45em;
+    letter-spacing: -0.5px;
+}
+
+.bca-header-statistics {
+    display: flex;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.bca-header-statistics > div {
+    min-width: 125px;
+    padding: 17px;
+
+    border: 1px solid #d1fae5;
+    border-radius: 17px;
+
+    background: #f0fdf4;
+    text-align: center;
+}
+
+.bca-header-statistics strong {
+    display: block;
+
+    color: #16a34a;
+
+    font-size: 1.65rem;
+    line-height: 1;
+}
+
+.bca-header-statistics span {
+    display: block;
+    margin-top: 7px;
+
+    color: var(--bca-muted);
+
+    font-size: 0.75rem;
+    font-weight: 650;
+}
+
+/* =========================================================
+   CHOICE NOTICE
+========================================================= */
+
+.bca-choice-notice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 24px;
+    padding: 17px 20px;
+
+    border: 1px solid #fed7aa;
+    border-radius: 17px;
+
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+.bca-choice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #ffedd5;
+    color: #ea580c;
+
+    font-weight: 900;
+}
+
+.bca-choice-notice strong {
+    display: block;
+}
+
+.bca-choice-notice p {
+    margin: 3px 0 0;
+    font-size: 0.88rem;
+}
+
+/* =========================================================
+   SUBJECT GROUPS
+========================================================= */
+
+.bca-subject-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+
+    margin-top: 44px;
+}
+
+.bca-group-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 17px;
+}
+
+.bca-group-heading > div > span {
+    color: #16a34a;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.bca-group-heading h2 {
+    margin: 5px 0 0;
+
+    color: var(--bca-heading);
+
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.bca-choose-badge {
+    padding: 7px 11px;
+
+    border-radius: 100px;
+
+    background: #fff7ed;
+    color: #ea580c;
+
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+.bca-subject-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* =========================================================
+   SUBJECT CARDS
+========================================================= */
+
+.bca-subject-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 330px;
+    padding: 22px;
+
+    border: 1px solid var(--bca-border);
+    border-radius: 21px;
+
+    background: #ffffff;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.bca-subject-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(34, 197, 94, 0.4);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.09),
+        0 6px 18px rgba(34, 197, 94, 0.07);
+}
+
+.bca-subject-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 17px;
+}
+
+.bca-type-badge,
+.bca-option-badge {
+    display: inline-flex;
+    padding: 6px 10px;
+
+    border-radius: 100px;
+
+    font-size: 0.7rem;
+    font-weight: 750;
+}
+
+.bca-type-theory {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.bca-type-practical {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.bca-option-badge {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.bca-subject-code {
+    color: #16a34a;
+
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.bca-subject-card h3 {
+    margin: 9px 0 20px;
+
+    color: var(--bca-heading);
+
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.bca-subject-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    margin: auto 0 0;
+}
+
+.bca-subject-details > div {
+    padding: 11px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+}
+
+.bca-subject-details dt {
+    color: var(--bca-muted);
+
+    font-size: 0.67rem;
+    font-weight: 650;
+}
+
+.bca-subject-details dd {
+    margin: 4px 0 0;
+
+    color: var(--bca-heading);
+
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
+.bca-marks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+
+    margin-top: 12px;
+    padding-top: 13px;
+
+    border-top: 1px solid var(--bca-border);
+}
+
+.bca-marks span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--bca-muted);
+
+    font-size: 0.74rem;
+}
+
+.bca-marks strong {
+    color: var(--bca-heading);
+    font-size: 0.86rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+    .bca-semester-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bca-subject-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .bca-page {
+        padding: 36px 15px 70px;
+    }
+
+    .bca-selected-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding: 25px;
+    }
+
+    .bca-header-statistics {
+        width: 100%;
+    }
+
+    .bca-header-statistics > div {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .bca-group-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 580px) {
+    .bca-semester-grid,
+    .bca-subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bca-semester-card {
+        min-height: 285px;
+    }
+
+    .bca-selected-header h1 {
+        letter-spacing: -1px;
+    }
+
+    .bca-header-statistics {
+        flex-direction: column;
+    }
+
+    .bca-choice-notice {
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bca-page *,
+    .bca-page *::before,
+    .bca-page *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}

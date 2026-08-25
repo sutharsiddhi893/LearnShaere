@@ -1,0 +1,57 @@
+/* =========================================================
+   TOPIC NAVIGATION
+========================================================= */
+
+.topic-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.topic-nav__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--doc-surface, #ffffff);
+    transition: all 0.15s ease;
+}
+
+.topic-nav__link:hover {
+    border-color: var(--doc-accent, #7c3aed);
+    transform: translateY(-1px);
+}
+
+.topic-nav__link.is-next {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.topic-nav__dir {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--doc-accent, #7c3aed);
+}
+
+.topic-nav__title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--doc-heading, #0f172a);
+}
+
+@media (max-width: 640px) {
+    .topic-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .topic-nav__link.is-next {
+        text-align: left;
+        align-items: flex-start;
+    }
+}

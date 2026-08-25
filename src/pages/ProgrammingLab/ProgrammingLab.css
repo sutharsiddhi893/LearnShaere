@@ -1,0 +1,1359 @@
+/* =========================================================
+   PROGRAMMING LAB
+   LearnSphere - White + Green Theme
+========================================================= */
+
+.programming-lab-page {
+  display: flex;
+  min-height: calc(100dvh - 82px);
+  color: var(--text-primary);
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(34, 197, 94, 0.08),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(16, 185, 129, 0.05),
+      transparent 26rem
+    ),
+    var(--background);
+}
+
+.programming-lab-content {
+  width: calc(100% - 260px);
+  min-width: 0;
+}
+
+.programming-lab-container {
+  width: min(1220px, calc(100% - 56px));
+  margin: 0 auto;
+  padding: 32px 0 90px;
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.programming-lab-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 29px;
+
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.programming-lab-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.programming-lab-breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.programming-lab-hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: 30px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(34, 197, 94, 0.12),
+      transparent 18rem
+    ),
+    radial-gradient(
+      circle at 10% 100%,
+      rgba(16, 185, 129, 0.06),
+      transparent 20rem
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fffa 100%
+    );
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.programming-lab-hero::before {
+  content: "";
+
+  position: absolute;
+  top: -80px;
+  right: -80px;
+
+  width: 220px;
+  height: 220px;
+
+  border: 1px solid rgba(34, 197, 94, 0.12);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.programming-lab-hero::after {
+  content: "";
+
+  position: absolute;
+  right: 40px;
+  bottom: -60px;
+
+  width: 150px;
+  height: 150px;
+
+  border: 1px solid rgba(34, 197, 94, 0.09);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   LANGUAGE BRAND
+========================================================= */
+
+.programming-lab-language-brand {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.programming-lab-language-icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 14px;
+
+  color: #ffffff;
+
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  box-shadow:
+    0 10px 22px rgba(34, 197, 94, 0.20);
+}
+
+.programming-lab-language-brand div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.programming-lab-language-brand div > span,
+.programming-lab-section-title > div > span {
+  color: #16a34a;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 750;
+
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.programming-lab-language-brand h1 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: clamp(25px, 4vw, 36px);
+  font-weight: 850;
+
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.programming-lab-hero > p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+
+  margin: 20px 0 0;
+
+  color: #5f6b7a;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HERO STATS
+========================================================= */
+
+.programming-lab-hero-stats {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+
+  margin-top: 25px;
+}
+
+.programming-lab-hero-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.programming-lab-hero-stats strong {
+  color: #172033;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.programming-lab-hero-stats span {
+  color: #7a8494;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.programming-lab-workspace,
+.programming-lab-challenges-section,
+.programming-lab-learning-section {
+  margin-top: 48px;
+}
+
+.programming-lab-section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+  margin-bottom: 19px;
+}
+
+.programming-lab-section-title h2 {
+  margin: 6px 0 0;
+
+  color: #172033;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+}
+
+.programming-lab-section-title > p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #687486;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SAVE STATUS
+========================================================= */
+
+.programming-lab-save-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.programming-lab-save-status i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 7px rgba(34, 197, 94, 0.55);
+}
+
+/* =========================================================
+   CHALLENGES
+========================================================= */
+
+.programming-lab-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.programming-lab-challenge-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  min-height: 120px;
+  padding: 16px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  color: var(--text-primary);
+
+  text-align: left;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.programming-lab-challenge-card:hover {
+  border-color: rgba(34, 197, 94, 0.40);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.programming-lab-challenge-card-active {
+  border-color: rgba(34, 197, 94, 0.55);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.08),
+      rgba(255, 255, 255, 1)
+    );
+
+  box-shadow:
+    0 12px 25px rgba(34, 197, 94, 0.09);
+}
+
+/* =========================================================
+   CHALLENGE NUMBER
+========================================================= */
+
+.programming-lab-challenge-number {
+  width: 29px;
+  height: 29px;
+
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  border: 1px solid rgba(34, 197, 94, 0.16);
+  border-radius: 8px;
+
+  color: #16a34a;
+
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+
+  background: rgba(34, 197, 94, 0.09);
+}
+
+/* =========================================================
+   CHALLENGE CONTENT
+========================================================= */
+
+.programming-lab-challenge-content {
+  display: flex;
+  flex: 1;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.programming-lab-challenge-content strong {
+  color: #172033;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.programming-lab-challenge-content small {
+  color: #7a8494;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.programming-lab-challenge-arrow {
+  color: #9aa3b2;
+
+  font-size: 16px;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.programming-lab-challenge-card:hover
+.programming-lab-challenge-arrow {
+  color: #16a34a;
+
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   SELECTED CHALLENGE
+========================================================= */
+
+.programming-lab-selected-challenge {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 17px;
+  padding: 17px;
+
+  border: 1px solid rgba(34, 197, 94, 0.18);
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 7px 20px rgba(15, 23, 42, 0.04);
+}
+
+.programming-lab-selected-challenge-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  border-radius: 10px;
+
+  color: #16a34a;
+
+  background: rgba(34, 197, 94, 0.10);
+}
+
+.programming-lab-selected-challenge div {
+  flex: 1;
+}
+
+.programming-lab-selected-challenge div > span {
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+}
+
+.programming-lab-selected-challenge h3 {
+  margin: 5px 0;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.programming-lab-selected-challenge p {
+  margin: 0;
+
+  color: #687486;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.programming-lab-selected-challenge button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(34, 197, 94, 0.22);
+  border-radius: 8px;
+
+  color: #15803d;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  background: rgba(34, 197, 94, 0.08);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.programming-lab-selected-challenge button:hover {
+  border-color: rgba(34, 197, 94, 0.40);
+
+  background: rgba(34, 197, 94, 0.14);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   LEARNING PATH
+========================================================= */
+
+.programming-lab-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+.programming-lab-learning-grid article {
+  position: relative;
+
+  padding: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.programming-lab-learning-grid article:hover {
+  border-color: rgba(34, 197, 94, 0.30);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 28px rgba(15, 23, 42, 0.07);
+}
+
+.programming-lab-learning-grid article::after {
+  content: "";
+
+  position: absolute;
+
+  right: -26px;
+  bottom: -26px;
+
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%;
+
+  background: rgba(34, 197, 94, 0.07);
+}
+
+.programming-lab-learning-grid article > span {
+  color: #16a34a;
+
+  font-family: var(--font-mono);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.programming-lab-learning-grid h3 {
+  margin: 13px 0 7px;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.programming-lab-learning-grid p {
+  margin: 0;
+
+  color: #687486;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.programming-lab-workspace {
+  padding: 22px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .programming-lab-challenge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programming-lab-learning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .programming-lab-page {
+    flex-direction: column;
+  }
+
+  .programming-lab-content {
+    width: 100%;
+  }
+
+  .programming-lab-container {
+    width: min(100% - 40px, 1100px);
+  }
+}
+
+@media (max-width: 850px) {
+  .programming-lab-workspace,
+  .programming-lab-challenges-section,
+  .programming-lab-learning-section {
+    margin-top: 34px;
+  }
+}
+
+@media (max-width: 650px) {
+  .programming-lab-container {
+    width: min(100% - 28px, 1100px);
+
+    padding-top: 24px;
+  }
+
+  .programming-lab-hero {
+    padding: 21px;
+  }
+
+  .programming-lab-section-title {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .programming-lab-section-title h2 {
+    font-size: 21px;
+  }
+
+  .programming-lab-selected-challenge {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .programming-lab-selected-challenge button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .programming-lab-learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programming-lab-hero-stats {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .programming-lab-container {
+    width: calc(100% - 24px);
+  }
+
+  .programming-lab-hero {
+    padding: 18px;
+  }
+
+  .programming-lab-language-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .programming-lab-language-brand h1 {
+    font-size: 24px;
+  }
+}
+
+.programming-lab-selected-challenge-icon img {
+    width: 42px;
+    height: 42px;
+
+    max-width: 42px;
+    max-height: 42px;
+
+    display: block;
+    object-fit: contain;
+}
+/* =========================================================
+   LANGUAGE-AWARE IDE
+========================================================= */
+
+.programming-lab-ide {
+  --ide-frame: #0f172a;
+  --ide-titlebar: #111827;
+  --ide-title-text: #f8fafc;
+  --ide-menu: #1f2937;
+  --ide-menu-text: #cbd5e1;
+  --ide-tabs: #111827;
+  --ide-tab: #1e293b;
+  --ide-editor: #0b1120;
+  --ide-editor-text: #e2e8f0;
+  --ide-output: #020617;
+  --ide-muted: #94a3b8;
+  --ide-accent: #22c55e;
+  --ide-border: #334155;
+  --ide-status: #16a34a;
+  --ide-status-text: #ffffff;
+
+  overflow: hidden;
+
+  border: 1px solid var(--ide-border);
+  border-radius: 15px;
+
+  background: var(--ide-frame);
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.18);
+}
+
+/* =========================================================
+   IDE TITLE BAR
+========================================================= */
+
+.programming-lab-ide-titlebar {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  align-items: center;
+
+  min-height: 38px;
+  padding: 0 13px;
+
+  border-bottom: 1px solid var(--ide-border);
+
+  color: var(--ide-title-text);
+  background: var(--ide-titlebar);
+
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+
+.programming-lab-ide-titlebar > strong {
+  text-align: center;
+  font-weight: 700;
+}
+
+.programming-lab-ide-titlebar > span {
+  color: var(--ide-muted);
+  text-align: right;
+}
+
+.programming-lab-ide-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.programming-lab-ide-window-dots i {
+  display: block;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+}
+
+.programming-lab-ide-window-dots i:nth-child(1) {
+  background: #ef4444;
+}
+
+.programming-lab-ide-window-dots i:nth-child(2) {
+  background: #f59e0b;
+}
+
+.programming-lab-ide-window-dots i:nth-child(3) {
+  background: #22c55e;
+}
+
+/* =========================================================
+   IDE MENU
+========================================================= */
+
+.programming-lab-ide-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  min-height: 34px;
+  padding: 0 10px;
+
+  border-bottom: 1px solid var(--ide-border);
+
+  color: var(--ide-menu-text);
+  background: var(--ide-menu);
+
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+
+.programming-lab-ide-menu span {
+  padding: 6px 10px;
+  border-radius: 4px;
+
+  cursor: default;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.programming-lab-ide-menu span:hover {
+  color: var(--ide-title-text);
+  background: color-mix(
+    in srgb,
+    var(--ide-accent) 20%,
+    transparent
+  );
+}
+
+/* =========================================================
+   FILE TABS
+========================================================= */
+
+.programming-lab-ide-tabs {
+  min-height: 39px;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding-left: 8px;
+
+  border-bottom: 1px solid var(--ide-border);
+
+  background: var(--ide-tabs);
+}
+
+.programming-lab-ide-tab-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  min-height: 34px;
+  padding: 0 12px;
+
+  border-top: 2px solid var(--ide-accent);
+  border-right: 1px solid var(--ide-border);
+  border-left: 1px solid var(--ide-border);
+
+  color: var(--ide-editor-text);
+  background: var(--ide-tab);
+
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+
+.programming-lab-ide-file-icon {
+  color: var(--ide-accent);
+  font-weight: 800;
+}
+
+.programming-lab-ide-tab-close {
+  margin-left: 8px;
+
+  color: var(--ide-muted);
+
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* =========================================================
+   CODE EDITOR HOST
+========================================================= */
+
+.programming-lab-editor-host {
+  min-height: 430px;
+  padding: 10px;
+
+  background: var(--ide-editor);
+}
+
+/* Custom textarea-based editor */
+
+.programming-lab-editor-host textarea,
+.programming-lab-editor-host .code-editor-textarea,
+.programming-lab-editor-host .code-editor-code-area {
+  color: var(--ide-editor-text) !important;
+  background: var(--ide-editor) !important;
+
+  border-color: var(--ide-border) !important;
+
+  caret-color: var(--ide-accent) !important;
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    "Courier New",
+    monospace !important;
+
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+
+  tab-size: 4;
+}
+
+.programming-lab-editor-host textarea::selection {
+  color: var(--ide-editor-text);
+  background: color-mix(
+    in srgb,
+    var(--ide-accent) 35%,
+    transparent
+  );
+}
+
+/* Output panel */
+
+.programming-lab-editor-host .code-editor-output,
+.programming-lab-editor-host
+[class*="output"] {
+  color: var(--ide-editor-text) !important;
+  background: var(--ide-output) !important;
+
+  border-color: var(--ide-border) !important;
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace !important;
+}
+
+/* Run and Reset buttons */
+
+.programming-lab-editor-host button {
+  border-color: var(--ide-border);
+  color: var(--ide-title-text);
+  background: var(--ide-tab);
+
+  font-family: var(--font-mono, monospace);
+}
+
+.programming-lab-editor-host button:hover {
+  border-color: var(--ide-accent);
+}
+
+/* =========================================================
+   IDE STATUS BAR
+========================================================= */
+
+.programming-lab-ide-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+
+  min-height: 28px;
+  padding: 0 12px;
+
+  color: var(--ide-status-text);
+  background: var(--ide-status);
+
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.programming-lab-ide-status span:first-child {
+  margin-right: auto;
+}
+
+/* =========================================================
+   TURBO C / C++
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="turbo-c"] {
+  --ide-frame: #008b8b;
+  --ide-titlebar: #d4d4d4;
+  --ide-title-text: #111111;
+  --ide-menu: #d4d4d4;
+  --ide-menu-text: #111111;
+  --ide-tabs: #008b8b;
+  --ide-tab: #0000a8;
+  --ide-editor: #0000a8;
+  --ide-editor-text: #ffffff;
+  --ide-output: #000066;
+  --ide-muted: #006666;
+  --ide-accent: #ffff00;
+  --ide-border: #00dada;
+  --ide-status: #00a0a0;
+  --ide-status-text: #001111;
+
+  border-width: 3px;
+  border-radius: 2px;
+
+  box-shadow:
+    9px 9px 0 rgba(0, 0, 0, 0.28);
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+.programming-lab-ide-window-dots {
+  display: none;
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+.programming-lab-ide-titlebar {
+  grid-template-columns: 80px 1fr 80px;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+.programming-lab-ide-menu span {
+  border-radius: 0;
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+.programming-lab-ide-menu span:hover {
+  color: #ffff00;
+  background: #0000a8;
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+.programming-lab-ide-tab-active {
+  border-top-color: #ffff00;
+
+  color: #ffff00;
+  background: #0000a8;
+}
+
+.programming-lab-ide[data-editor-theme="turbo-c"]
+textarea {
+  font-family:
+    "Courier New",
+    monospace !important;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   PYTHON IDE
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="python"] {
+  --ide-titlebar: #152536;
+  --ide-menu: #1e3449;
+  --ide-tabs: #101c29;
+  --ide-tab: #162b3d;
+  --ide-editor: #0f1b26;
+  --ide-output: #09131c;
+  --ide-editor-text: #e6edf3;
+  --ide-accent: #ffd43b;
+  --ide-border: #29465e;
+  --ide-status: #3776ab;
+}
+
+/* =========================================================
+   JAVASCRIPT
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="javascript"] {
+  --ide-titlebar: #181818;
+  --ide-menu: #252526;
+  --ide-tabs: #181818;
+  --ide-tab: #1e1e1e;
+  --ide-editor: #1e1e1e;
+  --ide-output: #111111;
+  --ide-editor-text: #d4d4d4;
+  --ide-accent: #f7df1e;
+  --ide-border: #333333;
+  --ide-status: #c4ad00;
+  --ide-status-text: #111111;
+}
+
+/* =========================================================
+   HTML
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="html"] {
+  --ide-titlebar: #202020;
+  --ide-menu: #292929;
+  --ide-tabs: #191919;
+  --ide-tab: #242424;
+  --ide-editor: #1e1e1e;
+  --ide-output: #111111;
+  --ide-editor-text: #e5e7eb;
+  --ide-accent: #f97316;
+  --ide-border: #3f3f46;
+  --ide-status: #e34c26;
+}
+
+/* =========================================================
+   CSS
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="css"] {
+  --ide-titlebar: #172554;
+  --ide-menu: #1e3a8a;
+  --ide-tabs: #111827;
+  --ide-tab: #172554;
+  --ide-editor: #0f172a;
+  --ide-output: #020617;
+  --ide-editor-text: #dbeafe;
+  --ide-accent: #38bdf8;
+  --ide-border: #1e40af;
+  --ide-status: #2563eb;
+}
+
+/* =========================================================
+   JAVA
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="java"] {
+  --ide-titlebar: #211f1d;
+  --ide-menu: #2b2927;
+  --ide-tabs: #181716;
+  --ide-tab: #292623;
+  --ide-editor: #1f1d1b;
+  --ide-output: #141311;
+  --ide-editor-text: #f3f4f6;
+  --ide-accent: #f97316;
+  --ide-border: #44403c;
+  --ide-status: #dc2626;
+}
+
+/* =========================================================
+   PHP
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="php"] {
+  --ide-titlebar: #1f1f35;
+  --ide-menu: #292946;
+  --ide-tabs: #171729;
+  --ide-tab: #242440;
+  --ide-editor: #19192d;
+  --ide-output: #101020;
+  --ide-editor-text: #eeeeff;
+  --ide-accent: #a78bfa;
+  --ide-border: #4c4c72;
+  --ide-status: #777bb4;
+}
+
+/* =========================================================
+   SQL
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="sql"] {
+  --ide-titlebar: #082f49;
+  --ide-menu: #0c4a6e;
+  --ide-tabs: #082f49;
+  --ide-tab: #0e3b55;
+  --ide-editor: #071b2a;
+  --ide-output: #03121c;
+  --ide-editor-text: #e0f2fe;
+  --ide-accent: #22d3ee;
+  --ide-border: #155e75;
+  --ide-status: #0891b2;
+}
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="terminal"] {
+  --ide-titlebar: #161616;
+  --ide-menu: #202020;
+  --ide-tabs: #101010;
+  --ide-tab: #181818;
+  --ide-editor: #050505;
+  --ide-output: #000000;
+  --ide-editor-text: #4ade80;
+  --ide-accent: #22c55e;
+  --ide-border: #303030;
+  --ide-status: #166534;
+}
+
+/* =========================================================
+   R STUDIO
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="r-studio"] {
+  --ide-titlebar: #12304a;
+  --ide-menu: #1b4668;
+  --ide-tabs: #0e2538;
+  --ide-tab: #173b59;
+  --ide-editor: #0c2030;
+  --ide-output: #071722;
+  --ide-editor-text: #e0f2fe;
+  --ide-accent: #60a5fa;
+  --ide-border: #28577a;
+  --ide-status: #2563eb;
+}
+
+/* =========================================================
+   .NET
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="dotnet"] {
+  --ide-titlebar: #2a1745;
+  --ide-menu: #38205a;
+  --ide-tabs: #1d102f;
+  --ide-tab: #321e50;
+  --ide-editor: #1e1230;
+  --ide-output: #120a1e;
+  --ide-editor-text: #f3e8ff;
+  --ide-accent: #c084fc;
+  --ide-border: #5b3b7c;
+  --ide-status: #7e22ce;
+}
+
+/* =========================================================
+   ANDROID
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="android"] {
+  --ide-titlebar: #202124;
+  --ide-menu: #292a2d;
+  --ide-tabs: #17181a;
+  --ide-tab: #252629;
+  --ide-editor: #1e1f22;
+  --ide-output: #111214;
+  --ide-editor-text: #e8eaed;
+  --ide-accent: #3ddc84;
+  --ide-border: #3c4043;
+  --ide-status: #18864b;
+}
+
+/* =========================================================
+   ARDUINO
+========================================================= */
+
+.programming-lab-ide[data-editor-theme="arduino"] {
+  --ide-titlebar: #005c5f;
+  --ide-menu: #00777a;
+  --ide-tabs: #003f42;
+  --ide-tab: #006569;
+  --ide-editor: #082f31;
+  --ide-output: #041d1e;
+  --ide-editor-text: #e6fffb;
+  --ide-accent: #2dd4bf;
+  --ide-border: #0f766e;
+  --ide-status: #008184;
+}
+
+/* =========================================================
+   IDE RESPONSIVE
+========================================================= */
+
+@media (max-width: 650px) {
+  .programming-lab-workspace {
+    padding: 14px;
+  }
+
+  .programming-lab-ide-titlebar {
+    grid-template-columns: 70px 1fr 70px;
+  }
+
+  .programming-lab-ide-menu {
+    overflow-x: auto;
+  }
+
+  .programming-lab-ide-menu span {
+    flex-shrink: 0;
+  }
+
+  .programming-lab-editor-host {
+    min-height: 360px;
+    padding: 6px;
+  }
+
+  .programming-lab-ide-status {
+    gap: 10px;
+  }
+
+  .programming-lab-ide-status span:nth-child(3),
+  .programming-lab-ide-status span:nth-child(4) {
+    display: none;
+  }
+}

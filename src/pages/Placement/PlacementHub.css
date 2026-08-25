@@ -1,0 +1,96 @@
+.placement-page {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0 4rem;
+}
+
+.placement-hero {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1.7fr 1fr;
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(34, 197, 94, 0.08));
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.placement-hero h1 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(1.9rem, 2.8vw, 2.7rem);
+}
+
+.placement-hero p {
+  margin: 0;
+  color: var(--muted-text);
+  max-width: 660px;
+}
+
+.placement-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.placement-summary-card {
+  padding: 1.25rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--border-color);
+}
+
+.placement-summary-card ul {
+  padding-left: 1rem;
+  color: var(--muted-text);
+}
+
+.placement-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.placement-card {
+  padding: 1.3rem;
+  border-radius: 22px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.focus-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.focus-item {
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: var(--background-color);
+}
+
+.focus-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.focus-item p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.roadmap-list {
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 1rem;
+  color: var(--muted-text);
+}
+
+@media (max-width: 900px) {
+  .placement-hero,
+  .placement-grid {
+    grid-template-columns: 1fr;
+  }
+}

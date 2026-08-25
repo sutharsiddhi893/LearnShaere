@@ -1,0 +1,134 @@
+/* =========================================================
+   DOCUMENTATION SIDEBAR
+========================================================= */
+
+.doc-sidebar {
+  position: sticky;
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.doc-sidebar__head {
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.doc-sidebar__code {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--doc-accent, #7c3aed);
+}
+
+.doc-sidebar__name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--doc-heading, #0f172a);
+}
+
+/* ---------------- UNITS ---------------- */
+
+.doc-sidebar__nav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.doc-sidebar__unit-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.doc-sidebar__unit-head:hover {
+  background: var(--doc-table-hover, #f8fafc);
+}
+
+.doc-sidebar__unit-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: var(--doc-accent, #7c3aed);
+  background: rgba(124, 58, 237, 0.1);
+  white-space: nowrap;
+}
+
+.doc-sidebar__unit-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--doc-text, #334155);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.doc-sidebar__caret {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--doc-muted, #94a3b8);
+}
+
+/* ---------------- TOPICS ---------------- */
+
+.doc-sidebar__topics {
+  margin: 0.2rem 0 0.5rem;
+  padding: 0 0 0 0.6rem;
+  list-style: none;
+  border-left: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.doc-sidebar__topic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  text-decoration: none;
+  border-radius: 6px;
+  color: var(--doc-muted, #64748b);
+  transition: all 0.12s ease;
+}
+
+.doc-sidebar__topic:hover {
+  color: var(--doc-heading, #0f172a);
+  background: var(--doc-table-hover, #f8fafc);
+}
+
+.doc-sidebar__topic.is-active {
+  font-weight: 600;
+  color: var(--doc-accent, #7c3aed);
+  background: rgba(124, 58, 237, 0.09);
+}
+
+.doc-sidebar__time {
+  flex-shrink: 0;
+  font-size: 0.66rem;
+  color: var(--doc-muted, #94a3b8);
+}
+
+.doc-sidebar__soon {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--doc-muted, #94a3b8);
+}

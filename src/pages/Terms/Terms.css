@@ -1,0 +1,27 @@
+.policy-page {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 0 4rem;
+}
+
+.policy-card {
+  padding: 1.4rem;
+  border-radius: 22px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.policy-card h1,
+.policy-card h2 {
+  margin-top: 0.35rem;
+}
+
+.policy-card p {
+  color: var(--muted-text);
+}
+
+.policy-card a {
+  color: var(--primary-color);
+  font-weight: 700;
+}

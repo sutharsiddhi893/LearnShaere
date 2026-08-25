@@ -1,0 +1,423 @@
+/* =========================================================
+   DOCUMENTATION BLOCKS
+========================================================= */
+
+.doc-heading {
+    margin: 2rem 0 0.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--doc-heading, #0f172a);
+    scroll-margin-top: 6rem;
+}
+
+h2.doc-heading {
+    font-size: 1.5rem;
+}
+
+h3.doc-heading {
+    font-size: 1.25rem;
+}
+
+h4.doc-heading {
+    font-size: 1.1rem;
+}
+
+h5.doc-heading {
+    font-size: 1rem;
+}
+
+.doc-text {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- LIST ---------------- */
+
+.doc-list {
+    margin: 0 0 1.25rem;
+    padding-left: 1.4rem;
+    color: var(--doc-text, #334155);
+    line-height: 1.8;
+}
+
+.doc-list li {
+    margin-bottom: 0.4rem;
+}
+
+.doc-list.is-bullet {
+    list-style: disc;
+}
+
+.doc-list.is-ordered {
+    list-style: decimal;
+}
+
+/* ---------------- CODE ---------------- */
+
+.doc-code {
+    margin: 1.25rem 0 1.5rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--doc-code-bg, #0f172a);
+}
+
+.doc-code__bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--doc-code-bar, #1e293b);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.doc-code__lang {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #93c5fd;
+}
+
+.doc-code__caption {
+    flex: 1;
+    font-size: 0.78rem;
+    color: #cbd5e1;
+}
+
+.doc-code__copy {
+    margin-left: auto;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.doc-code__copy:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.doc-code__pre {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+}
+
+.doc-code__pre code {
+    font-family: "Fira Code", "JetBrains Mono", Consolas, monospace;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    white-space: pre;
+}
+
+/* ---------------- OUTPUT ---------------- */
+
+.doc-output {
+    margin: -0.75rem 0 1.5rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--doc-output-bg, #f8fafc);
+}
+
+.doc-output__label {
+    display: block;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #16a34a;
+    background: rgba(22, 163, 74, 0.08);
+    border-bottom: 1px solid var(--doc-border, #e2e8f0);
+}
+
+.doc-output__pre {
+    margin: 0;
+    padding: 0.9rem 1.1rem;
+    overflow-x: auto;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- TABLE ---------------- */
+
+.doc-table-wrap {
+    margin: 1.25rem 0 1.75rem;
+    overflow-x: auto;
+}
+
+.doc-table__caption {
+    margin: 0 0 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--doc-muted, #64748b);
+}
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.doc-table th {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    font-weight: 700;
+    color: var(--doc-heading, #0f172a);
+    background: var(--doc-table-head, #f1f5f9);
+    border-bottom: 1px solid var(--doc-border, #e2e8f0);
+    white-space: nowrap;
+}
+
+.doc-table td {
+    padding: 0.65rem 0.9rem;
+    color: var(--doc-text, #334155);
+    border-bottom: 1px solid var(--doc-border, #eef2f7);
+    vertical-align: top;
+}
+
+.doc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.doc-table tbody tr:hover {
+    background: var(--doc-table-hover, #f8fafc);
+}
+
+/* ---------------- NOTE ---------------- */
+
+.doc-note {
+    display: flex;
+    gap: 0.85rem;
+    margin: 1.25rem 0 1.5rem;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    border-left: 4px solid;
+    background: var(--note-bg);
+    border-left-color: var(--note-accent);
+}
+
+.doc-note--info {
+    --note-bg: #eff6ff;
+    --note-accent: #3b82f6;
+}
+
+.doc-note--tip {
+    --note-bg: #f0fdf4;
+    --note-accent: #22c55e;
+}
+
+.doc-note--warning {
+    --note-bg: #fffbeb;
+    --note-accent: #f59e0b;
+}
+
+.doc-note--exam {
+    --note-bg: #faf5ff;
+    --note-accent: #a855f7;
+}
+
+.doc-note__icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 50%;
+    background: var(--note-accent);
+}
+
+.doc-note__body {
+    flex: 1;
+}
+
+.doc-note__title {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--doc-heading, #0f172a);
+}
+
+.doc-note__text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- DEFINITION ---------------- */
+
+.doc-definition {
+    margin: 1rem 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+    background: var(--doc-surface, #ffffff);
+}
+
+.doc-definition__term {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--doc-accent, #7c3aed);
+}
+
+.doc-definition__meaning {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- STEPS ---------------- */
+
+.doc-steps {
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+}
+
+.doc-steps__item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed var(--doc-border, #e2e8f0);
+}
+
+.doc-steps__item:last-child {
+    border-bottom: none;
+}
+
+.doc-steps__num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 50%;
+    background: var(--doc-accent, #7c3aed);
+}
+
+.doc-steps__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- IMAGE ---------------- */
+
+.doc-image {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.doc-image img {
+    max-width: 100%;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 10px;
+}
+
+.doc-image figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--doc-muted, #64748b);
+}
+
+/* ---------------- KEY POINTS ---------------- */
+
+.doc-keypoints {
+    margin: 1.75rem 0;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--doc-border, #e2e8f0);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+}
+
+.doc-keypoints__title {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--doc-accent, #7c3aed);
+}
+
+.doc-keypoints__list {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style: disc;
+}
+
+.doc-keypoints__list li {
+    margin-bottom: 0.35rem;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: var(--doc-text, #334155);
+}
+
+/* ---------------- DIVIDER ---------------- */
+
+.doc-divider {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--doc-border, #e2e8f0);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] {
+    --doc-heading: #f1f5f9;
+    --doc-text: #cbd5e1;
+    --doc-muted: #94a3b8;
+    --doc-border: #334155;
+    --doc-surface: #1e293b;
+    --doc-table-head: #1e293b;
+    --doc-table-hover: #263349;
+    --doc-output-bg: #1e293b;
+    --doc-accent: #a78bfa;
+}
+
+[data-theme="dark"] .doc-note--info {
+    --note-bg: #1e293b;
+}
+
+[data-theme="dark"] .doc-note--tip {
+    --note-bg: #14231c;
+}
+
+[data-theme="dark"] .doc-note--warning {
+    --note-bg: #2a2113;
+}
+
+[data-theme="dark"] .doc-note--exam {
+    --note-bg: #241c33;
+}
+
+[data-theme="dark"] .doc-keypoints {
+    background: linear-gradient(135deg, #241c33 0%, #1e1b2e 100%);
+}

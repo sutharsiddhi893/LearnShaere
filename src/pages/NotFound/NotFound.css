@@ -1,0 +1,39 @@
+.notfound {
+    padding: 6rem 1rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.notfound-inner {
+    max-width: 720px;
+}
+
+.notfound-eyebrow {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: clamp(4rem, 12vw, 8rem);
+    color: var(--accent-primary);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+}
+
+.notfound-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.notfound-accent {
+    color: var(--accent-primary);
+}
+
+.notfound-lead {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 560px;
+}

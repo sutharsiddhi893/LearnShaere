@@ -1,0 +1,1228 @@
+/* =========================================================
+   LEARNSPHERE LANGUAGE-AWARE CODE EDITOR
+========================================================= */
+
+.code-editor-section {
+  /* Default editor colors */
+
+  --editor-frame: #0f172a;
+  --editor-panel: #111827;
+
+  --editor-titlebar: #111827;
+  --editor-titlebar-text: #f8fafc;
+
+  --editor-menu: #1f2937;
+  --editor-menu-text: #cbd5e1;
+
+  --editor-toolbar: #172033;
+
+  --editor-background: #0b1120;
+  --editor-gutter: #111827;
+  --editor-text: #e2e8f0;
+  --editor-muted: #94a3b8;
+
+  --editor-output: #020617;
+  --editor-output-text: #d1fae5;
+
+  --editor-border: #334155;
+  --editor-accent: #22c55e;
+  --editor-accent-text: #ffffff;
+
+  --editor-button: #1e293b;
+  --editor-button-text: #e2e8f0;
+
+  --editor-footer: #111827;
+  --editor-status: #16a34a;
+  --editor-status-text: #ffffff;
+
+  margin-top: 20px;
+}
+
+/* =========================================================
+   EDITOR LAYOUT
+========================================================= */
+
+.code-editor-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.22fr)
+    minmax(300px, 0.78fr);
+
+  align-items: stretch;
+  gap: 16px;
+}
+
+.code-editor-panel,
+.code-output-panel {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid var(--editor-border);
+  border-radius: 12px;
+
+  background: var(--editor-panel);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.18);
+}
+
+/* =========================================================
+   WINDOW TITLE BAR
+========================================================= */
+
+.code-editor-window-titlebar {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  align-items: center;
+
+  min-height: 38px;
+  padding: 0 13px;
+
+  border-bottom: 1px solid var(--editor-border);
+
+  color: var(--editor-titlebar-text);
+  background: var(--editor-titlebar);
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+}
+
+.code-editor-window-titlebar > strong {
+  overflow: hidden;
+
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-editor-window-titlebar > span {
+  overflow: hidden;
+
+  color: var(--editor-muted);
+  text-align: right;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Window control buttons */
+
+.code-editor-window-buttons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.code-editor-window-buttons i {
+  display: block;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+}
+
+.code-editor-window-buttons i:nth-child(1) {
+  background: #ef4444;
+}
+
+.code-editor-window-buttons i:nth-child(2) {
+  background: #f59e0b;
+}
+
+.code-editor-window-buttons i:nth-child(3) {
+  background: #22c55e;
+}
+
+/* =========================================================
+   IDE MENU
+========================================================= */
+
+.code-editor-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  min-height: 34px;
+  padding: 0 9px;
+
+  overflow-x: auto;
+
+  border-bottom: 1px solid var(--editor-border);
+
+  color: var(--editor-menu-text);
+  background: var(--editor-menu);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+
+  scrollbar-width: none;
+}
+
+.code-editor-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.code-editor-menu span {
+  flex-shrink: 0;
+
+  padding: 6px 9px;
+  border-radius: 4px;
+
+  cursor: default;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.code-editor-menu span:hover {
+  color: var(--editor-accent);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   EDITOR TOOLBAR
+========================================================= */
+
+.code-editor-toolbar,
+.code-output-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 55px;
+  padding: 9px 13px;
+
+  border-bottom: 1px solid var(--editor-border);
+
+  color: var(--editor-text);
+  background: var(--editor-toolbar);
+}
+
+.code-editor-file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.code-editor-language-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  width: 29px;
+  height: 29px;
+
+  border: 1px solid var(--editor-border);
+  border-radius: 7px;
+
+  color: var(--editor-accent-text);
+  background: var(--editor-accent);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.code-editor-file-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.code-editor-file-info strong {
+  overflow: hidden;
+
+  color: var(--editor-text);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-editor-file-info span {
+  color: var(--editor-muted);
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   TOOLBAR BUTTONS
+========================================================= */
+
+.code-editor-section
+.code-editor-toolbar-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.code-editor-section
+.code-editor-toolbar-actions button,
+.code-editor-section
+.code-editor-reset-button {
+  padding: 7px 10px;
+
+  border: 1px solid var(--editor-border);
+  border-radius: 6px;
+
+  color: var(--editor-button-text);
+  background: var(--editor-button);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.code-editor-section
+.code-editor-toolbar-actions button:hover,
+.code-editor-section
+.code-editor-reset-button:hover {
+  color: var(--editor-accent);
+  border-color: var(--editor-accent);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   CODE INPUT
+========================================================= */
+
+.code-editor-input-wrap {
+  display: flex;
+  flex: 1;
+
+  min-height: 430px;
+  max-height: 620px;
+
+  overflow: hidden;
+
+  background: var(--editor-background);
+}
+
+.code-editor-line-numbers {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  width: 48px;
+  min-height: 430px;
+  padding: 18px 10px 18px 0;
+
+  overflow: hidden;
+
+  border-right: 1px solid var(--editor-border);
+
+  color: var(--editor-muted);
+  background: var(--editor-gutter);
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 12px;
+  line-height: 1.75;
+  text-align: right;
+
+  user-select: none;
+}
+
+.code-editor-line-numbers span {
+  display: block;
+  min-height: 21px;
+}
+
+.code-editor-textarea {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+  padding: 18px;
+
+  overflow: auto;
+
+  border: 0;
+  outline: 0;
+  resize: none;
+
+  color: var(--editor-text);
+  background: var(--editor-background);
+
+  caret-color: var(--editor-accent);
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.75;
+
+  white-space: pre;
+  tab-size: 2;
+}
+
+.code-editor-textarea::selection {
+  color: #ffffff;
+  background: rgba(34, 197, 94, 0.35);
+}
+
+.code-editor-textarea::-webkit-scrollbar,
+.code-output-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.code-editor-textarea::-webkit-scrollbar-track,
+.code-output-content::-webkit-scrollbar-track {
+  background: var(--editor-background);
+}
+
+.code-editor-textarea::-webkit-scrollbar-thumb,
+.code-output-content::-webkit-scrollbar-thumb {
+  border: 2px solid var(--editor-background);
+  border-radius: 10px;
+
+  background: var(--editor-border);
+}
+
+/* =========================================================
+   EDITOR FOOTER
+========================================================= */
+
+.code-editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 58px;
+  padding: 10px 13px;
+
+  border-top: 1px solid var(--editor-border);
+
+  background: var(--editor-footer);
+}
+
+.code-editor-shortcut {
+  margin-left: auto;
+
+  color: var(--editor-muted);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   RUN BUTTON
+========================================================= */
+
+.code-editor-section
+.code-editor-run-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 9px 15px;
+
+  border: 1px solid var(--editor-accent);
+  border-radius: 7px;
+
+  color: var(--editor-accent-text);
+  background: var(--editor-accent);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.22);
+
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.code-editor-section
+.code-editor-run-button:hover {
+  filter: brightness(1.1);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 11px 24px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   STATUS BAR
+========================================================= */
+
+.code-editor-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 17px;
+
+  min-height: 27px;
+  padding: 0 11px;
+
+  color: var(--editor-status-text);
+  background: var(--editor-status);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.code-editor-ready-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-right: auto;
+}
+
+.code-editor-ready-status i {
+  display: block;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow: 0 0 7px currentColor;
+}
+
+/* =========================================================
+   OUTPUT PANEL
+========================================================= */
+
+.code-output-panel {
+  background: var(--editor-output);
+}
+
+.code-output-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-output-heading strong {
+  color: var(--editor-text);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+}
+
+.code-output-heading > span {
+  color: var(--editor-muted);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+}
+
+.code-output-status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+.code-output-content {
+  flex: 1;
+
+  min-height: 430px;
+  margin: 0;
+  padding: 18px;
+
+  overflow: auto;
+
+  color: var(--editor-output-text);
+  background: var(--editor-output);
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 11px;
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Error output */
+
+.code-output-panel[data-output-state="error"]
+.code-output-status-dot {
+  background: #ef4444;
+
+  box-shadow:
+    0 0 9px rgba(239, 68, 68, 0.75);
+}
+
+.code-output-panel[data-output-state="error"]
+.code-output-content {
+  color: #fca5a5;
+}
+
+/* Running output */
+
+.code-output-panel[data-output-state="running"]
+.code-output-status-dot {
+  background: #f59e0b;
+
+  box-shadow:
+    0 0 9px rgba(245, 158, 11, 0.75);
+
+  animation: codeEditorPulse 1s infinite;
+}
+
+@keyframes codeEditorPulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   OUTPUT FOOTER
+========================================================= */
+
+.code-output-footer {
+  display: flex;
+  justify-content: space-between;
+
+  min-height: 42px;
+  padding: 12px 14px;
+
+  border-top: 1px solid var(--editor-border);
+
+  color: var(--editor-muted);
+  background: var(--editor-footer);
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.code-output-language {
+  color: var(--editor-accent);
+}
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.code-preview-frame {
+  min-height: 270px;
+  margin: 0;
+
+  overflow: hidden;
+
+  border-top: 1px solid var(--editor-border);
+
+  background: #ffffff;
+}
+
+.code-preview-frame iframe {
+  display: block;
+
+  width: 100%;
+  min-height: 270px;
+
+  border: 0;
+}
+
+/* =========================================================
+   TURBO C AND TURBO C++
+========================================================= */
+
+.code-editor-section[data-editor-theme="turbo-c"] {
+  --editor-panel: #0000aa;
+
+  --editor-titlebar: #d6d6d6;
+  --editor-titlebar-text: #000080;
+
+  --editor-menu: #d6d6d6;
+  --editor-menu-text: #000000;
+
+  --editor-toolbar: #000080;
+
+  --editor-background: #0000aa;
+  --editor-gutter: #000080;
+  --editor-text: #ffffff;
+  --editor-muted: #57ffff;
+
+  --editor-output: #000066;
+  --editor-output-text: #ffffff;
+
+  --editor-border: #00ffff;
+  --editor-accent: #ffff00;
+  --editor-accent-text: #000080;
+
+  --editor-button: #000080;
+  --editor-button-text: #ffffff;
+
+  --editor-footer: #000080;
+  --editor-status: #00aaaa;
+  --editor-status-text: #000000;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-panel,
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-output-panel {
+  border: 3px double #00ffff;
+  border-radius: 0;
+
+  box-shadow:
+    9px 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-window-buttons {
+  display: none;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-window-titlebar {
+  grid-template-columns: 80px 1fr 80px;
+
+  font-family: "Courier New", monospace;
+
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-menu {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-menu span {
+  border-radius: 0;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-menu span:hover {
+  color: #ffff00;
+  background: #0000aa;
+}
+
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-textarea,
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-editor-line-numbers,
+.code-editor-section[data-editor-theme="turbo-c"]
+.code-output-content {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+}
+
+/* =========================================================
+   PYTHON
+========================================================= */
+
+.code-editor-section[data-editor-theme="python"] {
+  --editor-titlebar: #162b3d;
+  --editor-menu: #1e3a50;
+  --editor-toolbar: #172f43;
+
+  --editor-panel: #0f1b26;
+  --editor-background: #0f1b26;
+  --editor-gutter: #132536;
+
+  --editor-text: #e5edf3;
+  --editor-muted: #8ba5b7;
+
+  --editor-output: #08131c;
+  --editor-output-text: #dbeafe;
+
+  --editor-border: #294b63;
+  --editor-accent: #ffd43b;
+  --editor-accent-text: #172033;
+
+  --editor-button: #1c3c55;
+  --editor-footer: #132536;
+
+  --editor-status: #3776ab;
+}
+
+/* =========================================================
+   JAVASCRIPT AND REACT
+========================================================= */
+
+.code-editor-section[data-editor-theme="javascript"] {
+  --editor-titlebar: #181818;
+  --editor-menu: #252526;
+  --editor-toolbar: #252526;
+
+  --editor-panel: #1e1e1e;
+  --editor-background: #1e1e1e;
+  --editor-gutter: #181818;
+
+  --editor-text: #d4d4d4;
+  --editor-muted: #858585;
+
+  --editor-output: #101010;
+  --editor-output-text: #fef9c3;
+
+  --editor-border: #3c3c3c;
+  --editor-accent: #f7df1e;
+  --editor-accent-text: #111111;
+
+  --editor-button: #333333;
+  --editor-footer: #181818;
+
+  --editor-status: #c4ad00;
+  --editor-status-text: #111111;
+}
+
+/* =========================================================
+   HTML
+========================================================= */
+
+.code-editor-section[data-editor-theme="html"] {
+  --editor-titlebar: #202020;
+  --editor-menu: #292929;
+  --editor-toolbar: #252525;
+
+  --editor-panel: #1e1e1e;
+  --editor-background: #1e1e1e;
+  --editor-gutter: #191919;
+
+  --editor-text: #f3f4f6;
+  --editor-muted: #a1a1aa;
+
+  --editor-output: #101010;
+  --editor-output-text: #ffedd5;
+
+  --editor-border: #3f3f46;
+  --editor-accent: #f97316;
+  --editor-accent-text: #ffffff;
+
+  --editor-button: #333333;
+  --editor-footer: #191919;
+
+  --editor-status: #e34c26;
+}
+
+/* =========================================================
+   CSS
+========================================================= */
+
+.code-editor-section[data-editor-theme="css"] {
+  --editor-titlebar: #172554;
+  --editor-menu: #1e3a8a;
+  --editor-toolbar: #172554;
+
+  --editor-panel: #0f172a;
+  --editor-background: #0f172a;
+  --editor-gutter: #111c34;
+
+  --editor-text: #dbeafe;
+  --editor-muted: #93c5fd;
+
+  --editor-output: #020617;
+  --editor-output-text: #bae6fd;
+
+  --editor-border: #1e40af;
+  --editor-accent: #38bdf8;
+  --editor-accent-text: #082f49;
+
+  --editor-button: #1e3a5f;
+  --editor-footer: #111827;
+
+  --editor-status: #2563eb;
+}
+
+/* =========================================================
+   JAVA
+========================================================= */
+
+.code-editor-section[data-editor-theme="java"] {
+  --editor-titlebar: #211f1d;
+  --editor-menu: #2b2927;
+  --editor-toolbar: #292623;
+
+  --editor-panel: #1f1d1b;
+  --editor-background: #1f1d1b;
+  --editor-gutter: #181716;
+
+  --editor-text: #f5f5f4;
+  --editor-muted: #a8a29e;
+
+  --editor-output: #11100f;
+  --editor-output-text: #fed7aa;
+
+  --editor-border: #44403c;
+  --editor-accent: #f97316;
+  --editor-accent-text: #ffffff;
+
+  --editor-button: #35312e;
+  --editor-footer: #181716;
+
+  --editor-status: #dc2626;
+}
+
+/* =========================================================
+   PHP
+========================================================= */
+
+.code-editor-section[data-editor-theme="php"] {
+  --editor-titlebar: #1f1f35;
+  --editor-menu: #292946;
+  --editor-toolbar: #242440;
+
+  --editor-panel: #19192d;
+  --editor-background: #19192d;
+  --editor-gutter: #141427;
+
+  --editor-text: #eeeeff;
+  --editor-muted: #aaaaca;
+
+  --editor-output: #101020;
+  --editor-output-text: #ddd6fe;
+
+  --editor-border: #4c4c72;
+  --editor-accent: #a78bfa;
+  --editor-accent-text: #ffffff;
+
+  --editor-button: #34345a;
+  --editor-footer: #171729;
+
+  --editor-status: #777bb4;
+}
+
+/* =========================================================
+   SQL
+========================================================= */
+
+.code-editor-section[data-editor-theme="sql"] {
+  --editor-titlebar: #082f49;
+  --editor-menu: #0c4a6e;
+  --editor-toolbar: #0e3b55;
+
+  --editor-panel: #071b2a;
+  --editor-background: #071b2a;
+  --editor-gutter: #061723;
+
+  --editor-text: #e0f2fe;
+  --editor-muted: #7dd3fc;
+
+  --editor-output: #03121c;
+  --editor-output-text: #a5f3fc;
+
+  --editor-border: #155e75;
+  --editor-accent: #22d3ee;
+  --editor-accent-text: #083344;
+
+  --editor-button: #0c3b52;
+  --editor-footer: #061723;
+
+  --editor-status: #0891b2;
+}
+
+/* =========================================================
+   BASH TERMINAL
+========================================================= */
+
+.code-editor-section[data-editor-theme="terminal"] {
+  --editor-titlebar: #161616;
+  --editor-menu: #202020;
+  --editor-toolbar: #181818;
+
+  --editor-panel: #050505;
+  --editor-background: #050505;
+  --editor-gutter: #0d0d0d;
+
+  --editor-text: #4ade80;
+  --editor-muted: #6b7280;
+
+  --editor-output: #000000;
+  --editor-output-text: #4ade80;
+
+  --editor-border: #303030;
+  --editor-accent: #22c55e;
+  --editor-accent-text: #052e16;
+
+  --editor-button: #202020;
+  --editor-footer: #101010;
+
+  --editor-status: #166534;
+}
+
+/* =========================================================
+   R STUDIO
+========================================================= */
+
+.code-editor-section[data-editor-theme="r-studio"] {
+  --editor-titlebar: #12304a;
+  --editor-menu: #1b4668;
+  --editor-toolbar: #173b59;
+
+  --editor-panel: #0c2030;
+  --editor-background: #0c2030;
+  --editor-gutter: #091a28;
+
+  --editor-text: #e0f2fe;
+  --editor-muted: #93c5fd;
+
+  --editor-output: #071722;
+  --editor-output-text: #dbeafe;
+
+  --editor-border: #28577a;
+  --editor-accent: #60a5fa;
+  --editor-accent-text: #ffffff;
+
+  --editor-button: #1b4668;
+  --editor-footer: #0e2538;
+
+  --editor-status: #2563eb;
+}
+
+/* =========================================================
+   .NET / ASP.NET / VB.NET
+========================================================= */
+
+.code-editor-section[data-editor-theme="dotnet"] {
+  --editor-titlebar: #2a1745;
+  --editor-menu: #38205a;
+  --editor-toolbar: #321e50;
+
+  --editor-panel: #1e1230;
+  --editor-background: #1e1230;
+  --editor-gutter: #170d25;
+
+  --editor-text: #f3e8ff;
+  --editor-muted: #d8b4fe;
+
+  --editor-output: #120a1e;
+  --editor-output-text: #e9d5ff;
+
+  --editor-border: #5b3b7c;
+  --editor-accent: #c084fc;
+  --editor-accent-text: #2e1065;
+
+  --editor-button: #42275f;
+  --editor-footer: #1d102f;
+
+  --editor-status: #7e22ce;
+}
+
+/* =========================================================
+   ANDROID STUDIO
+========================================================= */
+
+.code-editor-section[data-editor-theme="android"] {
+  --editor-titlebar: #202124;
+  --editor-menu: #292a2d;
+  --editor-toolbar: #252629;
+
+  --editor-panel: #1e1f22;
+  --editor-background: #1e1f22;
+  --editor-gutter: #17181a;
+
+  --editor-text: #e8eaed;
+  --editor-muted: #9aa0a6;
+
+  --editor-output: #111214;
+  --editor-output-text: #bbf7d0;
+
+  --editor-border: #3c4043;
+  --editor-accent: #3ddc84;
+  --editor-accent-text: #052e16;
+
+  --editor-button: #303134;
+  --editor-footer: #17181a;
+
+  --editor-status: #18864b;
+}
+
+/* =========================================================
+   ARDUINO IDE
+========================================================= */
+
+.code-editor-section[data-editor-theme="arduino"] {
+  --editor-titlebar: #005c5f;
+  --editor-menu: #00777a;
+  --editor-toolbar: #006569;
+
+  --editor-panel: #082f31;
+  --editor-background: #082f31;
+  --editor-gutter: #062527;
+
+  --editor-text: #e6fffb;
+  --editor-muted: #99f6e4;
+
+  --editor-output: #041d1e;
+  --editor-output-text: #ccfbf1;
+
+  --editor-border: #0f766e;
+  --editor-accent: #2dd4bf;
+  --editor-accent-text: #042f2e;
+
+  --editor-button: #0f4e50;
+  --editor-footer: #003f42;
+
+  --editor-status: #008184;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .code-editor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .code-editor-input-wrap,
+  .code-editor-textarea,
+  .code-editor-line-numbers,
+  .code-output-content {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 550px) {
+  .code-editor-window-titlebar {
+    grid-template-columns: 60px 1fr 60px;
+  }
+
+  .code-editor-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .code-editor-toolbar-actions {
+    width: 100%;
+  }
+
+  .code-editor-section
+  .code-editor-toolbar-actions button {
+    flex: 1;
+  }
+
+  .code-editor-footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .code-editor-shortcut {
+    display: none;
+  }
+
+  .code-editor-section
+  .code-editor-run-button {
+    width: 100%;
+  }
+
+  .code-editor-statusbar {
+    gap: 10px;
+  }
+
+  .code-editor-statusbar > span:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-editor-section *,
+  .code-editor-section *::before,
+  .code-editor-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

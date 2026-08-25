@@ -1,0 +1,51 @@
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-main {
+  min-height: calc(100vh - 220px);
+  padding: 1rem 1.25rem 3rem;
+}
+
+.app-main > * {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.placeholder-page {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+}
+
+.placeholder-page-content {
+  width: min(100%, 540px);
+  padding: 36px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  text-align: center;
+  background: var(--surface-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.placeholder-page-content span {
+  color: var(--primary-color);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.placeholder-page-content h1 {
+  margin: 14px 0 10px;
+  color: var(--text-primary);
+  font-size: 30px;
+}
+
+.placeholder-page-content p {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 14px;
+}
