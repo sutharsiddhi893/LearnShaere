@@ -13,6 +13,7 @@ function groupSubjectsByCategory(subjects) {
         groups[category].push(subject);
 
         return groups;
+
     }, {});
 }
 
