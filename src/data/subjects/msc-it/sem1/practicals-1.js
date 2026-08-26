@@ -1,6 +1,6 @@
 import { createSubject, createUnit } from "../../../helpers";
 
-const practicalsI = createSubject(
+export const practicalsI = createSubject(
     "P2S01NCINT06",
     "Practicals - I",
     [
@@ -20,4 +20,5 @@ const practicalsI = createSubject(
     { type: "lab", wide: true }
 );
 
+export const practicals1 = practicalsI;
 export default practicalsI;

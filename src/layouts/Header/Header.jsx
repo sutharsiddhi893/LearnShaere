@@ -46,7 +46,7 @@ function DropdownMenu({ label, items, isOpen, onToggle, onClose }) {
       <button
         type="button"
         className={`header-nav-button ${isOpen ? "header-nav-button-active" : ""}`}
-        onMouseOver={onToggle}
+        onClick={onToggle}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
