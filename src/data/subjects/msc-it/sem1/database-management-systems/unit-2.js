@@ -4,19 +4,18 @@
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    output,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  steps,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -452,7 +451,7 @@ LIMIT 3;`,
             ["Pattern", "Matches", "Example"],
             [
                 ["'R%'", "Starts with R", "'Rahul', 'Riya'"],
-                ["'%a'", "Ends with a", 'Priya', 'Sneha'"],
+                ["'%a'", "Ends with a", "'Priya', 'Sneha'"],
                 ["'%ah%'", "Contains 'ah' anywhere", "'Rahul'"],
                     ["'_a%'", "Second character is 'a'", "'Rahul', 'Karan'"],
                     ["'____'", "Exactly 4 characters", "'Amit'"],

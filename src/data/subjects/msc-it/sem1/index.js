@@ -1,6 +1,6 @@
 import pythonProgramming from "./python-programming";
 import databaseManagementSystems from "./database-management-systems";
-import practicalsI from "./practicals-i";
+import practicalsI from "./practicals-1";
 import artificialIntelligence from "./artificial-intelligence";
 import computerNetworks from "./computer-networks";
 import computerFundamentals from "./computer-fundamentals";

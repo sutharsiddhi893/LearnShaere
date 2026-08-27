@@ -4,19 +4,17 @@
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    output,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -775,7 +773,7 @@ print(type(not_a_set))  # <class 'dict'>`,
             "Common Mistake"
         ),
 
-        heading("Set Operations (Mathematical)",
+        heading("Set Operations (Mathematical)"),
 
             table(
                 ["Operation", "Operator", "Method", "Meaning", "Example (A={1,2,3}, B={3,4,5})"],

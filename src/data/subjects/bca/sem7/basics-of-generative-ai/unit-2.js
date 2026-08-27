@@ -1,21 +1,20 @@
-﻿/* =========================================================
+/* =========================================================
    BCA • SEM 7 • Basics of Generative AI
    UNIT 2 — Adaptation, Multimodal AI, Ethics, Tools & Practice
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  steps,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================

@@ -1,25 +1,24 @@
 /* =========================================================
-   BCA • SEM 7 • Scripting with PHP - II
-   UNIT 2 — Advanced Database, REST Security, Capstone & Professional Practice
+   BCA ï¿½ SEM 7 ï¿½ Scripting with PHP - II
+   UNIT 2 ï¿½ Advanced Database, REST Security, Capstone & Professional Practice
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
-   TOPIC 1 — Advanced Database Integration: PDO Transactions & Repository Pattern
+   TOPIC 1 ï¿½ Advanced Database Integration: PDO Transactions & Repository Pattern
 ========================================================= */
 
 const advancedDatabaseIntegration = createTopic(
@@ -106,14 +105,14 @@ const advancedDatabaseIntegration = createTopic(
                 ],
 
                     questions: [
-                        qa("Why are database transactions critical, and how does PDO implement them?", "Transactions ensure that multi-step operations are atomic — either all succeed or none apply. PDO implements them with beginTransaction(), commit(), and rollBack() inside try-catch blocks. If any step fails, rollBack() prevents partial data corruption."),
+                        qa("Why are database transactions critical, and how does PDO implement them?", "Transactions ensure that multi-step operations are atomic ï¿½ either all succeed or none apply. PDO implements them with beginTransaction(), commit(), and rollBack() inside try-catch blocks. If any step fails, rollBack() prevents partial data corruption."),
                         qa("How does the Repository Pattern improve PHP application architecture?", "The Repository Pattern encapsulates all database queries in dedicated classes (e.g., StudentRepository). Controllers call repository methods rather than writing SQL directly. This improves readability, allows easy database switching, enables mocking for testing, and keeps controllers focused on request handling rather than data access logic.")
                     ],
   }
 );
 
 /* =========================================================
-   TOPIC 2 — RESTful API Design, JWT & Advanced Security Patterns
+   TOPIC 2 ï¿½ RESTful API Design, JWT & Advanced Security Patterns
 ========================================================= */
 
 const restApiAdvancedSecurity = createTopic(
@@ -199,7 +198,7 @@ const restApiAdvancedSecurity = createTopic(
 );
 
 /* =========================================================
-   TOPIC 3 — Capstone Integration, Deployment Security & Professional Practice
+   TOPIC 3 ï¿½ Capstone Integration, Deployment Security & Professional Practice
 ========================================================= */
 
 const capstoneDeploymentSecurity = createTopic(
@@ -209,7 +208,7 @@ const capstoneDeploymentSecurity = createTopic(
     [
         definition(
             "Capstone Integration",
-            "The process of combining all learned concepts — OOP, MVC, REST APIs, database patterns, security measures — into a cohesive, deployable, and professionally documented application."
+            "The process of combining all learned concepts ï¿½ OOP, MVC, REST APIs, database patterns, security measures ï¿½ into a cohesive, deployable, and professionally documented application."
         ),
 
         heading("Deployment Security Checklist"),
@@ -228,13 +227,13 @@ const capstoneDeploymentSecurity = createTopic(
         heading("Capstone Project Structure Example"),
 
         list([
-            "/public — index.php, asset files (CSS, JS)",
-            "/src/Controllers — Request handling and API endpoints",
-            "/src/Models — Data access and repository classes",
-            "/src/Views — HTML templates",
-            "/config — Database settings (.env or protected config)",
-            "/tests — Manual test scripts and test data",
-            "/docs — Final report, presentation slides, user manual"
+            "/public ï¿½ index.php, asset files (CSS, JS)",
+            "/src/Controllers ï¿½ Request handling and API endpoints",
+            "/src/Models ï¿½ Data access and repository classes",
+            "/src/Views ï¿½ HTML templates",
+            "/config ï¿½ Database settings (.env or protected config)",
+            "/tests ï¿½ Manual test scripts and test data",
+            "/docs ï¿½ Final report, presentation slides, user manual"
         ]),
 
         heading("Professional Best Practices and Future Growth"),

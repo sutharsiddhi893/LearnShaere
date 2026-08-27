@@ -12,7 +12,6 @@ import {
     table,
     note,
     definition,
-    steps,
     keyPoints,
     mcq,
     qa,
@@ -753,7 +752,7 @@ future = now + timedelta(days=7)
 print("Next Week:", future.strftime("%d-%m-%Y"),
 
 # Regular Expression: Validate Email
-email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
 test_email = "student@bca.edu"
 if re.match(email_pattern, test_email):
     print("Valid Email Address")`,

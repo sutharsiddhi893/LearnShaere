@@ -1,26 +1,24 @@
 /* =========================================================
-   BCA • SEM 2 • Web Application Development - II
-   UNIT 1 — Advanced JavaScript, jQuery and AJAX
+   BCA ï¿½ SEM 2 ï¿½ Web Application Development - II
+   UNIT 1 ï¿½ Advanced JavaScript, jQuery and AJAX
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    output,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
-   TOPIC 1 — Advanced JavaScript Concepts
+   TOPIC 1 ï¿½ Advanced JavaScript Concepts
 ========================================================= */
 
 const advancedJavaScript = createTopic(
@@ -36,13 +34,13 @@ const advancedJavaScript = createTopic(
         heading("ES6+ Features"),
 
         list([
-            "let and const — block scoped variables.",
-            "Arrow functions — shorter syntax for functions.",
-            "Template literals — backticks for multi line strings and interpolation.",
-            "Destructuring — extracting values from arrays or objects.",
-            "Spread and rest operators — ... for array and object manipulation.",
-            "Classes — syntactic sugar over prototype based inheritance.",
-            "Modules — import and export for organising code.",
+            "let and const ï¿½ block scoped variables.",
+            "Arrow functions ï¿½ shorter syntax for functions.",
+            "Template literals ï¿½ backticks for multi line strings and interpolation.",
+            "Destructuring ï¿½ extracting values from arrays or objects.",
+            "Spread and rest operators ï¿½ ... for array and object manipulation.",
+            "Classes ï¿½ syntactic sugar over prototype based inheritance.",
+            "Modules ï¿½ import and export for organising code.",
             "Promises and async/await for asynchronous programming.",
         ]),
 
@@ -258,7 +256,7 @@ const nums   = [...arr, 4, 5];
 );
 
 /* =========================================================
-   TOPIC 2 — Asynchronous JavaScript
+   TOPIC 2 ï¿½ Asynchronous JavaScript
 ========================================================= */
 
 const asyncJavaScript = createTopic(
@@ -471,7 +469,7 @@ async function load() {
 );
 
 /* =========================================================
-   TOPIC 3 — jQuery
+   TOPIC 3 ï¿½ jQuery
 ========================================================= */
 
 const jquery = createTopic(
@@ -715,7 +713,7 @@ $.post('/api/users', { name: 'Amit' }, res => console.log(res),;
 );
 
 /* =========================================================
-   TOPIC 4 — AJAX and JSON
+   TOPIC 4 ï¿½ AJAX and JSON
 ========================================================= */
 
 const ajaxJson = createTopic(
@@ -951,7 +949,7 @@ console.log(back.name);  // Amit
 );
 
 /* =========================================================
-   TOPIC 5 — Bootstrap 5 and Responsive Web Design
+   TOPIC 5 ï¿½ Bootstrap 5 and Responsive Web Design
 ========================================================= */
 
 const bootstrap5 = createTopic(

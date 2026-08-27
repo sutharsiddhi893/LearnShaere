@@ -1,25 +1,24 @@
 /* =========================================================
-   BCA • SEM 8 • Data Analytics Using R Language
-   UNIT 2 — Statistics, Hypothesis Testing, Regression & Reporting
+   BCA ï¿½ SEM 8 ï¿½ Data Analytics Using R Language
+   UNIT 2 ï¿½ Statistics, Hypothesis Testing, Regression & Reporting
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  steps,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
-   TOPIC 1 — Descriptive Statistics in R
+   TOPIC 1 ï¿½ Descriptive Statistics in R
 ========================================================= */
 
 const descriptiveStats = createTopic(
@@ -29,7 +28,7 @@ const descriptiveStats = createTopic(
     [
         definition(
             "Descriptive Statistics",
-            "Descriptive statistics summarize and describe a dataset's main features — center, spread, and shape — without drawing conclusions beyond the data itself."
+            "Descriptive statistics summarize and describe a dataset's main features ï¿½ center, spread, and shape ï¿½ without drawing conclusions beyond the data itself."
         ),
 
         heading("Measures of Central Tendency"),
@@ -37,13 +36,13 @@ const descriptiveStats = createTopic(
         code(
             `marks <- c(45, 62, 78, 78, 85, 92, 99)
 
-mean(marks)      # 76.9   ? sum ÷ count
+mean(marks)      # 76.9   ? sum ï¿½ count
 median(marks)    # 78     ? middle value
 # No built-in mode! Table trick:
 mode_val <- names(table(marks),[table(marks) == max(table(marks),]
 mode_val         # "78"   ? most frequent
 
-mean(marks, trim = 0.1)  # 78.3 trimmed mean —
+mean(marks, trim = 0.1)  # 78.3 trimmed mean ï¿½
                         # chops top/bottom 10%, resists outliers`,
             "r",
             "Center of the data"
@@ -62,7 +61,7 @@ mean(marks, trim = 0.1)  # 78.3 trimmed mean —
 diff(range(marks),      # 54 ? range width
 
 var(marks)              # variance (avg squared deviation)
-sd(marks)               # ˜ 18.2 standard deviation
+sd(marks)               # ï¿½ 18.2 standard deviation
 IQR(marks)              # 78 - 62 = 16 ? middle 50%
 quantile(marks, c(.25, .5, .75),   # Q1, median, Q3
 
@@ -76,12 +75,12 @@ sd(marks) / mean(marks) * 100   # coefficient of variation`,
 
         code(
             `For ~normal data:
-mean ± 1sd  ? ˜68% of values
-mean ± 2sd  ? ˜95%
-mean ± 3sd  ? ˜99.7%
+mean ï¿½ 1sd  ? ï¿½68% of values
+mean ï¿½ 2sd  ? ï¿½95%
+mean ï¿½ 3sd  ? ï¿½99.7%
 
 marks: mean 76.9, sd 18.2
-68% of students fall in 58.7 – 95.1`,
+68% of students fall in 58.7 ï¿½ 95.1`,
             "text",
             "Standard deviations as rulers"
         ),
@@ -91,7 +90,7 @@ marks: mean 76.9, sd 18.2
         table(
             ["Shape", "Mean vs Median", "Tail"],
             [
-                ["Symmetric", "Mean ˜ Median", "Both equal"],
+                ["Symmetric", "Mean ï¿½ Median", "Both equal"],
                 ["Right-skewed (+)", "Mean > Median", "Long RIGHT tail (income data)"],
                 ["Left-skewed (-)", "Mean < Median", "Long LEFT tail (easy exam marks)"],
             ]
@@ -172,7 +171,7 @@ students %>%
                         "If mean(marks) = 70 and sd(marks) = 5, roughly 95% of values lie between:",
                         ["65 and 75", "60 and 80", "55 and 85", "Cannot say"],
                         1,
-                        "Empirical rule: mean ± 2sd = 70 ± 10 = [60, 80]."
+                        "Empirical rule: mean ï¿½ 2sd = 70 ï¿½ 10 = [60, 80]."
                     ),
                     mcq(
                         "summary() shows Mean 25.1 > Median 19.2. The distribution is:",
@@ -182,7 +181,7 @@ students %>%
                     ),
                     mcq(
                         "IQR(marks) returns:",
-                        ["Max minus min", "Q3 minus Q1 — the middle 50% spread", "Variance", "Standard error"],
+                        ["Max minus min", "Q3 minus Q1 ï¿½ the middle 50% spread", "Variance", "Standard error"],
                         1,
                         "InterQuartile Range = Q3 - Q1; robust to outliers."
                     ),
@@ -191,12 +190,12 @@ students %>%
                     questions: [
                         qa(
                             "Explain mean, median, and mode. When is the median preferred over the mean?",
-                            "Mean: the arithmetic average — sum divided by count; it uses every value, making it ideal for symmetric data but VULNERABLE to outliers (one billionaire inflates a salary mean absurdly). Median: the middle value in sorted order; half the data lies below, half above — it counts positions, not magnitudes, so outliers barely move it. Mode: the most frequent value; the only central measure meaningful for categorical data (most-common blood group). Prefer the median whenever the distribution is skewed or outliers exist: income/wealth data (right-skewed), house prices, hospital stay lengths. Reporting both mean AND median is best practice — their divergence itself diagnoses skewness: mean > median means a right tail; mean < median a left tail. Example: c(30, 32, 35, 38, 500) ? mean 127 but median 35; only the median describes the typical value honestly.",
+                            "Mean: the arithmetic average ï¿½ sum divided by count; it uses every value, making it ideal for symmetric data but VULNERABLE to outliers (one billionaire inflates a salary mean absurdly). Median: the middle value in sorted order; half the data lies below, half above ï¿½ it counts positions, not magnitudes, so outliers barely move it. Mode: the most frequent value; the only central measure meaningful for categorical data (most-common blood group). Prefer the median whenever the distribution is skewed or outliers exist: income/wealth data (right-skewed), house prices, hospital stay lengths. Reporting both mean AND median is best practice ï¿½ their divergence itself diagnoses skewness: mean > median means a right tail; mean < median a left tail. Example: c(30, 32, 35, 38, 500) ? mean 127 but median 35; only the median describes the typical value honestly.",
                             4
                         ),
                         qa(
                             "Define standard deviation and IQR. Why do analysts often report both?",
-                            "Standard deviation measures the average distance of values from the mean (square-root of variance); it inherits the mean's outlier sensitivity — a single extreme inflates sd dramatically — but is mathematically central to normal distributions (68-95-99.7 rule) and every later statistical test. IQR = Q3 - Q1, the span of the middle 50% of sorted data; being positional, it is robust — outliers don't shift quartiles at all, which is why boxplots (whiskers at 1.5×IQR) use it for outlier detection. Analysts report both because they answer different questions with different trust models: sd answers 'typical deviation, assuming roughly symmetric data' and feeds inference; IQR answers 'spread of the central mass, no assumptions.' When sd >> IQR/1.35 (the normal-distribution equivalence), that gap itself proves heavy tails or outliers — the two numbers cross-diagnose the distribution's shape.",
+                            "Standard deviation measures the average distance of values from the mean (square-root of variance); it inherits the mean's outlier sensitivity ï¿½ a single extreme inflates sd dramatically ï¿½ but is mathematically central to normal distributions (68-95-99.7 rule) and every later statistical test. IQR = Q3 - Q1, the span of the middle 50% of sorted data; being positional, it is robust ï¿½ outliers don't shift quartiles at all, which is why boxplots (whiskers at 1.5ï¿½IQR) use it for outlier detection. Analysts report both because they answer different questions with different trust models: sd answers 'typical deviation, assuming roughly symmetric data' and feeds inference; IQR answers 'spread of the central mass, no assumptions.' When sd >> IQR/1.35 (the normal-distribution equivalence), that gap itself proves heavy tails or outliers ï¿½ the two numbers cross-diagnose the distribution's shape.",
                             4
                         ),
                     ],
@@ -204,7 +203,7 @@ students %>%
 );
 
 /* =========================================================
-   TOPIC 2 — Probability & Distributions in R
+   TOPIC 2 ï¿½ Probability & Distributions in R
 ========================================================= */
 
 const probabilityDistributions = createTopic(
@@ -214,7 +213,7 @@ const probabilityDistributions = createTopic(
     [
         definition(
             "Probability Distribution",
-            "A probability distribution describes how likely each possible outcome is — R provides d/p/q/r functions for every major distribution."
+            "A probability distribution describes how likely each possible outcome is ï¿½ R provides d/p/q/r functions for every major distribution."
         ),
 
         heading("The dpqr Naming System"),
@@ -233,7 +232,7 @@ const probabilityDistributions = createTopic(
             `# dnorm: height of the normal curve at x
 dnorm(0)                 # 0.3989 (peak at mean 0)
 
-# pnorm: P(X = x)  — the workhorse!
+# pnorm: P(X = x)  ï¿½ the workhorse!
 pnorm(1.96)              # 0.975  ? the famous 95%!
 
 # qnorm: which x cuts off 95% below?
@@ -256,7 +255,7 @@ z <- (x - mean) / sd
 pnorm(85, mean = 70, sd = 10)      # 0.9332 ? 93%
 
 # P(between 60 and 80):
-pnorm(80, 70, 10) - pnorm(60, 70, 10)   # ˜ 0.6827 (the 68%!)
+pnorm(80, 70, 10) - pnorm(60, 70, 10)   # ï¿½ 0.6827 (the 68%!)
 
 # Verify normality visually:
 qqnorm(mtcars$mpg)
@@ -301,7 +300,7 @@ qnorm(0.995)     # 2.576 ? 99% two-tailed
 # Poisson: P(=2 calls) when avg is 3/hour?
 ppois(2, lambda = 3)                    # 0.4232
 
-# Law of Large Numbers — see it happen:
+# Law of Large Numbers ï¿½ see it happen:
 means <- cumsum(rnorm(10000), / (1:10000)
 plot(means, type = "l")
 abline(h = 0, col = "red")   # converges to true mean!`,
@@ -317,7 +316,7 @@ abline(h = 0, col = "red")   # converges to true mean!`,
 
         keyPoints([
             "dpqr prefixes: density, probability, quantile, random.",
-            "pnorm(1.96) = 0.975 — source of the 1.96 magic number.",
+            "pnorm(1.96) = 0.975 ï¿½ source of the 1.96 magic number.",
             "Z-score = (x - mean)/sd standardizes any normal.",
             "shapiro.test + qqnorm check normality before tests.",
             "Binomial counts trials; Poisson counts per interval.",
@@ -335,7 +334,7 @@ abline(h = 0, col = "red")   # converges to true mean!`,
                         "pnorm(1.96) returns approximately:",
                         ["0.05", "0.95", "0.975", "1.96"],
                         2,
-                        "P(Z = 1.96) = 0.975 — leaving 2.5% in each tail = 95% central."
+                        "P(Z = 1.96) = 0.975 ï¿½ leaving 2.5% in each tail = 95% central."
                     ),
                     mcq(
                         "The R prefix that GENERATES random values is:",
@@ -360,12 +359,12 @@ abline(h = 0, col = "red")   # converges to true mean!`,
                     questions: [
                         qa(
                             "Explain R's dpqr system for distributions using the normal as example.",
-                            "R gives every distribution four standardized prefixes. Taking the normal: dnorm(x) returns the DENSITY — curve height at x (dnorm(0) ˜ 0.399, the peak); useful for plotting and likelihoods. pnorm(x) returns cumulative probability P(X = x): pnorm(1.96) = 0.975, the origin of the famous 95% interval; differences like pnorm(80,70,10) - pnorm(60,70,10) give interval probabilities (˜68%). qnorm(p) is the inverse — the value cutting probability p below it: qnorm(0.95) = 1.645, qnorm(0.975) = 1.96 — critical values for tests. rnorm(n, mean, sd) generates n random draws: rnorm(1000, 70, 10) simulates 1000 students' marks for experiments and power analysis. The identical scheme extends everywhere — dbinom/pbinom/qbinom/rbinom, dpois/ppois, dt/pt — so learning four prefixes unlocks every distribution R offers.",
+                            "R gives every distribution four standardized prefixes. Taking the normal: dnorm(x) returns the DENSITY ï¿½ curve height at x (dnorm(0) ï¿½ 0.399, the peak); useful for plotting and likelihoods. pnorm(x) returns cumulative probability P(X = x): pnorm(1.96) = 0.975, the origin of the famous 95% interval; differences like pnorm(80,70,10) - pnorm(60,70,10) give interval probabilities (ï¿½68%). qnorm(p) is the inverse ï¿½ the value cutting probability p below it: qnorm(0.95) = 1.645, qnorm(0.975) = 1.96 ï¿½ critical values for tests. rnorm(n, mean, sd) generates n random draws: rnorm(1000, 70, 10) simulates 1000 students' marks for experiments and power analysis. The identical scheme extends everywhere ï¿½ dbinom/pbinom/qbinom/rbinom, dpois/ppois, dt/pt ï¿½ so learning four prefixes unlocks every distribution R offers.",
                             4
                         ),
                         qa(
                             "Marks are normally distributed with mean 70, sd 10. Using R, find (a) P(score below 50), (b) P(score between 60 and 85), (c) the cutoff for the top 5%.",
-                            "(a) P(X < 50): pnorm(50, mean = 70, sd = 10) = pnorm(-2) ˜ 0.0228 — about 2.3% of students fall below 50. (b) P(60 = X = 85): pnorm(85, 70, 10) - pnorm(60, 70, 10) = pnorm(1.5) - pnorm(-1) ˜ 0.9332 - 0.1587 = 0.7745 — roughly 77.5% score in this band. (c) Top 5% cutoff: we need x with P(X = x) = 0.05, i.e., P(X = x) = 0.95, so qnorm(0.95, 70, 10) = 70 + 1.645×10 ˜ 86.45 — students scoring above ˜86.4 form the top 5% (distinction cutoff). All three answer types flow from just two functions — pnorm for 'probability below a value', qnorm for 'value at a probability' — demonstrating why the dpqr system makes distribution questions mechanical.",
+                            "(a) P(X < 50): pnorm(50, mean = 70, sd = 10) = pnorm(-2) ï¿½ 0.0228 ï¿½ about 2.3% of students fall below 50. (b) P(60 = X = 85): pnorm(85, 70, 10) - pnorm(60, 70, 10) = pnorm(1.5) - pnorm(-1) ï¿½ 0.9332 - 0.1587 = 0.7745 ï¿½ roughly 77.5% score in this band. (c) Top 5% cutoff: we need x with P(X = x) = 0.05, i.e., P(X = x) = 0.95, so qnorm(0.95, 70, 10) = 70 + 1.645ï¿½10 ï¿½ 86.45 ï¿½ students scoring above ï¿½86.4 form the top 5% (distinction cutoff). All three answer types flow from just two functions ï¿½ pnorm for 'probability below a value', qnorm for 'value at a probability' ï¿½ demonstrating why the dpqr system makes distribution questions mechanical.",
                             4
                         ),
                     ],
@@ -373,7 +372,7 @@ abline(h = 0, col = "red")   # converges to true mean!`,
 );
 
 /* =========================================================
-   TOPIC 3 — Hypothesis Testing: t-test, Chi-Square & ANOVA
+   TOPIC 3 ï¿½ Hypothesis Testing: t-test, Chi-Square & ANOVA
 ========================================================= */
 
 const hypothesisTesting = createTopic(
@@ -394,12 +393,12 @@ const hypothesisTesting = createTopic(
             "Select the right test (by data type + design).",
             "Compute the test statistic and p-value in R.",
             "Decide: p < a ? reject H0; p = a ? fail to reject.",
-            "Interpret in CONTEXT — never just 'significant'.",
+            "Interpret in CONTEXT ï¿½ never just 'significant'.",
         ]),
 
         definition(
             "p-value",
-            "The p-value is the probability of observing data this extreme (or more) IF H0 were true. Small p (typically < 0.05) means such data would be surprising under H0 — evidence against it."
+            "The p-value is the probability of observing data this extreme (or more) IF H0 were true. Small p (typically < 0.05) means such data would be surprising under H0 ï¿½ evidence against it."
         ),
 
         heading("Which Test? The Decision Map"),
@@ -415,7 +414,7 @@ const hypothesisTesting = createTopic(
             ]
         ),
 
-        heading("1. t-tests — Comparing Means"),
+        heading("1. t-tests ï¿½ Comparing Means"),
 
         code(
             `# One-sample: is mean ? 70?
@@ -436,7 +435,7 @@ t.test(after, before, paired = TRUE)
         ),
 
         code(
-            `# Reading the output — know every line:
+            `# Reading the output ï¿½ know every line:
 #
 #        Welch Two Sample t-test
 # t = 2.45, df = 27.8, p-value = 0.021
@@ -452,7 +451,7 @@ t.test(after, before, paired = TRUE)
             "Output anatomy"
         ),
 
-        heading("2. Chi-Square — Categorical Association"),
+        heading("2. Chi-Square ï¿½ Categorical Association"),
 
         code(
             `# Is stream related to passing?
@@ -472,7 +471,7 @@ chisq.test(tbl)$expected`,
             "Association between categories"
         ),
 
-        heading("3. ANOVA — 3+ Group Means"),
+        heading("3. ANOVA ï¿½ 3+ Group Means"),
 
         code(
             `# Do marks differ across THREE streams?
@@ -504,8 +503,8 @@ TukeyHSD(model)
         table(
             ["", "H0 true", "H0 false"],
             [
-                ["Reject H0", "Type I error (a)", "? Power (1-ß)"],
-                ["Fail to reject", "? Correct", "Type II error (ß)"],
+                ["Reject H0", "Type I error (a)", "? Power (1-ï¿½)"],
+                ["Fail to reject", "? Correct", "Type II error (ï¿½)"],
             ]
         ),
 
@@ -527,7 +526,7 @@ TukeyHSD(model)
                 mcqs: [
                     mcq(
                         "A p-value of 0.03 means:",
-                        ["H0 is 3% likely true", "3% chance the result is random", "IF H0 were true, data this extreme occurs 3% of the time — evidence against H0", "97% confidence in H1"],
+                        ["H0 is 3% likely true", "3% chance the result is random", "IF H0 were true, data this extreme occurs 3% of the time ï¿½ evidence against H0", "97% confidence in H1"],
                         2,
                         "p-value is P(data | H0), never P(H0 | data)."
                     ),
@@ -535,11 +534,11 @@ TukeyHSD(model)
                         "Comparing pass/fail rates across THREE cities calls for:",
                         ["Paired t-test", "Chi-square test of independence", "ANOVA on city names", "Correlation"],
                         1,
-                        "Two categorical variables (city × result) ? chisq.test()."
+                        "Two categorical variables (city ï¿½ result) ? chisq.test()."
                     ),
                     mcq(
                         "ANOVA gives p = 0.004. The correct follow-up is:",
-                        ["Stop — it's significant", "TukeyHSD() to find WHICH group pairs differ", "Run chi-square", "Compute the median"],
+                        ["Stop ï¿½ it's significant", "TukeyHSD() to find WHICH group pairs differ", "Run chi-square", "Compute the median"],
                         1,
                         "ANOVA detects 'some difference'; Tukey locates it."
                     ),
@@ -554,19 +553,19 @@ TukeyHSD(model)
                     questions: [
                         qa(
                             "Explain hypothesis testing steps and interpret p = 0.021 from a two-group t-test correctly.",
-                            "Steps: (1) Formulate H0 ('no difference between group means') and H1 ('a difference exists'); (2) set significance level a = 0.05; (3) verify assumptions (roughly numeric, independent groups — Welch's t-test by default handles unequal variances); (4) run t.test(marks ~ group, data = df); (5) compare p to a; (6) interpret in context. Interpretation of p = 0.021: IF the two streams truly had equal average marks (H0 true), the probability of observing a sample difference as large as ours is only 2.1%. Since that surprise is below our 5% threshold, we REJECT H0 and conclude the groups genuinely differ — always adding context: 'BCA students (M = 78.4) significantly outperformed BBA (M = 71.0), t(27.8) = 2.45, p = .021, 95% CI [1.2, 13.6].' Crucially, p = 0.021 does NOT mean H0 has 2.1% probability of being true, nor that the difference is large — significance ? importance; the CI and effect size carry that story.",
+                            "Steps: (1) Formulate H0 ('no difference between group means') and H1 ('a difference exists'); (2) set significance level a = 0.05; (3) verify assumptions (roughly numeric, independent groups ï¿½ Welch's t-test by default handles unequal variances); (4) run t.test(marks ~ group, data = df); (5) compare p to a; (6) interpret in context. Interpretation of p = 0.021: IF the two streams truly had equal average marks (H0 true), the probability of observing a sample difference as large as ours is only 2.1%. Since that surprise is below our 5% threshold, we REJECT H0 and conclude the groups genuinely differ ï¿½ always adding context: 'BCA students (M = 78.4) significantly outperformed BBA (M = 71.0), t(27.8) = 2.45, p = .021, 95% CI [1.2, 13.6].' Crucially, p = 0.021 does NOT mean H0 has 2.1% probability of being true, nor that the difference is large ï¿½ significance ? importance; the CI and effect size carry that story.",
                             4
                         ),
                         qa(
                             "When do you use chi-square vs ANOVA? Show R code for each and the decision rule.",
-                            "The choice depends on variable TYPES. Chi-square: BOTH variables categorical — comparing proportions/counts across categories. Example: 'Is passing associated with stream?' — tbl <- table(df$stream, df$result); chisq.test(tbl); with X² = 3.86, p = 0.049 < 0.05 we reject independence: stream and result are associated. Verify expected counts = 5 for validity. ANOVA: one NUMERIC outcome across THREE-OR-MORE groups. Example: 'Do average marks differ across BCA/BBA/MSc?' — summary(aov(marks ~ stream, data = df),; F = 5.32, p = 0.008 rejects equal means, and TukeyHSD() reveals BCA > BBA and BBA < MSc specifically while BCA ˜ MSc. Rule of thumb: counts/proportions in a cross-table ? chi-square; comparing group MEANS of a measurement ? t-test (2 groups) or ANOVA (3+ groups with post-hoc)."
+                            "The choice depends on variable TYPES. Chi-square: BOTH variables categorical ï¿½ comparing proportions/counts across categories. Example: 'Is passing associated with stream?' ï¿½ tbl <- table(df$stream, df$result); chisq.test(tbl); with Xï¿½ = 3.86, p = 0.049 < 0.05 we reject independence: stream and result are associated. Verify expected counts = 5 for validity. ANOVA: one NUMERIC outcome across THREE-OR-MORE groups. Example: 'Do average marks differ across BCA/BBA/MSc?' ï¿½ summary(aov(marks ~ stream, data = df),; F = 5.32, p = 0.008 rejects equal means, and TukeyHSD() reveals BCA > BBA and BBA < MSc specifically while BCA ï¿½ MSc. Rule of thumb: counts/proportions in a cross-table ? chi-square; comparing group MEANS of a measurement ? t-test (2 groups) or ANOVA (3+ groups with post-hoc)."
                         ),
                     ],
   }
 );
 
 /* =========================================================
-   TOPIC 4 — Correlation & Linear Regression in R
+   TOPIC 4 ï¿½ Correlation & Linear Regression in R
 ========================================================= */
 
 const correlationRegression = createTopic(
@@ -601,16 +600,16 @@ plot(mtcars$wt, mtcars$mpg)`,
         table(
             ["|r| range", "Interpretation"],
             [
-                ["0.9 – 1.0", "Very strong"],
-                ["0.7 – 0.9", "Strong"],
-                ["0.4 – 0.7", "Moderate"],
-                ["0.1 – 0.4", "Weak"],
-                ["0.0 – 0.1", "Negligible"],
+                ["0.9 ï¿½ 1.0", "Very strong"],
+                ["0.7 ï¿½ 0.9", "Strong"],
+                ["0.4 ï¿½ 0.7", "Moderate"],
+                ["0.1 ï¿½ 0.4", "Weak"],
+                ["0.0 ï¿½ 0.1", "Negligible"],
             ]
         ),
 
         note(
-            "Correlation ? causation! Ice cream sales correlate with drownings (summer drives both). r measures association only — causation needs experiments or causal designs.",
+            "Correlation ? causation! Ice cream sales correlate with drownings (summer drives both). r measures association only ï¿½ causation needs experiments or causal designs.",
             "warning",
             "The Eternal Warning"
         ),
@@ -619,7 +618,7 @@ plot(mtcars$wt, mtcars$mpg)`,
 
         definition(
             "Linear Regression",
-            "Linear regression fits a straight line y = ß0 + ß1x that minimizes squared errors, modeling how a numeric outcome depends on one or more predictor variables."
+            "Linear regression fits a straight line y = ï¿½0 + ï¿½1x that minimizes squared errors, modeling how a numeric outcome depends on one or more predictor variables."
         ),
 
         code(
@@ -636,7 +635,7 @@ summary(model)
 # Residual standard error: 3.05 (30 df)
 # Multiple R-squared: 0.753
 
-# The equation: mpg = 37.29 - 5.34 × wt
+# The equation: mpg = 37.29 - 5.34 ï¿½ wt
 # Every extra 1000 lb ? 5.3 fewer miles/gallon`,
             "r",
             "Fitting and reading lm()"
@@ -647,7 +646,7 @@ summary(model)
         table(
             ["Component", "Meaning"],
             [
-                ["Estimate (ß)", "Slope: change in y per unit x; intercept when x=0"],
+                ["Estimate (ï¿½)", "Slope: change in y per unit x; intercept when x=0"],
                 ["Pr(>|t|)", "Is this predictor significant? (< 0.05)"],
                 ["R-squared", "Fraction of y's variance explained (0-1)"],
                 ["Residual SE", "Typical prediction error, in y's units"],
@@ -673,7 +672,7 @@ predict(model, newcar, interval = "confidence")
 ggplot(mtcars, aes(wt, mpg), +
     geom_point() +
     geom_smooth(method = "lm") +
-    labs(title = "Weight predicts Mileage (R² = 0.75)")`,
+    labs(title = "Weight predicts Mileage (Rï¿½ = 0.75)")`,
             "r",
             "From model to decision"
         ),
@@ -686,9 +685,9 @@ summary(m2)
 # R-squared jumps 0.753 ? 0.827
 # Each Estimate = effect HOLDING others constant
 
-# Careful: wt & hp correlate (multicollinearity) —
+# Careful: wt & hp correlate (multicollinearity) ï¿½
 # check with:
-cor(mtcars$wt, mtcars$hp)   # 0.66 — moderate`,
+cor(mtcars$wt, mtcars$hp)   # 0.66 ï¿½ moderate`,
             "r",
             "Adding predictors"
         ),
@@ -710,7 +709,7 @@ plot(model)
         keyPoints([
             "cor() gives r (-1 to +1); cor.test() adds significance.",
             "lm(y ~ x, data) fits regression; slope = effect per unit.",
-            "R² = variance explained; 0.75 means 75%.",
+            "Rï¿½ = variance explained; 0.75 means 75%.",
             "predict() with new data turns models into decisions.",
             "Correlation ? causation; always run plot(model) diagnostics.",
         ]),
@@ -727,19 +726,19 @@ plot(model)
                         "cor(x, y) = -0.87 indicates:",
                         ["Weak relationship", "Strong NEGATIVE linear relationship", "Causation of y by x", "A regression line"],
                         1,
-                        "Near -1: strong inverse linearity — as x rises, y falls consistently."
+                        "Near -1: strong inverse linearity ï¿½ as x rises, y falls consistently."
                     ),
                     mcq(
                         "In lm(mpg ~ wt), the slope estimate -5.34 means:",
-                        ["mpg is 5.34 on average", "Each unit of wt lowers predicted mpg by 5.34", "wt causes mpg", "R² is 5.34"],
+                        ["mpg is 5.34 on average", "Each unit of wt lowers predicted mpg by 5.34", "wt causes mpg", "Rï¿½ is 5.34"],
                         1,
                         "Slope = predicted change in y per one-unit increase in x."
                     ),
                     mcq(
-                        "An R² of 0.75 says:",
+                        "An Rï¿½ of 0.75 says:",
                         ["75% accuracy", "75% of mpg's variance is explained by the model", "The slope is 0.75", "p = 0.75"],
                         1,
-                        "R² is explained variance — the model's account of y's variation."
+                        "Rï¿½ is explained variance ï¿½ the model's account of y's variation."
                     ),
                     mcq(
                         "Which function predicts mpg for a NEW car's weight?",
@@ -752,12 +751,12 @@ plot(model)
                     questions: [
                         qa(
                             "Explain Pearson correlation and interpret r = -0.87 between weight and mileage.",
-                            "Pearson's correlation coefficient measures how tightly two numeric variables follow a straight-line relationship, bounded at -1 (perfect negative line), 0 (no linear association), and +1 (perfect positive). Its significance comes from cor.test(), which tests H0: true r = 0. For r = -0.87 between car weight and mileage: the sign tells DIRECTION — heavier cars achieve LOWER mileage; the magnitude (|r| > 0.7) tells STRENGTH — the points hug a descending line closely, making weight an excellent predictor of mileage; squaring gives r² = 0.75, meaning 75% of mileage variation tracks weight. Three cautions: (1) correlation detects only LINEAR patterns — a U-shaped relationship can hide behind r ˜ 0; (2) outliers can fabricate or destroy r — always plot first; (3) it is association, not causation — although here physics strongly suggests the mechanism, statistics alone never establishes it.",
+                            "Pearson's correlation coefficient measures how tightly two numeric variables follow a straight-line relationship, bounded at -1 (perfect negative line), 0 (no linear association), and +1 (perfect positive). Its significance comes from cor.test(), which tests H0: true r = 0. For r = -0.87 between car weight and mileage: the sign tells DIRECTION ï¿½ heavier cars achieve LOWER mileage; the magnitude (|r| > 0.7) tells STRENGTH ï¿½ the points hug a descending line closely, making weight an excellent predictor of mileage; squaring gives rï¿½ = 0.75, meaning 75% of mileage variation tracks weight. Three cautions: (1) correlation detects only LINEAR patterns ï¿½ a U-shaped relationship can hide behind r ï¿½ 0; (2) outliers can fabricate or destroy r ï¿½ always plot first; (3) it is association, not causation ï¿½ although here physics strongly suggests the mechanism, statistics alone never establishes it.",
                             4
                         ),
                         qa(
                             "Fit and fully interpret a simple linear regression of mpg on wt, including prediction for wt = 3.0.",
-                            "Fitting: model <- lm(mpg ~ wt, data = mtcars); summary(model) reports Intercept = 37.29 (p < 2e-16) and slope wt = -5.34 (p = 1.29e-10), yielding the equation mpg = 37.29 - 5.34×wt. Interpretation: the intercept is the theoretical mileage of a weightless car (extrapolation, but anchor of the line); the slope means each additional 1000-lb of weight reduces expected mileage by 5.34 mpg — both coefficients overwhelmingly significant. Model quality: R² = 0.753 — weight explains 75.3% of mileage variance; residual SE = 3.05 mpg — typical prediction error. Prediction: predict(model, data.frame(wt = 3.0), returns 21.25 mpg, with confidence interval via interval='confidence' showing the mean-response band [19.9, 22.6]. Diagnostics: plot(model) — residuals-vs-fitted shows no curved pattern, Q-Q roughly linear, so linearity and normality hold, making predictions trustworthy.",
+                            "Fitting: model <- lm(mpg ~ wt, data = mtcars); summary(model) reports Intercept = 37.29 (p < 2e-16) and slope wt = -5.34 (p = 1.29e-10), yielding the equation mpg = 37.29 - 5.34ï¿½wt. Interpretation: the intercept is the theoretical mileage of a weightless car (extrapolation, but anchor of the line); the slope means each additional 1000-lb of weight reduces expected mileage by 5.34 mpg ï¿½ both coefficients overwhelmingly significant. Model quality: Rï¿½ = 0.753 ï¿½ weight explains 75.3% of mileage variance; residual SE = 3.05 mpg ï¿½ typical prediction error. Prediction: predict(model, data.frame(wt = 3.0), returns 21.25 mpg, with confidence interval via interval='confidence' showing the mean-response band [19.9, 22.6]. Diagnostics: plot(model) ï¿½ residuals-vs-fitted shows no curved pattern, Q-Q roughly linear, so linearity and normality hold, making predictions trustworthy.",
                             4
                         ),
                     ],
@@ -765,7 +764,7 @@ plot(model)
 );
 
 /* =========================================================
-   TOPIC 5 — R Markdown Reporting & Analytics Careers
+   TOPIC 5 ï¿½ R Markdown Reporting & Analytics Careers
 ========================================================= */
 
 const rMarkdownCareers = createTopic(
@@ -775,13 +774,13 @@ const rMarkdownCareers = createTopic(
     [
         definition(
             "R Markdown",
-            "R Markdown is a file format that weaves together narrative text, R code, and its output (tables, plots) into one reproducible document — HTML, PDF, Word, slides, or dashboards."
+            "R Markdown is a file format that weaves together narrative text, R code, and its output (tables, plots) into one reproducible document ï¿½ HTML, PDF, Word, slides, or dashboards."
         ),
 
         heading("Why Reproducible Reports Matter"),
 
         list([
-            "One file = analysis + results + explanation — no copy-pasting screenshots.",
+            "One file = analysis + results + explanation ï¿½ no copy-pasting screenshots.",
             "Rerun with new data ? the ENTIRE report updates automatically.",
             "Code visibility builds trust and catches errors.",
             "The industry-standard deliverable of every R analyst.",
@@ -792,7 +791,7 @@ const rMarkdownCareers = createTopic(
         code(
             `---
 title: "Student Performance Analysis"
-author: "Rahul — BCA Sem 8"
+author: "Rahul ï¿½ BCA Sem 8"
 output: html_document
 ---
 
@@ -830,7 +829,7 @@ Knit button (Ctrl+Shift+K) ? complete HTML!`,
             ]
         ),
 
-        heading("Inline Code — Numbers That Never Go Stale"),
+        heading("Inline Code ï¿½ Numbers That Never Go Stale"),
 
         code(
             `The average mark was \`r mean(students$marks)\`
@@ -849,13 +848,13 @@ scored above 80.
 
         steps([
             "Title, author, date (YAML header).",
-            "Introduction — business question.  ",
-            "Data — source, loading, str() snapshot.",
-            "Cleaning — missing values, fixes (documented!).",
-            "EDA — key plots with interpretation under EACH.",
-            "Statistical tests — with hypotheses and p-values.",
-            "Conclusions — answer the question, plain language.",
-            "Appendix — full code.",
+            "Introduction ï¿½ business question.  ",
+            "Data ï¿½ source, loading, str() snapshot.",
+            "Cleaning ï¿½ missing values, fixes (documented!).",
+            "EDA ï¿½ key plots with interpretation under EACH.",
+            "Statistical tests ï¿½ with hypotheses and p-values.",
+            "Conclusions ï¿½ answer the question, plain language.",
+            "Appendix ï¿½ full code.",
         ]),
 
         heading("Careers with R"),
@@ -872,7 +871,7 @@ scored above 80.
         ),
 
         note(
-            "Your BCA portfolio piece: ONE polished R Markdown report — real dataset, EDA plots, a t-test, a regression, clean interpretation — outshines ten certificates. Knit it to HTML and host on GitHub Pages.",
+            "Your BCA portfolio piece: ONE polished R Markdown report ï¿½ real dataset, EDA plots, a t-test, a regression, clean interpretation ï¿½ outshines ten certificates. Knit it to HTML and host on GitHub Pages.",
             "tip",
             "Portfolio Gold"
         ),
@@ -882,7 +881,7 @@ scored above 80.
             "YAML header configures; chunks run code; knit renders everything.",
             "echo=FALSE hides code; inline r live-updates numbers in sentences.",
             "Report flow: question ? data ? EDA ? tests ? conclusions.",
-            "R careers: analyst, biostatistician, data scientist — portfolio reports win interviews.",
+            "R careers: analyst, biostatistician, data scientist ï¿½ portfolio reports win interviews.",
         ]),
   ],
 
@@ -895,7 +894,7 @@ scored above 80.
                 mcqs: [
                     mcq(
                         "The primary benefit of R Markdown over copy-pasting results into Word is:",
-                        ["Prettier fonts", "Full reproducibility — rerunning updates every number and chart", "Faster internet", "No coding needed"],
+                        ["Prettier fonts", "Full reproducibility ï¿½ rerunning updates every number and chart", "Faster internet", "No coding needed"],
                         1,
                         "One source file regenerates the entire report on new data."
                     ),
@@ -922,12 +921,12 @@ scored above 80.
                     questions: [
                         qa(
                             "What is R Markdown? Explain its structure and why reproducibility is its superpower.",
-                            "R Markdown is a document format merging three things: a YAML metadata header (title, author, output format), prose written in Markdown, and executable R code chunks delimited by triple backticks. Pressing Knit executes every chunk top-to-bottom and weaves code outputs — tables, statistics, ggplots — inline with the narrative, exporting HTML/PDF/Word/slides. Its superpower is REPRODUCIBILITY: the report IS the analysis. When next month's data arrives, re-knitting regenerates every number, chart, and conclusion automatically — no stale screenshots, no transcription errors, no 'which version is final?' chaos. Inline code (r mean(df$x), embeds live values inside sentences, so prose can never contradict the data. For teams, the single .Rmd file doubles as documentation, audit trail, and communication — which is exactly why it's the standard deliverable for R analysts everywhere from banks to pharma labs.",
+                            "R Markdown is a document format merging three things: a YAML metadata header (title, author, output format), prose written in Markdown, and executable R code chunks delimited by triple backticks. Pressing Knit executes every chunk top-to-bottom and weaves code outputs ï¿½ tables, statistics, ggplots ï¿½ inline with the narrative, exporting HTML/PDF/Word/slides. Its superpower is REPRODUCIBILITY: the report IS the analysis. When next month's data arrives, re-knitting regenerates every number, chart, and conclusion automatically ï¿½ no stale screenshots, no transcription errors, no 'which version is final?' chaos. Inline code (r mean(df$x), embeds live values inside sentences, so prose can never contradict the data. For teams, the single .Rmd file doubles as documentation, audit trail, and communication ï¿½ which is exactly why it's the standard deliverable for R analysts everywhere from banks to pharma labs.",
                             4
                         ),
                         qa(
                             "Design the structure of a professional R Markdown report analyzing whether coaching improves student marks.",
-                            "(1) YAML header: title 'Effect of Coaching on Student Marks', author, date, html_document output. (2) Introduction: the business question — 'Do coached students score higher?' — and the approach (paired comparison, since we measure the same students pre/post). (3) Data: chunk loading read_csv with str() and summary() outputs shown, plus a note on collection. (4) Cleaning chunk (include=FALSE): NA handling, verified score ranges. (5) EDA: histogram of score differences; boxplot of before vs after (echo=FALSE, each plot followed by one interpretation sentence — 'the post-coaching box shifts visibly upward'). (6) Formal test: paired t-test chunk — t.test(after, before, paired = TRUE) — reporting t, df, p-value, and the 95% CI of the difference in prose via inline code. (7) Conclusion: plain-language answer with effect size ('coaching adds an estimated X marks, p = ...'), plus caveats (no control group — observational). (8) Appendix: full unfiltered code. Knit ? one HTML artifact answering the question end-to-end, reproducible by any colleague.",
+                            "(1) YAML header: title 'Effect of Coaching on Student Marks', author, date, html_document output. (2) Introduction: the business question ï¿½ 'Do coached students score higher?' ï¿½ and the approach (paired comparison, since we measure the same students pre/post). (3) Data: chunk loading read_csv with str() and summary() outputs shown, plus a note on collection. (4) Cleaning chunk (include=FALSE): NA handling, verified score ranges. (5) EDA: histogram of score differences; boxplot of before vs after (echo=FALSE, each plot followed by one interpretation sentence ï¿½ 'the post-coaching box shifts visibly upward'). (6) Formal test: paired t-test chunk ï¿½ t.test(after, before, paired = TRUE) ï¿½ reporting t, df, p-value, and the 95% CI of the difference in prose via inline code. (7) Conclusion: plain-language answer with effect size ('coaching adds an estimated X marks, p = ...'), plus caveats (no control group ï¿½ observational). (8) Appendix: full unfiltered code. Knit ? one HTML artifact answering the question end-to-end, reproducible by any colleague.",
                             4
                         ),
                     ],

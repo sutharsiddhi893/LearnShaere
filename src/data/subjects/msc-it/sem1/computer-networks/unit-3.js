@@ -9,7 +9,6 @@ import {
     text,
     list,
     code,
-    output,
     table,
     note,
     definition,
@@ -88,34 +87,34 @@ const introToRouting = createTopic(
             ]
         ),
 
-        heading("Types of Routing"],
+        heading("Types of Routing"),
 
-    table(
-        ["Type", "Description", "Examples"],
-        [
-            ["Unicast Routing", "One-to-one communication; packet sent to a single destination", "Normal web browsing, email"],
-            ["Multicast Routing", "One-to-many communication; packet sent to a group of interested receivers", "Video streaming, IPTV"],
-            ["Broadcast Routing", "One-to-all communication; packet sent to all nodes in a network", "ARP requests, DHCP discover"],
-            ["Anycast Routing", "One-to-nearest; packet sent to the nearest member of a group", "DNS root servers, CDN"],
-        ]
-    ),
+        table(
+            ["Type", "Description", "Examples"],
+            [
+                ["Unicast Routing", "One-to-one communication; packet sent to a single destination", "Normal web browsing, email"],
+                ["Multicast Routing", "One-to-many communication; packet sent to a group of interested receivers", "Video streaming, IPTV"],
+                ["Broadcast Routing", "One-to-all communication; packet sent to all nodes in a network", "ARP requests, DHCP discover"],
+                ["Anycast Routing", "One-to-nearest; packet sent to the nearest member of a group", "DNS root servers, CDN"],
+            ]
+        ),
 
-    heading("Requirements of a Good Routing Algorithm"),
+        heading("Requirements of a Good Routing Algorithm"),
 
-    list([
-        "Correctness — must deliver packets to the correct destination.",
-        "Simplicity — should be easy to implement and maintain.",
-        "Robustness — must handle hardware failures, topology changes and traffic surges.",
-        "Stability — should converge to a stable state and not oscillate.",
-        "Fairness — should treat all sources and destinations equitably.",
-        "Optimality — should choose the best path according to the chosen metric.",
-        "Efficiency — should minimise overhead in terms of bandwidth, CPU and memory.",
-    ]),
+        list([
+            "Correctness — must deliver packets to the correct destination.",
+            "Simplicity — should be easy to implement and maintain.",
+            "Robustness — must handle hardware failures, topology changes and traffic surges.",
+            "Stability — should converge to a stable state and not oscillate.",
+            "Fairness — should treat all sources and destinations equitably.",
+            "Optimality — should choose the best path according to the chosen metric.",
+            "Efficiency — should minimise overhead in terms of bandwidth, CPU and memory.",
+        ]),
 
-    heading("Classification of Routing Algorithms"),
+        heading("Classification of Routing Algorithms"),
 
-    code(
-        `Routing Algorithms
+        code(
+            `Routing Algorithms
   ├── Static (Non-Adaptive)
   │   └── Routes are pre-computed and do not change
   │
@@ -126,82 +125,82 @@ const introToRouting = createTopic(
       │   └── OSPF, IS-IS
       └── Path Vector
           └── BGP`,
-        "text",
-        "Classification of routing algorithms"
-    ),
+            "text",
+            "Classification of routing algorithms"
+        ),
 
-    note(
-        "The Internet uses a hierarchical routing architecture. Within an autonomous system (AS), Interior Gateway Protocols (IGPs) like OSPF and RIP are used. Between autonomous systems, the Exterior Gateway Protocol BGP is used. This hierarchy is essential for the Internet's scalability.",
-        "exam",
-        "Frequently Asked"
-    ),
+        note(
+            "The Internet uses a hierarchical routing architecture. Within an autonomous system (AS), Interior Gateway Protocols (IGPs) like OSPF and RIP are used. Between autonomous systems, the Exterior Gateway Protocol BGP is used. This hierarchy is essential for the Internet's scalability.",
+            "exam",
+            "Frequently Asked"
+        ),
 
-    keyPoints([
-        "Routing determines the best path for packets from source to destination across a network.",
-        "A routing table maps destination networks to next-hop addresses and outgoing interfaces.",
-        "Static routes are manually configured; dynamic routes are learned through routing protocols.",
-        "Good routing algorithms must be correct, robust, stable, fair, optimal and efficient.",
-        "Dynamic routing algorithms are classified as Distance Vector, Link State or Path Vector.",
-    ]),
-  ],
+        keyPoints([
+            "Routing determines the best path for packets from source to destination across a network.",
+            "A routing table maps destination networks to next-hop addresses and outgoing interfaces.",
+            "Static routes are manually configured; dynamic routes are learned through routing protocols.",
+            "Good routing algorithms must be correct, robust, stable, fair, optimal and efficient.",
+            "Dynamic routing algorithms are classified as Distance Vector, Link State or Path Vector.",
+        ]),
+    ],
 
-{
-    summary:
-    "Understand routing fundamentals, routing tables, static vs dynamic routing, types of routing and classification of routing algorithms.",
+    {
+        summary:
+            "Understand routing fundamentals, routing tables, static vs dynamic routing, types of routing and classification of routing algorithms.",
         minutes: 12,
-            tags: ["networks", "routing", "routing-table", "static", "dynamic", "important"],
+        tags: ["networks", "routing", "routing-table", "static", "dynamic", "important"],
 
-                mcqs: [
-                    mcq(
-                        "Routing is performed at which OSI layer?",
-                        ["Layer 1", "Layer 2", "Layer 3", "Layer 4"],
-                        2,
-                        "Routing is performed at the Network layer (Layer 3) by routers."
-                    ),
-                    mcq(
-                        "The next hop in a routing table refers to:",
-                        ["The final destination", "The next router to forward the packet to", "The source address", "The MAC address"],
-                        1,
-                        "The next hop is the IP address of the next router along the path to the destination."
-                    ),
-                    mcq(
-                        "A default route is represented as:",
-                        ["255.255.255.255", "127.0.0.1", "0.0.0.0/0", "192.168.0.0/16"],
-                        2,
-                        "The default route 0.0.0.0/0 matches any destination when no specific route exists."
-                    ),
-                    mcq(
-                        "Which is an advantage of dynamic routing over static routing?",
-                        ["No protocol overhead", "More secure", "Automatically adapts to topology changes", "Simpler to configure"],
-                        2,
-                        "Dynamic routing automatically adapts to network topology changes without manual intervention."
-                    ),
-                    mcq(
-                        "BGP is an example of which type of routing algorithm?",
-                        ["Distance Vector", "Link State", "Path Vector", "Static"],
-                        2,
-                        "BGP (Border Gateway Protocol) is a Path Vector routing protocol used between autonomous systems."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "Routing is performed at which OSI layer?",
+                ["Layer 1", "Layer 2", "Layer 3", "Layer 4"],
+                2,
+                "Routing is performed at the Network layer (Layer 3) by routers."
+            ),
+            mcq(
+                "The next hop in a routing table refers to:",
+                ["The final destination", "The next router to forward the packet to", "The source address", "The MAC address"],
+                1,
+                "The next hop is the IP address of the next router along the path to the destination."
+            ),
+            mcq(
+                "A default route is represented as:",
+                ["255.255.255.255", "127.0.0.1", "0.0.0.0/0", "192.168.0.0/16"],
+                2,
+                "The default route 0.0.0.0/0 matches any destination when no specific route exists."
+            ),
+            mcq(
+                "Which is an advantage of dynamic routing over static routing?",
+                ["No protocol overhead", "More secure", "Automatically adapts to topology changes", "Simpler to configure"],
+                2,
+                "Dynamic routing automatically adapts to network topology changes without manual intervention."
+            ),
+            mcq(
+                "BGP is an example of which type of routing algorithm?",
+                ["Distance Vector", "Link State", "Path Vector", "Static"],
+                2,
+                "BGP (Border Gateway Protocol) is a Path Vector routing protocol used between autonomous systems."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "What is a routing table? Explain its contents with an example.",
-                            "A routing table is a data structure maintained by a router that maps destination networks to the best next-hop address and outgoing interface. Each entry typically contains the destination network address with its subnet mask (e.g., 192.168.2.0/24), the next-hop IP address (the next router to forward to, e.g., 10.0.0.2), the outgoing interface (e.g., eth1), the metric (a cost value where lower is better, e.g., 2), and the source of the route (how it was learned, e.g., OSPF, static or connected). When a packet arrives, the router performs a longest-prefix match against the routing table to find the most specific matching entry and forwards the packet accordingly. A default route (0.0.0.0/0) acts as a catch-all for destinations with no specific match.",
-                            5
-                        ),
-                        qa(
-                            "Compare static and dynamic routing.",
-                            "Static routing involves manually configuring routes by a network administrator. It has no protocol overhead, is more secure since no routing messages are exchanged, and is predictable. However, it does not adapt to topology changes, is impractical for large networks and requires manual updates when the network changes. Dynamic routing uses routing protocols like OSPF or RIP to automatically learn and update routes. It adapts automatically to topology changes, scales well to large networks and reduces administrative burden. However, it consumes bandwidth and CPU for protocol messages, is less secure since protocol messages can be spoofed, and requires time to converge after changes. Static routing is best for small networks and default routes, while dynamic routing is essential for medium to large networks and the Internet.",
-                            5
-                        ),
-                        qa(
-                            "What are the requirements of a good routing algorithm?",
-                            "A good routing algorithm must satisfy several requirements. Correctness means it must deliver packets to the correct destination without errors. Simplicity means it should be easy to implement, understand and maintain. Robustness means it must handle hardware failures, topology changes and traffic surges gracefully without crashing. Stability means it should converge to a consistent state and not oscillate between different paths. Fairness means it should treat all sources and destinations equitably without starving any node. Optimality means it should choose the best path according to the chosen metric such as shortest path or lowest cost. Efficiency means it should minimise overhead in terms of bandwidth consumption, CPU usage and memory requirements. These requirements often conflict, and routing algorithm design involves trade-offs between them.",
-                            4
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "What is a routing table? Explain its contents with an example.",
+                "A routing table is a data structure maintained by a router that maps destination networks to the best next-hop address and outgoing interface. Each entry typically contains the destination network address with its subnet mask (e.g., 192.168.2.0/24), the next-hop IP address (the next router to forward to, e.g., 10.0.0.2), the outgoing interface (e.g., eth1), the metric (a cost value where lower is better, e.g., 2), and the source of the route (how it was learned, e.g., OSPF, static or connected). When a packet arrives, the router performs a longest-prefix match against the routing table to find the most specific matching entry and forwards the packet accordingly. A default route (0.0.0.0/0) acts as a catch-all for destinations with no specific match.",
+                5
+            ),
+            qa(
+                "Compare static and dynamic routing.",
+                "Static routing involves manually configuring routes by a network administrator. It has no protocol overhead, is more secure since no routing messages are exchanged, and is predictable. However, it does not adapt to topology changes, is impractical for large networks and requires manual updates when the network changes. Dynamic routing uses routing protocols like OSPF or RIP to automatically learn and update routes. It adapts automatically to topology changes, scales well to large networks and reduces administrative burden. However, it consumes bandwidth and CPU for protocol messages, is less secure since protocol messages can be spoofed, and requires time to converge after changes. Static routing is best for small networks and default routes, while dynamic routing is essential for medium to large networks and the Internet.",
+                5
+            ),
+            qa(
+                "What are the requirements of a good routing algorithm?",
+                "A good routing algorithm must satisfy several requirements. Correctness means it must deliver packets to the correct destination without errors. Simplicity means it should be easy to implement, understand and maintain. Robustness means it must handle hardware failures, topology changes and traffic surges gracefully without crashing. Stability means it should converge to a consistent state and not oscillate between different paths. Fairness means it should treat all sources and destinations equitably without starving any node. Optimality means it should choose the best path according to the chosen metric such as shortest path or lowest cost. Efficiency means it should minimise overhead in terms of bandwidth consumption, CPU usage and memory requirements. These requirements often conflict, and routing algorithm design involves trade-offs between them.",
+                4
+            ),
+        ],
+    }
 );
 
 /* =========================================================

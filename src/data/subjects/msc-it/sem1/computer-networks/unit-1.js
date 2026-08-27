@@ -4,19 +4,17 @@
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    output,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -964,7 +962,7 @@ Manchester: Each bit has a mid-bit transition
             ]
         ),
 
-        heading("WDM (Wavelength Division Multiplexing)",
+        heading("WDM (Wavelength Division Multiplexing)"),
 
             text(
                 "WDM is essentially FDM applied to fibre optic cables. Different data streams are carried on different wavelengths (colours) of light through the same fibre. Dense WDM (DWDM) can carry 80+ channels on a single fibre, each at 10-100 Gbps, achieving total capacities of multiple Tbps."

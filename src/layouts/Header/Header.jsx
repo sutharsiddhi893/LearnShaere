@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Zap } from "lucide-react";
 import "./Header.css";
 
 const courses = [

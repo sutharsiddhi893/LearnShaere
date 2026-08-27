@@ -1,21 +1,20 @@
-﻿/* =========================================================
+/* =========================================================
    BCA • SEM 8 • On Job Training
    UNIT 2 — Final Semester Strategy & Career Launch
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  steps,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================

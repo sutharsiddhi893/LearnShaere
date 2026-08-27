@@ -1,21 +1,20 @@
-﻿/* =========================================================
+/* =========================================================
    BCA • SEM 8 • Cloud Computing
    UNIT 2 — Cloud Security, Serverless/Microservices, Pricing, DevOps & Careers
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  steps,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================

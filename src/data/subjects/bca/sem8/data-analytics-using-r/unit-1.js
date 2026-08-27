@@ -1,25 +1,23 @@
 /* =========================================================
-   BCA • SEM 8 • Data Analytics Using R Language
-   UNIT 1 — R Fundamentals, Data Structures, Wrangling & Visualization
+   BCA ï¿½ SEM 8 ï¿½ Data Analytics Using R Language
+   UNIT 1 ï¿½ R Fundamentals, Data Structures, Wrangling & Visualization
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  list,
+  code,
+  table,
+  note,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
-   TOPIC 1 — Introduction to R & RStudio
+   TOPIC 1 ï¿½ Introduction to R & RStudio
 ========================================================= */
 
 const introToR = createTopic(
@@ -40,10 +38,10 @@ const introToR = createTopic(
         heading("Why R for Analytics"),
 
         list([
-            "Built BY statisticians FOR statistics — every test you'll study is one function away.",
-            "Free and open source — no licenses, huge community.",
+            "Built BY statisticians FOR statistics ï¿½ every test you'll study is one function away.",
+            "Free and open source ï¿½ no licenses, huge community.",
             "15,000+ packages on CRAN covering every analysis imaginable.",
-            "ggplot2 — arguably the best visualization system in any language.",
+            "ggplot2 ï¿½ arguably the best visualization system in any language.",
             "Industry standard in pharma, biostatistics, research, banking, and data journalism.",
         ]),
 
@@ -53,7 +51,7 @@ const introToR = createTopic(
             ["Criteria", "R", "Python"],
             [
                 ["Born for", "Statistics & data analysis", "General-purpose programming"],
-                ["Visualization", "ggplot2 — best-in-class", "Matplotlib/Seaborn — good"],
+                ["Visualization", "ggplot2 ï¿½ best-in-class", "Matplotlib/Seaborn ï¿½ good"],
                 ["Statistics depth", "Unmatched (every test exists)", "Solid via libraries"],
                 ["ML/deep learning", "Good (caret/tidymodels)", "Stronger ecosystem"],
                 ["Learning curve", "Unusual syntax initially", "Familiar syntax"],
@@ -62,7 +60,7 @@ const introToR = createTopic(
         ),
 
         note(
-            "It's not R vs Python — top analysts know BOTH. R for exploration/statistics, Python for production/ML. Learning one makes the second far easier.",
+            "It's not R vs Python ï¿½ top analysts know BOTH. R for exploration/statistics, Python for production/ML. Learning one makes the second far easier.",
             "tip",
             "Not a War"
         ),
@@ -71,19 +69,19 @@ const introToR = createTopic(
 
         code(
             `+-----------------------------------------+
-¦              ¦   Environment / History  ¦
-¦   Script     +--------------------------¦
-¦   Editor     ¦                          ¦
-¦   (write     ¦   Plots / Packages /     ¦
-¦    code)     ¦   Help / Viewer          ¦
-+-----------------------------------------¦
-¦   Console (run code, see results)       ¦
+ï¿½              ï¿½   Environment / History  ï¿½
+ï¿½   Script     +--------------------------ï¿½
+ï¿½   Editor     ï¿½                          ï¿½
+ï¿½   (write     ï¿½   Plots / Packages /     ï¿½
+ï¿½    code)     ï¿½   Help / Viewer          ï¿½
++-----------------------------------------ï¿½
+ï¿½   Console (run code, see results)       ï¿½
 +-----------------------------------------+`,
             "text",
             "Four-pane workspace"
         ),
 
-        heading("First Code — Syntax Essentials"),
+        heading("First Code ï¿½ Syntax Essentials"),
 
         code(
             `# Assignment: <- is the R way (Alt + - shortcut)
@@ -100,12 +98,12 @@ sd(scores)       # 10.5...
 
 # Comments use #
 # Printing happens automatically in console
-scores * 2       # vectorized — no loops needed`,
+scores * 2       # vectorized ï¿½ no loops needed`,
             "r",
             "Your first R lines"
         ),
 
-        heading("Packages — R's Superpower"),
+        heading("Packages ï¿½ R's Superpower"),
 
         code(
             `install.packages("dplyr")   # once, downloads from CRAN
@@ -137,7 +135,7 @@ summary(mtcars$mpg)          # instant stats`,
         keyPoints([
             "R was created by Ihaka & Gentleman (1993) for statistical computing.",
             "RStudio is the standard IDE: editor + console + environment + plots.",
-            "R is vectorized — operations apply to whole vectors without loops.",
+            "R is vectorized ï¿½ operations apply to whole vectors without loops.",
             "CRAN hosts 15,000+ packages; install.packages() then library().",
             "Built-in datasets (iris, mtcars) are perfect practice grounds.",
         ]),
@@ -164,7 +162,7 @@ summary(mtcars$mpg)          # instant stats`,
             ),
             mcq(
                 "What does the expression c(1, 2, 3) * 2 return in R?",
-                ["An error", "c(2, 4, 6) — vectorized operation", "3", "c(1, 2, 3)"],
+                ["An error", "c(2, 4, 6) ï¿½ vectorized operation", "3", "c(1, 2, 3)"],
                 1,
                 "R vectorizes: the operation applies element-wise automatically."
             ),
@@ -179,12 +177,12 @@ summary(mtcars$mpg)          # instant stats`,
         questions: [
             qa(
                 "What is R? Explain its key features that make it suitable for data analytics.",
-                "R is a free, open-source language and environment created by Ross Ihaka and Robert Gentleman (1993, University of Auckland) specifically for statistical computing and graphics. Key features: (1) Statistical DNA — it was built by statisticians, so every statistical test, distribution, and model is available as a ready function; (2) Vectorized operations — calculations apply to entire datasets without writing loops; (3) 15,000+ CRAN packages extending R into every domain; (4) ggplot2, a grammar-of-graphics visualization system widely considered the best plotting engine anywhere; (5) Reproducible research via R Markdown, mixing code, results, and narrative in one document; (6) Completely free and open source with a massive community. These traits make R the default choice in pharmaceuticals, biostatistics, academia, banking research, and data journalism.",
+                "R is a free, open-source language and environment created by Ross Ihaka and Robert Gentleman (1993, University of Auckland) specifically for statistical computing and graphics. Key features: (1) Statistical DNA ï¿½ it was built by statisticians, so every statistical test, distribution, and model is available as a ready function; (2) Vectorized operations ï¿½ calculations apply to entire datasets without writing loops; (3) 15,000+ CRAN packages extending R into every domain; (4) ggplot2, a grammar-of-graphics visualization system widely considered the best plotting engine anywhere; (5) Reproducible research via R Markdown, mixing code, results, and narrative in one document; (6) Completely free and open source with a massive community. These traits make R the default choice in pharmaceuticals, biostatistics, academia, banking research, and data journalism.",
                 4
             ),
             qa(
                 "Describe the RStudio interface and the difference between the script editor and the console.",
-                "RStudio organizes work into four panes. Top-left: the Script Editor — where you write and save reusable .R files; code is sent to run with Ctrl+Enter and persists across sessions, forming the permanent record of an analysis. Bottom-left: the Console — an interactive command line where commands execute immediately and results print; ideal for quick experiments, but commands are lost when the session ends. Top-right: Environment/History pane — lists every created variable, its structure, and command history. Bottom-right: the multi-tab pane — Plots (rendered graphics), Packages (installer/loader), Help (documentation), and Viewer (HTML outputs). Professional workflow: explore interactively in the console, then promote working commands into scripts — ensuring every analysis is reproducible rather than a lost sequence of clicks.",
+                "RStudio organizes work into four panes. Top-left: the Script Editor ï¿½ where you write and save reusable .R files; code is sent to run with Ctrl+Enter and persists across sessions, forming the permanent record of an analysis. Bottom-left: the Console ï¿½ an interactive command line where commands execute immediately and results print; ideal for quick experiments, but commands are lost when the session ends. Top-right: Environment/History pane ï¿½ lists every created variable, its structure, and command history. Bottom-right: the multi-tab pane ï¿½ Plots (rendered graphics), Packages (installer/loader), Help (documentation), and Viewer (HTML outputs). Professional workflow: explore interactively in the console, then promote working commands into scripts ï¿½ ensuring every analysis is reproducible rather than a lost sequence of clicks.",
                 4
             ),
         ],
@@ -192,7 +190,7 @@ summary(mtcars$mpg)          # instant stats`,
 );
 
 /* =========================================================
-   TOPIC 2 — Data Types & Data Structures in R
+   TOPIC 2 ï¿½ Data Types & Data Structures in R
 ========================================================= */
 
 const dataStructures = createTopic(
@@ -202,7 +200,7 @@ const dataStructures = createTopic(
     [
         definition(
             "Data Structure",
-            "A data structure in R is a way of organizing data in memory — R provides vectors, lists, matrices, arrays, factors, and data frames, each suited to different shapes of data."
+            "A data structure in R is a way of organizing data in memory ï¿½ R provides vectors, lists, matrices, arrays, factors, and data frames, each suited to different shapes of data."
         ),
 
         heading("Basic Data Types"),
@@ -218,7 +216,7 @@ class(2 + 3i)    # "complex"`,
             "The atomic types"
         ),
 
-        heading("1. Vectors — The Atom of R"),
+        heading("1. Vectors ï¿½ The Atom of R"),
 
         code(
             `# All elements must be ONE type (coercion otherwise!)
@@ -244,7 +242,7 @@ marks["Neha"]      # 85`,
             "1-Based Indexing"
         ),
 
-        heading("2. Lists — Containers of Anything"),
+        heading("2. Lists ï¿½ Containers of Anything"),
 
         code(
             `student <- list(
@@ -261,7 +259,7 @@ student[["marks"]]    # same via [[ ]]
             "Lists hold mixed types"
         ),
 
-        heading("3. Matrices — 2D, One Type"),
+        heading("3. Matrices ï¿½ 2D, One Type"),
 
         code(
             `m <- matrix(1:6, nrow = 2, ncol = 3)
@@ -277,7 +275,7 @@ m %*% t(m)  # matrix multiplication`,
             "Matrix operations"
         ),
 
-        heading("4. Factors — Categorical Data"),
+        heading("4. Factors ï¿½ Categorical Data"),
 
         code(
             `blood <- factor(c("A", "B", "O", "A", "B"),
@@ -292,16 +290,16 @@ table(blood)          # frequency counts
 temp <- factor(c("Low","High","Medium"),
                levels = c("Low","Medium","High"),
                ordered = TRUE)
-temp[1] < temp[2]     # TRUE — meaningful order`,
+temp[1] < temp[2]     # TRUE ï¿½ meaningful order`,
             "r",
             "Categories with memory"
         ),
 
-        heading("5. Data Frames — The Analytics Workhorse"),
+        heading("5. Data Frames ï¿½ The Analytics Workhorse"),
 
         definition(
             "Data Frame",
-            "A data frame is R's spreadsheet-like structure: rows of observations, columns of variables, where each column may hold a DIFFERENT data type — the structure every real dataset loads into."
+            "A data frame is R's spreadsheet-like structure: rows of observations, columns of variables, where each column may hold a DIFFERENT data type ï¿½ the structure every real dataset loads into."
         ),
 
         code(
@@ -312,7 +310,7 @@ temp[1] < temp[2]     # TRUE — meaningful order`,
     stream = factor(c("BCA","BCA","BBA","BCA"),
 )
 
-str(students)        # structure — first command on ANY data
+str(students)        # structure ï¿½ first command on ANY data
 # 4 obs. of 4 variables
 
 students$marks               # one column as vector
@@ -351,7 +349,7 @@ names(students)  # column names`,
 
 {
     summary:
-    "Master R's building blocks: vectors, lists, matrices, factors, and data frames — with indexing rules and type systems.",
+    "Master R's building blocks: vectors, lists, matrices, factors, and data frames ï¿½ with indexing rules and type systems.",
         minutes: 13,
             tags: ["vectors", "lists", "factors", "data-frames", "data-structures", "important"],
 
@@ -360,7 +358,7 @@ names(students)  # column names`,
                         "Which R structure allows DIFFERENT data types in different columns?",
                         ["Matrix", "Vector", "Data frame", "Array"],
                         2,
-                        "Data frames mix types per column — matrices and vectors cannot."
+                        "Data frames mix types per column ï¿½ matrices and vectors cannot."
                     ),
                     mcq(
                         "What does c(10, 20, 30)[2] return in R?",
@@ -372,7 +370,7 @@ names(students)  # column names`,
                         "A factor in R internally stores categories as:",
                         ["Text strings", "Integer codes with level labels", "Lists", "Matrices"],
                         1,
-                        "Factors map each value to an integer level — memory-efficient categories."
+                        "Factors map each value to an integer level ï¿½ memory-efficient categories."
                     ),
                     mcq(
                         "The first command you should run on any newly loaded data frame is:",
@@ -385,12 +383,12 @@ names(students)  # column names`,
                     questions: [
                         qa(
                             "Explain the five main data structures in R with one use case each.",
-                            "(1) Vector: 1-D container of ONE type — a single variable like marks <- c(78, 85, 92); supports vectorized math and logical filtering. (2) List: 1-D container of ANYTHING mixed — student <- list(name='Rahul', marks=c(88,76), passed=TRUE) groups unrelated objects, returned by many statistical functions. (3) Matrix: 2-D grid of one type — storing a correlation matrix or transition grid; supports algebra like t() and %*%. (4) Factor: categorical encoder — blood types, gender, city stored as integer levels behind labels; table(factor) gives instant frequencies; ordered factors add meaningful comparison (Low < High). (5) Data frame: the analytics workhorse — 2-D like a spreadsheet where each column carries its own type (numeric marks, character names, factor streams); every read.csv() produces one, and virtually all analysis operates on data frames.",
+                            "(1) Vector: 1-D container of ONE type ï¿½ a single variable like marks <- c(78, 85, 92); supports vectorized math and logical filtering. (2) List: 1-D container of ANYTHING mixed ï¿½ student <- list(name='Rahul', marks=c(88,76), passed=TRUE) groups unrelated objects, returned by many statistical functions. (3) Matrix: 2-D grid of one type ï¿½ storing a correlation matrix or transition grid; supports algebra like t() and %*%. (4) Factor: categorical encoder ï¿½ blood types, gender, city stored as integer levels behind labels; table(factor) gives instant frequencies; ordered factors add meaningful comparison (Low < High). (5) Data frame: the analytics workhorse ï¿½ 2-D like a spreadsheet where each column carries its own type (numeric marks, character names, factor streams); every read.csv() produces one, and virtually all analysis operates on data frames.",
                             4
                         ),
                         qa(
                             "Differentiate a vector, list, and data frame. Why is the data frame central to analytics in R?",
-                            "Vector: homogeneous 1-D — every element must be the same type; assigning c(1, 'a') silently coerces everything to character. List: heterogeneous 1-D — elements may be any type or structure (numbers, strings, vectors, even other lists), accessed via $name or [[index]]. Data frame: a special list of equal-length vectors presented as a 2-D table — so columns may differ in type but rows stay aligned like a spreadsheet. The data frame is central because REAL data is rectangular and mixed: read.csv() loads CSVs directly into data frames; dplyr verbs, ggplot2 aesthetics, lm(), t.test() — essentially every analytical function — accepts a data frame and a column reference. Master subsetting (df[rows, cols], df$col, df[df$col > 80, ]) and you can explore any dataset in R.",
+                            "Vector: homogeneous 1-D ï¿½ every element must be the same type; assigning c(1, 'a') silently coerces everything to character. List: heterogeneous 1-D ï¿½ elements may be any type or structure (numbers, strings, vectors, even other lists), accessed via $name or [[index]]. Data frame: a special list of equal-length vectors presented as a 2-D table ï¿½ so columns may differ in type but rows stay aligned like a spreadsheet. The data frame is central because REAL data is rectangular and mixed: read.csv() loads CSVs directly into data frames; dplyr verbs, ggplot2 aesthetics, lm(), t.test() ï¿½ essentially every analytical function ï¿½ accepts a data frame and a column reference. Master subsetting (df[rows, cols], df$col, df[df$col > 80, ]) and you can explore any dataset in R.",
                             4
                         ),
                     ],
@@ -398,7 +396,7 @@ names(students)  # column names`,
 );
 
 /* =========================================================
-   TOPIC 3 — Data Import, Cleaning & dplyr Wrangling
+   TOPIC 3 ï¿½ Data Import, Cleaning & dplyr Wrangling
 ========================================================= */
 
 const dplyrWrangling = createTopic(
@@ -408,7 +406,7 @@ const dplyrWrangling = createTopic(
     [
         definition(
             "Data Wrangling",
-            "Data wrangling (munging) is the process of importing, cleaning, transforming, and reshaping raw data into a tidy, analysis-ready form — typically 70-80% of an analyst's time."
+            "Data wrangling (munging) is the process of importing, cleaning, transforming, and reshaping raw data into a tidy, analysis-ready form ï¿½ typically 70-80% of an analyst's time."
         ),
 
         heading("Importing Data"),
@@ -437,7 +435,7 @@ data(mtcars); df <- mtcars`,
             `str(df)          # structure: types + sample values
 head(df, 10)     # first 10 rows
 summary(df)      # per-column statistics
-dim(df)          # rows × columns
+dim(df)          # rows ï¿½ columns
 names(df)        # column names
 any(is.na(df),   # any missing values?
 colSums(is.na(df),  # missing count per column`,
@@ -468,11 +466,11 @@ df$name <- tolower(df$name)`,
             "The cleaning checklist"
         ),
 
-        heading("dplyr — The Grammar of Data Manipulation"),
+        heading("dplyr ï¿½ The Grammar of Data Manipulation"),
 
         definition(
             "dplyr",
-            "dplyr is the tidyverse package providing five intuitive verbs — filter, select, mutate, arrange, summarise — that together cover nearly all data transformation needs, chainable with the pipe operator %>%."
+            "dplyr is the tidyverse package providing five intuitive verbs ï¿½ filter, select, mutate, arrange, summarise ï¿½ that together cover nearly all data transformation needs, chainable with the pipe operator %>%."
         ),
 
         table(
@@ -510,22 +508,22 @@ result <- df %>%
         code(
             `library(dplyr)
 
-# 1. filter — rows
+# 1. filter ï¿½ rows
 toppers <- students %>% filter(marks >= 85, stream == "BCA")
 
-# 2. select — columns
+# 2. select ï¿½ columns
 lean <- students %>% select(name, marks)
 
-# 3. mutate — new columns
+# 3. mutate ï¿½ new columns
 students <- students %>% mutate(
     grade   = ifelse(marks >= 75, "Distinction", "Pass"),
     z_score = scale(marks)
 )
 
-# 4. arrange — sort
+# 4. arrange ï¿½ sort
 students %>% arrange(desc(marks),
 
-# 5. group_by + summarise — the analytics workhorse
+# 5. group_by + summarise ï¿½ the analytics workhorse
 students %>%
   group_by(stream) %>%
   summarise(
@@ -541,10 +539,10 @@ students %>%
         heading("Other Tidy Data Tools"),
 
         list([
-            "tidyr::pivot_longer() — wide ? long (untidy to tidy).",
-            "tidyr::pivot_wider() — long ? wide.",
-            "left_join(df1, df2, by = \"id\") — merge tables like SQL JOIN.",
-            "ifelse() / case_when() — conditional columns.",
+            "tidyr::pivot_longer() ï¿½ wide ? long (untidy to tidy).",
+            "tidyr::pivot_wider() ï¿½ long ? wide.",
+            "left_join(df1, df2, by = \"id\") ï¿½ merge tables like SQL JOIN.",
+            "ifelse() / case_when() ï¿½ conditional columns.",
         ]),
 
         note(
@@ -579,16 +577,16 @@ students %>%
                         "The pipe operator %>% does what?",
                         ["Multiplies columns", "Sends the left-hand result into the next function", "Imports packages", "Plots data"],
                         1,
-                        "df %>% f() is equivalent to f(df) — enabling readable chains."
+                        "df %>% f() is equivalent to f(df) ï¿½ enabling readable chains."
                     ),
                     mcq(
                         "To compute average marks PER STREAM, you combine:",
                         ["arrange + select", "group_by + summarise", "filter + mutate", "str + summary"],
                         1,
-                        "group_by(stream) then summarise(avg = mean(marks), — SQL's GROUP BY."
+                        "group_by(stream) then summarise(avg = mean(marks), ï¿½ SQL's GROUP BY."
                     ),
                     mcq(
-                        "median(df$x, na.rm = TRUE) — why the na.rm argument?",
+                        "median(df$x, na.rm = TRUE) ï¿½ why the na.rm argument?",
                         ["Speeds up calculation", "Excludes missing values from the computation", "Removes the column", "Rounds results"],
                         1,
                         "Without na.rm=TRUE, any NA makes the result NA."
@@ -598,12 +596,12 @@ students %>%
                     questions: [
                         qa(
                             "Explain dplyr's five main verbs with examples.",
-                            "(1) filter() — selects ROWS meeting conditions: students %>% filter(marks >= 85, stream == 'BCA') keeps only distinction BCA students (SQL WHERE). (2) select() — picks COLUMNS: select(name, marks) keeps a lean table (SQL SELECT). (3) mutate() — creates or transforms columns: mutate(grade = ifelse(marks >= 75, 'Distinction', 'Pass'), adds a derived variable while keeping originals. (4) arrange() — sorts rows: arrange(desc(marks), ranks toppers first (ORDER BY). (5) summarise() — collapses many rows into one statistic: summarise(avg = mean(marks),; combined with group_by() it produces per-group statistics — group_by(stream) %>% summarise(avg = mean(marks), n = n(), gives each stream's average and count, exactly like GROUP BY in SQL. Chained with pipes, these five verbs express nearly every data transformation an analyst performs.",
+                            "(1) filter() ï¿½ selects ROWS meeting conditions: students %>% filter(marks >= 85, stream == 'BCA') keeps only distinction BCA students (SQL WHERE). (2) select() ï¿½ picks COLUMNS: select(name, marks) keeps a lean table (SQL SELECT). (3) mutate() ï¿½ creates or transforms columns: mutate(grade = ifelse(marks >= 75, 'Distinction', 'Pass'), adds a derived variable while keeping originals. (4) arrange() ï¿½ sorts rows: arrange(desc(marks), ranks toppers first (ORDER BY). (5) summarise() ï¿½ collapses many rows into one statistic: summarise(avg = mean(marks),; combined with group_by() it produces per-group statistics ï¿½ group_by(stream) %>% summarise(avg = mean(marks), n = n(), gives each stream's average and count, exactly like GROUP BY in SQL. Chained with pipes, these five verbs express nearly every data transformation an analyst performs.",
                             4
                         ),
                         qa(
                             "Describe a complete data-cleaning workflow for a freshly imported CSV in R.",
-                            "(1) Inspect first: str(df) reveals column types and hidden problems (marks imported as character means stray text!); summary(df) exposes impossible values; colSums(is.na(df), counts missingness; duplicated(df) detects repeats. (2) Handle missing values: for critical fields drop rows — df <- df[!is.na(df$marks), ]; for others impute — df$age[is.na(df$age)] <- median(df$age, na.rm = TRUE); ALWAYS pass na.rm = TRUE in statistics. (3) Fix types: as.numeric(), as.integer(), as.factor() convert misread columns; dates need as.Date(col, format='%d-%m-%Y'). (4) Deduplicate: df <- distinct(df). (5) Normalize text: trimws(), tolower(), and recode inconsistent spellings ('BCA ' vs 'bca') — often via recode() or case_when(). (6) Sanity-check ranges: filter(df, marks < 0 | marks > 100) finds impossible values for review. (7) Document every step in a script so the cleaning is reproducible — cleaning decisions ARE analysis decisions.",
+                            "(1) Inspect first: str(df) reveals column types and hidden problems (marks imported as character means stray text!); summary(df) exposes impossible values; colSums(is.na(df), counts missingness; duplicated(df) detects repeats. (2) Handle missing values: for critical fields drop rows ï¿½ df <- df[!is.na(df$marks), ]; for others impute ï¿½ df$age[is.na(df$age)] <- median(df$age, na.rm = TRUE); ALWAYS pass na.rm = TRUE in statistics. (3) Fix types: as.numeric(), as.integer(), as.factor() convert misread columns; dates need as.Date(col, format='%d-%m-%Y'). (4) Deduplicate: df <- distinct(df). (5) Normalize text: trimws(), tolower(), and recode inconsistent spellings ('BCA ' vs 'bca') ï¿½ often via recode() or case_when(). (6) Sanity-check ranges: filter(df, marks < 0 | marks > 100) finds impossible values for review. (7) Document every step in a script so the cleaning is reproducible ï¿½ cleaning decisions ARE analysis decisions.",
                             4
                         ),
                     ],
@@ -611,7 +609,7 @@ students %>%
 );
 
 /* =========================================================
-   TOPIC 4 — Data Visualization with ggplot2
+   TOPIC 4 ï¿½ Data Visualization with ggplot2
 ========================================================= */
 
 const ggplotVisualization = createTopic(
@@ -621,7 +619,7 @@ const ggplotVisualization = createTopic(
     [
         definition(
             "ggplot2",
-            "ggplot2 is R's visualization package implementing the 'Grammar of Graphics' — building plots from layers: data, aesthetic mappings, geometric objects, scales, and themes."
+            "ggplot2 is R's visualization package implementing the 'Grammar of Graphics' ï¿½ building plots from layers: data, aesthetic mappings, geometric objects, scales, and themes."
         ),
 
         heading("The Grammar Template"),
@@ -660,24 +658,24 @@ const ggplotVisualization = createTopic(
         code(
             `library(ggplot2)
 
-# 1. Scatter — relationship
+# 1. Scatter ï¿½ relationship
 ggplot(students, aes(x = hours, y = marks), +
     geom_point(color = "steelblue", size = 3) +
     geom_smooth(method = "lm")     # adds regression line
 
-# 2. Histogram — distribution shape
+# 2. Histogram ï¿½ distribution shape
 ggplot(students, aes(x = marks), +
     geom_histogram(binwidth = 5, fill = "tomato")
 
-# 3. Boxplot — group compare + outliers
+# 3. Boxplot ï¿½ group compare + outliers
 ggplot(students, aes(x = stream, y = marks, fill = stream), +
     geom_boxplot()
 
-# 4. Bar — counts/means per category
+# 4. Bar ï¿½ counts/means per category
 ggplot(students, aes(x = stream), +
     geom_bar(fill = "seagreen")
 
-# 5. Facets — small multiples!
+# 5. Facets ï¿½ small multiples!
 ggplot(students, aes(x = marks), +
     geom_histogram() +
     facet_wrap(~stream)            # one panel per stream`,
@@ -689,15 +687,15 @@ ggplot(students, aes(x = marks), +
 
         code(
             `        +-- max (within whiskers)
-        ¦
-     ---¦  ? Q3 (75th percentile)
-      ¦ ¦
- med -¦  ? median (50th)
-      ¦ ¦
-     ---¦  ? Q1 (25th percentile)
-        ¦
+        ï¿½
+     ---ï¿½  ? Q3 (75th percentile)
+      ï¿½ ï¿½
+ med -ï¿½  ? median (50th)
+      ï¿½ ï¿½
+     ---ï¿½  ? Q1 (25th percentile)
+        ï¿½
         +-- min
-  ?        ? outlier (beyond 1.5×IQR)
+  ?        ? outlier (beyond 1.5ï¿½IQR)
 
 Box = middle 50% (IQR); line = median;
 whiskers = normal range; dots = outliers.`,
@@ -750,7 +748,7 @@ ggsave("chart.png", width = 8, height = 5, dpi = 300)`,
                 mcqs: [
                     mcq(
                         "In ggplot2, aes() defines:",
-                        ["The plot title", "Aesthetic mappings — which columns map to x, y, color", "The file name", "The theme colors"],
+                        ["The plot title", "Aesthetic mappings ï¿½ which columns map to x, y, color", "The file name", "The theme colors"],
                         1,
                         "aes() connects data columns to visual properties."
                     ),
@@ -762,7 +760,7 @@ ggsave("chart.png", width = 8, height = 5, dpi = 300)`,
                     ),
                     mcq(
                         "In a boxplot, the box itself spans:",
-                        ["Min to max", "Q1 to Q3 — the interquartile range (middle 50%)", "Mean ± 2sd", "Only the median"],
+                        ["Min to max", "Q1 to Q3 ï¿½ the interquartile range (middle 50%)", "Mean ï¿½ 2sd", "Only the median"],
                         1,
                         "The box is the IQR; the center line is the median; dots are outliers."
                     ),
@@ -777,12 +775,12 @@ ggsave("chart.png", width = 8, height = 5, dpi = 300)`,
                     questions: [
                         qa(
                             "Explain the Grammar of Graphics concept behind ggplot2 with the layering template.",
-                            "The Grammar of Graphics (Leland Wilkinson) treats plots as compositions of independent, stackable components rather than monolithic chart types. ggplot2 (Hadley Wickham) implements this: every plot begins ggplot(data, aes(...), declaring the DATA and AESTHETIC MAPPINGS — which columns drive x-position, y-position, color, size. GEOMS then add geometry layers — geom_point() renders each row as a dot, geom_smooth() overlays a trend line, geom_histogram() bins a variable — and multiple geoms can stack on the same mapping. Further layers refine: scales control axes/colors (scale_color_brewer), facets split panels by category (facet_wrap(~stream), labs() adds titles/labels, and themes style non-data ink (theme_minimal). Because layers are additive, complex charts evolve from simple ones — start with ggplot(df, aes(x,y), + geom_point(), then keep adding + layers until the plot answers its question precisely.",
+                            "The Grammar of Graphics (Leland Wilkinson) treats plots as compositions of independent, stackable components rather than monolithic chart types. ggplot2 (Hadley Wickham) implements this: every plot begins ggplot(data, aes(...), declaring the DATA and AESTHETIC MAPPINGS ï¿½ which columns drive x-position, y-position, color, size. GEOMS then add geometry layers ï¿½ geom_point() renders each row as a dot, geom_smooth() overlays a trend line, geom_histogram() bins a variable ï¿½ and multiple geoms can stack on the same mapping. Further layers refine: scales control axes/colors (scale_color_brewer), facets split panels by category (facet_wrap(~stream), labs() adds titles/labels, and themes style non-data ink (theme_minimal). Because layers are additive, complex charts evolve from simple ones ï¿½ start with ggplot(df, aes(x,y), + geom_point(), then keep adding + layers until the plot answers its question precisely.",
                             4
                         ),
                         qa(
                             "A lecturer wants to compare marks distributions across four streams. Which plot do you recommend and why? Include the R code.",
-                            "A boxplot is ideal — specifically ggplot(students, aes(x = stream, y = marks, fill = stream), + geom_boxplot(). Reasons: (1) Side-by-side boxes let the eye compare MEDIANS directly — the central line of each box; (2) the IQR boxes show spread — which stream is consistent vs volatile; (3) whiskers plus outlier dots expose extreme students that a mean-based bar chart would silently absorb; (4) it handles skew visibly — a lopsided box signals non-normal marks. Enhancement for presentations: overlay raw points with geom_jitter(alpha = 0.3) to show actual data behind the summary, and add stat_summary(fun = mean) to mark means as diamonds where they diverge from medians. A grouped histogram via facet_wrap(~stream) is the alternative when distribution SHAPE (multimodality) matters more than comparison of summaries.",
+                            "A boxplot is ideal ï¿½ specifically ggplot(students, aes(x = stream, y = marks, fill = stream), + geom_boxplot(). Reasons: (1) Side-by-side boxes let the eye compare MEDIANS directly ï¿½ the central line of each box; (2) the IQR boxes show spread ï¿½ which stream is consistent vs volatile; (3) whiskers plus outlier dots expose extreme students that a mean-based bar chart would silently absorb; (4) it handles skew visibly ï¿½ a lopsided box signals non-normal marks. Enhancement for presentations: overlay raw points with geom_jitter(alpha = 0.3) to show actual data behind the summary, and add stat_summary(fun = mean) to mark means as diamonds where they diverge from medians. A grouped histogram via facet_wrap(~stream) is the alternative when distribution SHAPE (multimodality) matters more than comparison of summaries.",
                             4
                         ),
                     ],
@@ -790,7 +788,7 @@ ggsave("chart.png", width = 8, height = 5, dpi = 300)`,
 );
 
 /* =========================================================
-   TOPIC 5 — Exploratory Data Analysis (EDA) Workflow
+   TOPIC 5 ï¿½ Exploratory Data Analysis (EDA) Workflow
 ========================================================= */
 
 const edaWorkflow = createTopic(
@@ -800,7 +798,7 @@ const edaWorkflow = createTopic(
     [
         definition(
             "Exploratory Data Analysis",
-            "EDA, coined by John Tukey, is the systematic first investigation of a dataset — summarizing its main characteristics, often visually — before formal modeling, to discover patterns, spot anomalies, and generate hypotheses."
+            "EDA, coined by John Tukey, is the systematic first investigation of a dataset ï¿½ summarizing its main characteristics, often visually ï¿½ before formal modeling, to discover patterns, spot anomalies, and generate hypotheses."
         ),
 
         heading("The EDA Question Set"),
@@ -842,7 +840,7 @@ ggplot(mtcars, aes(wt, mpg), +
     geom_smooth(method = "lm")
 # heavier car ? lower mileage (negative trend)
 
-cor(mtcars$wt, mtcars$mpg)      # ˜ -0.87 strong!
+cor(mtcars$wt, mtcars$mpg)      # ï¿½ -0.87 strong!
 
 # numeric vs categorical
 ggplot(mtcars, aes(factor(cyl), mpg, fill = factor(cyl),) +
@@ -884,7 +882,7 @@ ggplot(melted, aes(Var1, Var2, fill = value), +
         heading("Spotting Outliers"),
 
         code(
-            `# Z-score method: beyond ±3 standard deviations
+            `# Z-score method: beyond ï¿½3 standard deviations
 z <- scale(students$marks)
 students[abs(z) > 3, ]        # show outliers
 
@@ -918,7 +916,7 @@ students[students$marks < lower | students$marks > upper, ]
             "EDA interrogates structure, missingness, distributions, and relationships.",
             "Univariate ? bivariate ? multivariate, escalating complexity.",
             "cor() quantifies relationships; pairs() shows all at once.",
-            "Detect outliers via z-scores (±3) or IQR fences (1.5×IQR).",
+            "Detect outliers via z-scores (ï¿½3) or IQR fences (1.5ï¿½IQR).",
             "EDA output: clean data + charts + hypotheses for formal testing.",
         ]),
   ],
@@ -938,33 +936,33 @@ students[students$marks < lower | students$marks > upper, ]
                     ),
                     mcq(
                         "Using the IQR rule, an outlier lies beyond:",
-                        ["Mean ± 2 SD", "Q1 - 1.5×IQR or Q3 + 1.5×IQR", "Median ± IQR", "Min/Max"],
+                        ["Mean ï¿½ 2 SD", "Q1 - 1.5ï¿½IQR or Q3 + 1.5ï¿½IQR", "Median ï¿½ IQR", "Min/Max"],
                         1,
-                        "The 1.5×IQR fences define boxplot whiskers; dots beyond are outliers."
+                        "The 1.5ï¿½IQR fences define boxplot whiskers; dots beyond are outliers."
                     ),
                     mcq(
-                        "cor(mtcars$wt, mtcars$mpg) ˜ -0.87 indicates:",
+                        "cor(mtcars$wt, mtcars$mpg) ï¿½ -0.87 indicates:",
                         ["No relationship", "Strong NEGATIVE linear relationship", "Weak positive relationship", "Causation"],
                         1,
-                        "Near -1 = strong inverse linearity — heavier cars, lower mileage."
+                        "Near -1 = strong inverse linearity ï¿½ heavier cars, lower mileage."
                     ),
                     mcq(
                         "pairs(mtcars[, 1:5]) produces:",
                         ["Five histograms", "A scatterplot matrix of all variable pairs", "Boxplots", "A regression model"],
                         1,
-                        "pairs() draws every pairwise scatter — the EDA overview tool."
+                        "pairs() draws every pairwise scatter ï¿½ the EDA overview tool."
                     ),
                 ],
 
                     questions: [
                         qa(
                             "What is Exploratory Data Analysis? Outline the stages of a complete EDA workflow.",
-                            "EDA — coined by John Tukey (1977) — is the disciplined first look at data: summarizing structure and distributions, mostly visually, BEFORE any formal modeling, to find patterns, anomalies, and generate testable hypotheses. Workflow stages: (1) Structure — str(), dim(), head(): dimensions, types, sample values; (2) Quality — colSums(is.na(), for missingness, duplicated() for repeats; (3) Univariate — summary(), sd(), histograms per numeric, bar charts per category: center, spread, skew; (4) Bivariate — scatter + cor() for numeric pairs, boxplots by category for group comparisons; (5) Multivariate — color/size encodings and facet grids revealing interactions (e.g., wt-mpg relationship differing by cylinder count); (6) Outliers — z-scores or IQR fences, each investigated: error or genuine extreme?; (7) Synthesis — documented script, headline charts, and a hypothesis list feeding formal statistical testing. EDA's product is not conclusions but WELL-FOUNDED questions.",
+                            "EDA ï¿½ coined by John Tukey (1977) ï¿½ is the disciplined first look at data: summarizing structure and distributions, mostly visually, BEFORE any formal modeling, to find patterns, anomalies, and generate testable hypotheses. Workflow stages: (1) Structure ï¿½ str(), dim(), head(): dimensions, types, sample values; (2) Quality ï¿½ colSums(is.na(), for missingness, duplicated() for repeats; (3) Univariate ï¿½ summary(), sd(), histograms per numeric, bar charts per category: center, spread, skew; (4) Bivariate ï¿½ scatter + cor() for numeric pairs, boxplots by category for group comparisons; (5) Multivariate ï¿½ color/size encodings and facet grids revealing interactions (e.g., wt-mpg relationship differing by cylinder count); (6) Outliers ï¿½ z-scores or IQR fences, each investigated: error or genuine extreme?; (7) Synthesis ï¿½ documented script, headline charts, and a hypothesis list feeding formal statistical testing. EDA's product is not conclusions but WELL-FOUNDED questions.",
                             4
                         ),
                         qa(
                             "During EDA you find one student with marks = 980 among values of 40-100. Explain how to detect and handle such outliers in R.",
-                            "Detection: (1) Visualization first — boxplot(students$marks) instantly flags the point as a dot beyond the whisker; (2) Z-score — z <- scale(students$marks); students[abs(z) > 3, ] flags values beyond 3 standard deviations — 980 would have |z| ˜ 8+; (3) IQR fences — lower <- Q1 - 1.5×IQR, upper <- Q3 + 1.5×IQR; any value outside is an outlier. Handling — the decision requires judgment, not just code: (a) If it's a DATA-ENTRY error (980 instead of 98, verifiable against source records), CORRECT it — students$marks[students$marks == 980] <- 98; (b) If unexplainable and unfixable, EXCLUDE with documentation — df <- df[df$marks <= 100, ] — noting the removal in comments; (c) If it's a GENUINE extreme (a real topper scoring 100 while others cluster at 60), KEEP it — it's the signal, not noise; optionally use robust statistics (median, IQR) so it doesn't distort summaries. Never delete outliers silently: every exclusion changes results and must be justified in your report.",
+                            "Detection: (1) Visualization first ï¿½ boxplot(students$marks) instantly flags the point as a dot beyond the whisker; (2) Z-score ï¿½ z <- scale(students$marks); students[abs(z) > 3, ] flags values beyond 3 standard deviations ï¿½ 980 would have |z| ï¿½ 8+; (3) IQR fences ï¿½ lower <- Q1 - 1.5ï¿½IQR, upper <- Q3 + 1.5ï¿½IQR; any value outside is an outlier. Handling ï¿½ the decision requires judgment, not just code: (a) If it's a DATA-ENTRY error (980 instead of 98, verifiable against source records), CORRECT it ï¿½ students$marks[students$marks == 980] <- 98; (b) If unexplainable and unfixable, EXCLUDE with documentation ï¿½ df <- df[df$marks <= 100, ] ï¿½ noting the removal in comments; (c) If it's a GENUINE extreme (a real topper scoring 100 while others cluster at 60), KEEP it ï¿½ it's the signal, not noise; optionally use robust statistics (median, IQR) so it doesn't distort summaries. Never delete outliers silently: every exclusion changes results and must be justified in your report.",
                             4
                         ),
                     ],

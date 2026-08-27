@@ -4,18 +4,16 @@
 ========================================================= */
 
 import {
-    createTopic,
-    heading,
-    text,
-    list,
-    code,
-    table,
-    note,
-    definition,
-    steps,
-    keyPoints,
-    mcq,
-    qa,
+  createTopic,
+  heading,
+  text,
+  list,
+  code,
+  table,
+  definition,
+  keyPoints,
+  mcq,
+  qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -352,7 +350,7 @@ const UserList = () => {
         questions: [
             qa(
                 "What are Axios Interceptors? Provide a practical implementation showing how to attach JWT tokens and catch 401 Unauthorized errors.",
-                "Axios Interceptors are middleware functions that intercept HTTP requests before they are dispatched to the network and responses before they are handled by then/catch blocks. Practical implementation: (1) Request Interceptor: Reads the JWT token from localStorage and appends it as config.headers.Authorization = `Bearer ${token}`. (2) Response Interceptor: Validates response status codes; if an HTTP 401 Unauthorized status is intercepted, it clears stale tokens from storage and redirects the user to the /login route, preventing repetitive auth error handling across individual components.",
+                "Axios Interceptors are middleware functions that intercept HTTP requests before they are dispatched to the network and responses before they are handled by then/catch blocks. Practical implementation: (1) Request Interceptor: Reads the JWT token from localStorage and appends it as config.headers.Authorization = 'Bearer ' + token. (2) Response Interceptor: Validates response status codes; if an HTTP 401 Unauthorized status is intercepted, it clears stale tokens from storage and redirects the user to the /login route, preventing repetitive auth error handling across individual components.",
                 4
             ),
             qa(

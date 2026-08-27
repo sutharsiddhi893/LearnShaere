@@ -120,8 +120,8 @@ export default function ProgrammingLab() {
   const language = getProgrammingLanguage(languageId);
 
   const editorAppearance =
-  EDITOR_APPEARANCES[language.id] ||
-  DEFAULT_EDITOR_APPEARANCE;
+    EDITOR_APPEARANCES[language.id] ||
+    DEFAULT_EDITOR_APPEARANCE;
 
   const [code, setCode] = useState(language.defaultCode);
   const [output, setOutput] = useState(language.defaultOutput);
@@ -155,15 +155,15 @@ export default function ProgrammingLab() {
     }
 
     setPreviewContent("");
-setOutput(`Compiling ${language.name} code...`);
+    setOutput(`Compiling ${language.name} code...`);
 
-runCodeWithPiston(language.id, code)
-  .then((result) => {
-    setOutput(formatExecutionResult(result));
-  })
-  .catch((error) => {
-    setOutput(`Execution Error:\n${error.message}`);
-  });
+    runCodeWithPiston(language.id, code)
+      .then((result) => {
+        setOutput(formatExecutionResult(result));
+      })
+      .catch((error) => {
+        setOutput(`Execution Error:\n${error.message}`);
+      });
   };
 
   const resetCode = () => {
@@ -173,10 +173,10 @@ runCodeWithPiston(language.id, code)
 
   return (
     <div
-  className="programming-lab-page"
-  data-language={language.id}
-  data-editor-theme={editorAppearance.theme}
->
+      className="programming-lab-page"
+      data-language={language.id}
+      data-editor-theme={editorAppearance.theme}
+    >
       <LanguageSidebar activeLanguageId={language.id} />
 
       <main className="programming-lab-content">
@@ -223,92 +223,92 @@ runCodeWithPiston(language.id, code)
             </div>
           </section>
 
-<section className="programming-lab-workspace">
-  <div className="programming-lab-section-title">
-    <div>
-      <span>Workspace</span>
-      <h2>Write, run and learn</h2>
-    </div>
+          <section className="programming-lab-workspace">
+            <div className="programming-lab-section-title">
+              <div>
+                <span>Workspace</span>
+                <h2>Write, run and learn</h2>
+              </div>
 
-    <span className="programming-lab-save-status">
-      <i></i>
-      Auto-saved locally
-    </span>
-  </div>
+              <span className="programming-lab-save-status">
+                <i></i>
+                Auto-saved locally
+              </span>
+            </div>
 
-  <div
-    className="programming-lab-ide"
-    data-editor-theme={editorAppearance.theme}
-  >
-    {/* IDE title bar */}
+            <div
+              className="programming-lab-ide"
+              data-editor-theme={editorAppearance.theme}
+            >
+              {/* IDE title bar */}
 
-    <div className="programming-lab-ide-titlebar">
-      <div className="programming-lab-ide-window-dots">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
+              <div className="programming-lab-ide-titlebar">
+                <div className="programming-lab-ide-window-dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
 
-      <strong>{editorAppearance.product}</strong>
+                <strong>{editorAppearance.product}</strong>
 
-      <span>{editorAppearance.fileName}</span>
-    </div>
+                <span>{editorAppearance.fileName}</span>
+              </div>
 
-    {/* IDE menu */}
+              {/* IDE menu */}
 
-    <div className="programming-lab-ide-menu">
-      <span>File</span>
-      <span>Edit</span>
-      <span>Search</span>
-      <span>Run</span>
-      <span>Compile</span>
-      <span>Debug</span>
-      <span>Help</span>
-    </div>
+              <div className="programming-lab-ide-menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>Search</span>
+                <span>Run</span>
+                <span>Compile</span>
+                <span>Debug</span>
+                <span>Help</span>
+              </div>
 
-    {/* Active file tab */}
+              {/* Active file tab */}
 
-    <div className="programming-lab-ide-tabs">
-      <div className="programming-lab-ide-tab-active">
-        <span className="programming-lab-ide-file-icon">
-          {language.icon}
-        </span>
+              <div className="programming-lab-ide-tabs">
+                <div className="programming-lab-ide-tab-active">
+                  <span className="programming-lab-ide-file-icon">
+                    {language.icon}
+                  </span>
 
-        <strong>{editorAppearance.fileName}</strong>
+                  <strong>{editorAppearance.fileName}</strong>
 
-        <span className="programming-lab-ide-tab-close">
-          ×
-        </span>
-      </div>
-    </div>
+                  <span className="programming-lab-ide-tab-close">
+                    ×
+                  </span>
+                </div>
+              </div>
 
-    {/* Your existing CodeEditor */}
+              {/* Your existing CodeEditor */}
 
-    <div className="programming-lab-editor-host">
-      <CodeEditor
-        language={language}
-        code={code}
-        output={output}
-        previewContent={previewContent}
-        onCodeChange={setCode}
-        onRun={runCode}
-        onReset={resetCode}
-      />
-    </div>
+              <div className="programming-lab-editor-host">
+                <CodeEditor
+                  language={language}
+                  code={code}
+                  output={output}
+                  previewContent={previewContent}
+                  onCodeChange={setCode}
+                  onRun={runCode}
+                  onReset={resetCode}
+                />
+              </div>
 
-    {/* IDE bottom status */}
+              {/* IDE bottom status */}
 
-    <div className="programming-lab-ide-status">
-      <span>● Ready</span>
+              <div className="programming-lab-ide-status">
+                <span>● Ready</span>
 
-      <span>{language.name}</span>
+                <span>{language.name}</span>
 
-      <span>UTF-8</span>
+                <span>UTF-8</span>
 
-      <span>Ln 1, Col 1</span>
-    </div>
-  </div>
-</section>
+                <span>Ln 1, Col 1</span>
+              </div>
+            </div>
+          </section>
 
           <section className="programming-lab-challenges-section">
             <div className="programming-lab-section-title">
@@ -327,11 +327,10 @@ runCodeWithPiston(language.id, code)
                 <button
                   type="button"
                   key={challenge}
-                  className={`programming-lab-challenge-card ${
-                    activeChallenge === index
+                  className={`programming-lab-challenge-card ${activeChallenge === index
                       ? "programming-lab-challenge-card-active"
                       : ""
-                  }`}
+                    }`}
                   onClick={() => setActiveChallenge(index)}
                 >
                   <span className="programming-lab-challenge-number">
@@ -444,6 +443,7 @@ function runJavaScriptCode(code, setOutput) {
       consoleOutput.push(formattedValues.join(" "));
     };
 
+    // eslint-disable-next-line no-new-func -- intentional sandboxed execution of user-written lab code
     new Function(code)();
 
     setOutput(
@@ -621,7 +621,7 @@ async function runCodeWithPiston(
 
     throw new Error(
       errorMessage ||
-        "The compiler could not execute the code."
+      "The compiler could not execute the code."
     );
   }
 

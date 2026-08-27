@@ -1,7 +1,23 @@
-// src/data/courses/msc-it.js
-// M.Sc IT — Semester layout & course metadata
+/* =========================================================
+   COURSE — M.SC IT
+   Master of Science in Information Technology
+   Semesters 1 & 2 migrated to /subjects/msc-it/**
+========================================================= */
 
-const mscItCourse = {
+import { createSemester, createEmptySemesters } from "../helpers";
+
+/* ---------------- SUBJECTS BY SEMESTER ---------------- */
+
+import SEM1_SUBJECTS from "../subjects/msc-it/sem1";
+import SEM2_SUBJECTS from "../subjects/msc-it/sem2";
+
+/* =========================================================
+   COURSE DEFINITION
+========================================================= */
+
+const emptySemesters = createEmptySemesters(4, "M.Sc IT");
+
+export const mscIt = {
   id: "msc-it",
   name: "Master of Science in Information Technology",
   shortName: "M.Sc IT",
@@ -12,47 +28,35 @@ const mscItCourse = {
   totalSemesters: 4,
 
   semesters: [
-    {
-      id: 1,
-      name: "Semester 1",
-      description:
-        "Python programming, database management systems, artificial intelligence, computer networks, computer fundamentals, and practical training.",
-      subjects: [
-        "python-programming",
-        "database-management-systems",
-        "artificial-intelligence",
-        "computer-networks",
-        "computer-fundamentals",
-        "practicals-1",
-      ],
-    },
-    {
-      id: 2,
-      name: "Semester 2",
-      description:
-        "Java programming, web technology, machine learning, cyber security, software engineering, and practical training.",
-      subjects: [
-        "oop-using-java",
-        "web-technology",
-        "machine-learning",
-        "cyber-security",
-        "software-engineering",
-        "practicals-2",
-      ],
-    },
-    {
-      id: 3,
-      name: "Semester 3",
-      description: "M.Sc IT Semester III curriculum. Subject details will be added soon.",
-      subjects: [],
-    },
-    {
-      id: 4,
-      name: "Semester 4",
-      description: "M.Sc IT Semester IV curriculum. Subject details will be added soon.",
-      subjects: [],
-    },
+    /* ===================================================
+       SEMESTER I
+    =================================================== */
+
+    createSemester(
+      1,
+      "Semester I",
+      "Python programming, database management systems, artificial intelligence, computer networks, computer fundamentals, and practical training.",
+      SEM1_SUBJECTS
+    ),
+
+    /* ===================================================
+       SEMESTER II
+    =================================================== */
+
+    createSemester(
+      2,
+      "Semester II",
+      "Java programming, web technology, machine learning, cyber security, software engineering, and practical training.",
+      SEM2_SUBJECTS
+    ),
+
+    /* ===================================================
+       SEMESTERS III & IV (Coming Soon)
+    =================================================== */
+
+    emptySemesters[2],
+    emptySemesters[3],
   ],
 };
 
-export default mscItCourse;
+export default mscIt;
