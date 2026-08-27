@@ -1347,10 +1347,10 @@ names.forEach(System.out::println);
             "Method reference examples"
         ),
 
-        heading("Stream API (Brief Introduction)"),
+        heading("Stream API (Brief Introduction)",
 
-        code(
-            `List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+            code(
+                `List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 // Filter even numbers, square them, collect to list
 List<Integer> result = numbers.stream()
@@ -1364,24 +1364,24 @@ System.out.println(result);  // [4, 16, 36, 64, 100]
 int sum = numbers.stream()
     .reduce(0, Integer::sum);
 System.out.println(sum);  // 55`,
-            "java",
-            "Stream API example"
-        ),
+                "java",
+                "Stream API example"
+            ),
 
-        note(
-            "Lambda expressions and the Stream API (both Java 8) fundamentally changed Java programming. They enable a declarative, functional style that is more concise and expressive than traditional imperative loops. The Stream API is covered in detail in advanced Java courses.",
-            "tip",
-            "Java 8 Revolution"
-        ),
+            note(
+                "Lambda expressions and the Stream API (both Java 8) fundamentally changed Java programming. They enable a declarative, functional style that is more concise and expressive than traditional imperative loops. The Stream API is covered in detail in advanced Java courses.",
+                "tip",
+                "Java 8 Revolution"
+            ),
 
-        keyPoints([
-            "Lambda expressions provide a concise syntax for anonymous functions: (params) -> body.",
-            "A functional interface has exactly one abstract method and is the target type for lambdas.",
-            "Built-in functional interfaces include Predicate, Function, Consumer and Supplier.",
-            "Method references (ClassName::method) are shorthand for lambdas that call existing methods.",
-            "The Stream API uses lambdas for declarative data processing: filter, map, reduce, collect.",
-        ]),
-    ],
+            keyPoints([
+                "Lambda expressions provide a concise syntax for anonymous functions: (params) -> body.",
+                "A functional interface has exactly one abstract method and is the target type for lambdas.",
+                "Built-in functional interfaces include Predicate, Function, Consumer and Supplier.",
+                "Method references (ClassName::method) are shorthand for lambdas that call existing methods.",
+                "The Stream API uses lambdas for declarative data processing: filter, map, reduce, collect.",
+            ]),
+  ],
 
     {
         summary:
