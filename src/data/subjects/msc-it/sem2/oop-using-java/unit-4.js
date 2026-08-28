@@ -4,17 +4,17 @@
 ========================================================= */
 
 import {
-  createTopic,
-  heading,
-  text,
-  list,
-  code,
-  table,
-  note,
-  definition,
-  keyPoints,
-  mcq,
-  qa,
+    createTopic,
+    heading,
+    text,
+    list,
+    code,
+    table,
+    note,
+    definition,
+    keyPoints,
+    mcq,
+    qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -77,27 +77,27 @@ const introToGUIProgramming = createTopic(
             ]
         ),
 
-        heading("JFC (Java Foundation Classes)"],
+        heading("JFC (Java Foundation Classes)"),
 
-    definition(
-        "JFC",
-        "A set of GUI libraries that include Swing, Java 2D, Accessibility API, Drag-and-Drop and the Pluggable Look and Feel. JFC was introduced with Java 1.2 to provide a comprehensive toolkit for building rich desktop applications."
-    ),
+        definition(
+            "JFC",
+            "A set of GUI libraries that include Swing, Java 2D, Accessibility API, Drag-and-Drop and the Pluggable Look and Feel. JFC was introduced with Java 1.2 to provide a comprehensive toolkit for building rich desktop applications."
+        ),
 
-    heading("Components of JFC"),
+        heading("Components of JFC"),
 
-    list([
-        "Swing — A rich set of lightweight GUI components (buttons, tables, trees, etc.).",
-        "Java 2D — Advanced 2D graphics, text and image rendering.",
-        "Accessibility API — Support for assistive technologies (screen readers, etc.).",
-        "Drag and Drop — Built-in support for dragging and dropping data between components.",
-        "Pluggable Look and Feel — Ability to change the visual appearance of the entire application.",
-    ]),
+        list([
+            "Swing — A rich set of lightweight GUI components (buttons, tables, trees, etc.).",
+            "Java 2D — Advanced 2D graphics, text and image rendering.",
+            "Accessibility API — Support for assistive technologies (screen readers, etc.).",
+            "Drag and Drop — Built-in support for dragging and dropping data between components.",
+            "Pluggable Look and Feel — Ability to change the visual appearance of the entire application.",
+        ]),
 
-    heading("Basic GUI Application Structure"),
+        heading("Basic GUI Application Structure"),
 
-    code(
-        `import javax.swing.*;
+        code(
+            `import javax.swing.*;
 
 public class HelloGUI {
     public static void main(String[] args) {
@@ -116,19 +116,19 @@ public class HelloGUI {
         frame.setVisible(true);
     }
 }`,
-        "java",
-        "Simplest Swing application"
-    ),
+            "java",
+            "Simplest Swing application"
+        ),
 
-    heading("Event-Driven Programming"),
+        heading("Event-Driven Programming"),
 
-    definition(
-        "Event-Driven Programming",
-        "A programming paradigm where the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs or messages from other programs. GUI applications are inherently event-driven."
-    ),
+        definition(
+            "Event-Driven Programming",
+            "A programming paradigm where the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs or messages from other programs. GUI applications are inherently event-driven."
+        ),
 
-    code(
-        `Event-Driven Programming Model:
+        code(
+            `Event-Driven Programming Model:
 
   1. Application starts and displays GUI
   2. Application enters an event loop (waiting)
@@ -140,82 +140,82 @@ public class HelloGUI {
   8. Return to step 2 (wait for next event)
 
   This cycle continues until the application is closed.`,
-        "text",
-        "Event-driven programming model"
-    ),
+            "text",
+            "Event-driven programming model"
+        ),
 
-    note(
-        "Swing is still widely used and taught, but JavaFX is the modern replacement recommended by Oracle for new desktop applications. JavaFX offers CSS styling, FXML (XML-based UI definition), hardware-accelerated graphics and a more modern architecture. However, Swing remains important because of its vast existing codebase and exam relevance.",
-        "tip",
-        "Swing vs JavaFX"
-    ),
+        note(
+            "Swing is still widely used and taught, but JavaFX is the modern replacement recommended by Oracle for new desktop applications. JavaFX offers CSS styling, FXML (XML-based UI definition), hardware-accelerated graphics and a more modern architecture. However, Swing remains important because of its vast existing codebase and exam relevance.",
+            "tip",
+            "Swing vs JavaFX"
+        ),
 
-    keyPoints([
-        "A GUI allows users to interact with programs through visual elements rather than text commands.",
-        "Java's GUI toolkits are AWT (heavyweight, native), Swing (lightweight, pure Java) and JavaFX (modern).",
-        "Swing components have a 'J' prefix (JFrame, JButton) and are built on top of AWT.",
-        "GUI applications use event-driven programming where the flow is determined by user actions.",
-        "JFC includes Swing, Java 2D, Accessibility, Drag-and-Drop and Pluggable Look and Feel.",
-    ]),
-  ],
+        keyPoints([
+            "A GUI allows users to interact with programs through visual elements rather than text commands.",
+            "Java's GUI toolkits are AWT (heavyweight, native), Swing (lightweight, pure Java) and JavaFX (modern).",
+            "Swing components have a 'J' prefix (JFrame, JButton) and are built on top of AWT.",
+            "GUI applications use event-driven programming where the flow is determined by user actions.",
+            "JFC includes Swing, Java 2D, Accessibility, Drag-and-Drop and Pluggable Look and Feel.",
+        ]),
+    ],
 
-{
-    summary:
-    "Understand GUI vs CLI, Java GUI toolkits (AWT, Swing, JavaFX), JFC components and the event-driven programming model.",
+    {
+        summary:
+            "Understand GUI vs CLI, Java GUI toolkits (AWT, Swing, JavaFX), JFC components and the event-driven programming model.",
         minutes: 11,
-            tags: ["java", "gui", "awt", "swing", "event-driven", "important"],
+        tags: ["java", "gui", "awt", "swing", "event-driven", "important"],
 
-                mcqs: [
-                    mcq(
-                        "Swing components are:",
-                        ["Heavyweight (native OS widgets)", "Lightweight (drawn by Java)", "Hardware-dependent", "Only available on Windows"],
-                        1,
-                        "Swing components are lightweight — they are drawn by Java itself, not by the native OS."
-                    ),
-                    mcq(
-                        "Swing was introduced in:",
-                        ["Java 1.0", "Java 1.1", "Java 1.2", "Java 5"],
-                        2,
-                        "Swing was introduced in Java 1.2 (1998) as part of the Java Foundation Classes (JFC)."
-                    ),
-                    mcq(
-                        "AWT components are called heavyweight because:",
-                        ["They use a lot of memory", "They rely on native OS widgets", "They are slow", "They have many methods"],
-                        1,
-                        "AWT components are heavyweight because they use native operating system widgets."
-                    ),
-                    mcq(
-                        "GUI applications follow which programming paradigm?",
-                        ["Procedural", "Functional", "Event-driven", "Logic-based"],
-                        2,
-                        "GUI applications are event-driven — the program flow is determined by user actions and events."
-                    ),
-                    mcq(
-                        "Swing components typically have which prefix?",
-                        ["A", "S", "J", "W"],
-                        2,
-                        "Swing components have a 'J' prefix: JFrame, JButton, JLabel, JTextField, etc."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "Swing components are:",
+                ["Heavyweight (native OS widgets)", "Lightweight (drawn by Java)", "Hardware-dependent", "Only available on Windows"],
+                1,
+                "Swing components are lightweight — they are drawn by Java itself, not by the native OS."
+            ),
+            mcq(
+                "Swing was introduced in:",
+                ["Java 1.0", "Java 1.1", "Java 1.2", "Java 5"],
+                2,
+                "Swing was introduced in Java 1.2 (1998) as part of the Java Foundation Classes (JFC)."
+            ),
+            mcq(
+                "AWT components are called heavyweight because:",
+                ["They use a lot of memory", "They rely on native OS widgets", "They are slow", "They have many methods"],
+                1,
+                "AWT components are heavyweight because they use native operating system widgets."
+            ),
+            mcq(
+                "GUI applications follow which programming paradigm?",
+                ["Procedural", "Functional", "Event-driven", "Logic-based"],
+                2,
+                "GUI applications are event-driven — the program flow is determined by user actions and events."
+            ),
+            mcq(
+                "Swing components typically have which prefix?",
+                ["A", "S", "J", "W"],
+                2,
+                "Swing components have a 'J' prefix: JFrame, JButton, JLabel, JTextField, etc."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "Compare AWT and Swing.",
-                            "AWT (Abstract Window Toolkit) was Java's original GUI toolkit introduced in Java 1.0. Its components are heavyweight, meaning they use native operating system widgets, so the look and feel depends on the platform. AWT has a limited set of components and is harder to extend. Swing, introduced in Java 1.2 as part of JFC, is a lightweight toolkit where components are drawn by Java itself rather than the OS. This gives Swing a consistent look and feel across platforms, a much richer set of components (tables, trees, tabbed panes, sliders), MVC architecture, pluggable look and feel, and easier extensibility. Swing components have a 'J' prefix (JButton vs Button). Swing is built on top of AWT — JFrame extends Frame, and Swing uses AWT's event model. Swing is recommended for new desktop applications, while AWT is considered legacy.",
-                            5
-                        ),
-                        qa(
-                            "What is event-driven programming and how does it apply to GUI applications?",
-                            "Event-driven programming is a paradigm where the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs or messages from other programs, rather than by a predetermined sequence of statements. In a GUI application, the program starts by displaying the interface and then enters an event loop, waiting for user actions. When the user clicks a button, types in a text field or resizes a window, an event object is generated. This event is dispatched to the appropriate event listener (a registered object that implements a listener interface). The listener's handler method executes, performing the associated logic such as updating the display, validating input or performing a calculation. The application then returns to waiting for the next event. This cycle continues until the user closes the application.",
-                            5
-                        ),
-                        qa(
-                            "What is JFC? List its components.",
-                            "JFC (Java Foundation Classes) is a set of GUI libraries introduced with Java 1.2 to provide a comprehensive toolkit for building rich desktop applications. Its components include: Swing, a rich set of lightweight GUI components such as buttons, tables, trees, tabbed panes and sliders. Java 2D, which provides advanced 2D graphics, text rendering and image processing capabilities. The Accessibility API, which supports assistive technologies like screen readers for users with disabilities. Drag and Drop, which provides built-in support for dragging and dropping data between components and applications. Pluggable Look and Feel, which allows developers to change the entire visual appearance of an application to match different platforms or custom designs without changing the application logic.",
-                            4
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "Compare AWT and Swing.",
+                "AWT (Abstract Window Toolkit) was Java's original GUI toolkit introduced in Java 1.0. Its components are heavyweight, meaning they use native operating system widgets, so the look and feel depends on the platform. AWT has a limited set of components and is harder to extend. Swing, introduced in Java 1.2 as part of JFC, is a lightweight toolkit where components are drawn by Java itself rather than the OS. This gives Swing a consistent look and feel across platforms, a much richer set of components (tables, trees, tabbed panes, sliders), MVC architecture, pluggable look and feel, and easier extensibility. Swing components have a 'J' prefix (JButton vs Button). Swing is built on top of AWT — JFrame extends Frame, and Swing uses AWT's event model. Swing is recommended for new desktop applications, while AWT is considered legacy.",
+                5
+            ),
+            qa(
+                "What is event-driven programming and how does it apply to GUI applications?",
+                "Event-driven programming is a paradigm where the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs or messages from other programs, rather than by a predetermined sequence of statements. In a GUI application, the program starts by displaying the interface and then enters an event loop, waiting for user actions. When the user clicks a button, types in a text field or resizes a window, an event object is generated. This event is dispatched to the appropriate event listener (a registered object that implements a listener interface). The listener's handler method executes, performing the associated logic such as updating the display, validating input or performing a calculation. The application then returns to waiting for the next event. This cycle continues until the user closes the application.",
+                5
+            ),
+            qa(
+                "What is JFC? List its components.",
+                "JFC (Java Foundation Classes) is a set of GUI libraries introduced with Java 1.2 to provide a comprehensive toolkit for building rich desktop applications. Its components include: Swing, a rich set of lightweight GUI components such as buttons, tables, trees, tabbed panes and sliders. Java 2D, which provides advanced 2D graphics, text rendering and image processing capabilities. The Accessibility API, which supports assistive technologies like screen readers for users with disabilities. Drag and Drop, which provides built-in support for dragging and dropping data between components and applications. Pluggable Look and Feel, which allows developers to change the entire visual appearance of an application to match different platforms or custom designs without changing the application logic.",
+                4
+            ),
+        ],
+    }
 );
 
 /* =========================================================
@@ -374,10 +374,10 @@ label.setFont(font);
             "Color and Font usage"
         ),
 
-        heading("Graphics Class (Drawing)"],
+        heading("Graphics Class (Drawing)"),
 
-    code(
-        `import java.awt.*;
+        code(
+            `import java.awt.*;
 
 public class DrawingDemo extends Frame {
     public DrawingDemo() {
@@ -405,100 +405,100 @@ public class DrawingDemo extends Frame {
         new DrawingDemo();
     }
 }`,
-        "java",
-        "Drawing with Graphics class"
-    ),
+            "java",
+            "Drawing with Graphics class"
+        ),
 
-    heading("Graphics Methods"),
+        heading("Graphics Methods"),
 
-    table(
-        ["Method", "Purpose"],
-        [
-            ["drawLine(x1, y1, x2, y2)", "Draws a line between two points"],
-            ["drawRect(x, y, w, h)", "Draws a rectangle outline"],
-            ["fillRect(x, y, w, h)", "Draws a filled rectangle"],
-            ["drawOval(x, y, w, h)", "Draws an oval/circle outline"],
-            ["fillOval(x, y, w, h)", "Draws a filled oval/circle"],
-            ["drawArc(x, y, w, h, start, arc)", "Draws an arc"],
-            ["drawString(str, x, y)", "Draws a text string at the specified position"],
-            ["drawImage(img, x, y, observer)", "Draws an image"],
-            ["setColor(Color)", "Sets the current drawing colour"],
-            ["setFont(Font)", "Sets the current font for text drawing"],
-        ]
-    ),
+        table(
+            ["Method", "Purpose"],
+            [
+                ["drawLine(x1, y1, x2, y2)", "Draws a line between two points"],
+                ["drawRect(x, y, w, h)", "Draws a rectangle outline"],
+                ["fillRect(x, y, w, h)", "Draws a filled rectangle"],
+                ["drawOval(x, y, w, h)", "Draws an oval/circle outline"],
+                ["fillOval(x, y, w, h)", "Draws a filled oval/circle"],
+                ["drawArc(x, y, w, h, start, arc)", "Draws an arc"],
+                ["drawString(str, x, y)", "Draws a text string at the specified position"],
+                ["drawImage(img, x, y, observer)", "Draws an image"],
+                ["setColor(Color)", "Sets the current drawing colour"],
+                ["setFont(Font)", "Sets the current font for text drawing"],
+            ]
+        ),
 
-    note(
-        "The paint() method is called automatically by the AWT system whenever the component needs to be redrawn (window opened, resized, uncovered). You should never call paint() directly — use repaint() instead, which schedules a call to paint() at an appropriate time.",
-        "warning",
-        "Important"
-    ),
+        note(
+            "The paint() method is called automatically by the AWT system whenever the component needs to be redrawn (window opened, resized, uncovered). You should never call paint() directly — use repaint() instead, which schedules a call to paint() at an appropriate time.",
+            "warning",
+            "Important"
+        ),
 
-    keyPoints([
-        "AWT organises GUI elements into Components (visual elements) and Containers (holders of components).",
-        "Frame is the top-level window; Panel is a generic container for grouping components.",
-        "Common AWT components include Label, Button, TextField, TextArea, Checkbox, Choice and List.",
-        "The Graphics class provides methods for drawing shapes, text and images in the paint() method.",
-        "Call repaint() to request a redraw; never call paint() directly.",
-    ]),
-  ],
+        keyPoints([
+            "AWT organises GUI elements into Components (visual elements) and Containers (holders of components).",
+            "Frame is the top-level window; Panel is a generic container for grouping components.",
+            "Common AWT components include Label, Button, TextField, TextArea, Checkbox, Choice and List.",
+            "The Graphics class provides methods for drawing shapes, text and images in the paint() method.",
+            "Call repaint() to request a redraw; never call paint() directly.",
+        ]),
+    ],
 
-{
-    summary:
-    "Learn AWT component hierarchy, common components, containers, Color, Font, and drawing with the Graphics class.",
+    {
+        summary:
+            "Learn AWT component hierarchy, common components, containers, Color, Font, and drawing with the Graphics class.",
         minutes: 12,
-            tags: ["java", "awt", "components", "containers", "graphics", "important"],
+        tags: ["java", "awt", "components", "containers", "graphics", "important"],
 
-                mcqs: [
-                    mcq(
-                        "Which AWT container is a top-level window with a title bar?",
-                        ["Panel", "Frame", "Canvas", "Dialog"],
-                        1,
-                        "Frame is a top-level window with a title bar, menu bar and borders."
-                    ),
-                    mcq(
-                        "A Panel in AWT is:",
-                        ["A top-level window", "A generic container without window decorations", "A drawing area", "A menu"],
-                        1,
-                        "Panel is a generic container used for grouping components; it has no title bar or borders."
-                    ),
-                    mcq(
-                        "To draw custom graphics, you override which method?",
-                        ["draw()", "render()", "paint(Graphics g)", "display()"],
-                        2,
-                        "The paint(Graphics g) method is overridden to perform custom drawing."
-                    ),
-                    mcq(
-                        "Which method should you call to request a redraw of a component?",
-                        ["paint()", "repaint()", "redraw()", "refresh()"],
-                        1,
-                        "repaint() schedules a call to paint() at an appropriate time; paint() should never be called directly."
-                    ),
-                    mcq(
-                        "CheckboxGroup in AWT is used to:",
-                        ["Create a list of checkboxes", "Group checkboxes into radio buttons (single selection)", "Set checkbox colours", "Disable checkboxes"],
-                        1,
-                        "CheckboxGroup turns a set of Checkboxes into radio buttons where only one can be selected."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "Which AWT container is a top-level window with a title bar?",
+                ["Panel", "Frame", "Canvas", "Dialog"],
+                1,
+                "Frame is a top-level window with a title bar, menu bar and borders."
+            ),
+            mcq(
+                "A Panel in AWT is:",
+                ["A top-level window", "A generic container without window decorations", "A drawing area", "A menu"],
+                1,
+                "Panel is a generic container used for grouping components; it has no title bar or borders."
+            ),
+            mcq(
+                "To draw custom graphics, you override which method?",
+                ["draw()", "render()", "paint(Graphics g)", "display()"],
+                2,
+                "The paint(Graphics g) method is overridden to perform custom drawing."
+            ),
+            mcq(
+                "Which method should you call to request a redraw of a component?",
+                ["paint()", "repaint()", "redraw()", "refresh()"],
+                1,
+                "repaint() schedules a call to paint() at an appropriate time; paint() should never be called directly."
+            ),
+            mcq(
+                "CheckboxGroup in AWT is used to:",
+                ["Create a list of checkboxes", "Group checkboxes into radio buttons (single selection)", "Set checkbox colours", "Disable checkboxes"],
+                1,
+                "CheckboxGroup turns a set of Checkboxes into radio buttons where only one can be selected."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "Explain the AWT component hierarchy including Components and Containers.",
-                            "The AWT hierarchy starts with java.awt.Component, which is the base class for all visual elements. Direct subclasses of Component include Button, Label, TextField, TextArea, Checkbox, Choice, List, Canvas and Scrollbar — these are individual GUI widgets. Component also has a subclass Container, which can hold other Components. Container has three important subclasses: Panel (a generic grouping container without window decorations), Window (a top-level window without decorations) and ScrollPane (a container with automatic scrolling). Window further has Frame (a top-level window with title bar, menu bar and borders — the main application window) and Dialog (a pop-up window for messages or input). This hierarchical design allows containers to nest: a Frame can contain Panels, and Panels can contain Buttons, Labels and other components, enabling complex layouts.",
-                            5
-                        ),
-                        qa(
-                            "Explain the Graphics class and how custom drawing is done in AWT.",
-                            "The Graphics class provides methods for drawing shapes, text and images on a component. Custom drawing is done by overriding the paint(Graphics g) method of a Component (typically a Frame or Canvas). The AWT system automatically calls paint() whenever the component needs to be redrawn — when the window is first shown, resized, or uncovered after being hidden. Inside paint(), you use methods like g.drawLine(), g.drawRect(), g.fillRect(), g.drawOval(), g.fillOval(), g.drawString() and g.setColor() to create graphics. You should never call paint() directly because the Graphics object is managed by the system. Instead, call repaint(), which schedules a paint() call at an appropriate time. The paint() method receives a Graphics object that represents the drawing context of the component.",
-                            5
-                        ),
-                        qa(
-                            "Write a Java AWT program that creates a window with a label, text field and button.",
-                            "The program should extend Frame, set a title and size, and use FlowLayout. Create a Label with text 'Enter your name:', a TextField with a column width of 20, a Button labelled 'Submit' and a result Label. Add all components to the Frame using add(). Attach an ActionListener to the button that reads the text field value and displays a greeting in the result label. Add a WindowListener using WindowAdapter to handle windowClosing by calling System.exit(0). Finally, call setVisible(true) to display the window. The complete program demonstrates component creation, layout, event handling and window management — the four essential aspects of an AWT application.",
-                            5
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "Explain the AWT component hierarchy including Components and Containers.",
+                "The AWT hierarchy starts with java.awt.Component, which is the base class for all visual elements. Direct subclasses of Component include Button, Label, TextField, TextArea, Checkbox, Choice, List, Canvas and Scrollbar — these are individual GUI widgets. Component also has a subclass Container, which can hold other Components. Container has three important subclasses: Panel (a generic grouping container without window decorations), Window (a top-level window without decorations) and ScrollPane (a container with automatic scrolling). Window further has Frame (a top-level window with title bar, menu bar and borders — the main application window) and Dialog (a pop-up window for messages or input). This hierarchical design allows containers to nest: a Frame can contain Panels, and Panels can contain Buttons, Labels and other components, enabling complex layouts.",
+                5
+            ),
+            qa(
+                "Explain the Graphics class and how custom drawing is done in AWT.",
+                "The Graphics class provides methods for drawing shapes, text and images on a component. Custom drawing is done by overriding the paint(Graphics g) method of a Component (typically a Frame or Canvas). The AWT system automatically calls paint() whenever the component needs to be redrawn — when the window is first shown, resized, or uncovered after being hidden. Inside paint(), you use methods like g.drawLine(), g.drawRect(), g.fillRect(), g.drawOval(), g.fillOval(), g.drawString() and g.setColor() to create graphics. You should never call paint() directly because the Graphics object is managed by the system. Instead, call repaint(), which schedules a paint() call at an appropriate time. The paint() method receives a Graphics object that represents the drawing context of the component.",
+                5
+            ),
+            qa(
+                "Write a Java AWT program that creates a window with a label, text field and button.",
+                "The program should extend Frame, set a title and size, and use FlowLayout. Create a Label with text 'Enter your name:', a TextField with a column width of 20, a Button labelled 'Submit' and a result Label. Add all components to the Frame using add(). Attach an ActionListener to the button that reads the text field value and displays a greeting in the result label. Add a WindowListener using WindowAdapter to handle windowClosing by calling System.exit(0). Finally, call setVisible(true) to display the window. The complete program demonstrates component creation, layout, event handling and window management — the four essential aspects of an AWT application.",
+                5
+            ),
+        ],
+    }
 );
 
 /* =========================================================
@@ -883,10 +883,10 @@ const eventHandling = createTopic(
             ]
         ),
 
-        heading("Handling ActionEvent (Most Common)"],
+        heading("Handling ActionEvent (Most Common)"),
 
-    code(
-        `import javax.swing.*;
+        code(
+            `import javax.swing.*;
 import java.awt.event.*;
 
 // Method 1: Implement ActionListener
@@ -914,24 +914,24 @@ public class EventDemo1 extends JFrame implements ActionListener {
         new EventDemo1();
     }
 }`,
-        "java",
-        "Event handling by implementing ActionListener"
-    ),
+            "java",
+            "Event handling by implementing ActionListener"
+        ),
 
-    heading("Anonymous Inner Class"),
+        heading("Anonymous Inner Class"),
 
-    code(
-        `btn.addActionListener(new ActionListener() {
+        code(
+            `btn.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
         label.setText("Button clicked!");
     }
 });`,
-        "java",
-        "Anonymous inner class listener"
-    ),
+            "java",
+            "Anonymous inner class listener"
+        ),
 
-    heading("Lambda Expression (Java 8+)"],
+        heading("Lambda Expression (Java 8+)"),
 
         code(
             `// ActionListener is a functional interface (one abstract method)
@@ -947,10 +947,10 @@ btn.addActionListener(e -> {
             "Lambda expression listener"
         ),
 
-        heading("Mouse Events"],
+        heading("Mouse Events"),
 
-            code(
-                `panel.addMouseListener(new MouseAdapter() {
+        code(
+            `panel.addMouseListener(new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("Clicked at: " + e.getX() + ", " + e.getY());
@@ -972,31 +972,31 @@ btn.addActionListener(e -> {
         panel.setBackground(Color.WHITE);
     }
 });`,
-                "java",
-                "Mouse event handling"
-            ),
+            "java",
+            "Mouse event handling"
+        ),
 
-            heading("Adapter Classes"),
+        heading("Adapter Classes"),
 
-            definition(
-                "Adapter Class",
-                "A convenience class that provides empty implementations of all methods in a listener interface that has more than one method. You only override the methods you need. Named XxxAdapter (e.g., MouseAdapter, WindowAdapter, KeyAdapter)."
-            ),
+        definition(
+            "Adapter Class",
+            "A convenience class that provides empty implementations of all methods in a listener interface that has more than one method. You only override the methods you need. Named XxxAdapter (e.g., MouseAdapter, WindowAdapter, KeyAdapter)."
+        ),
 
-            table(
-                ["Listener Interface", "Methods", "Adapter Class"],
-                [
-                    ["MouseListener", "5 methods", "MouseAdapter"],
-                    ["MouseMotionListener", "2 methods", "MouseMotionAdapter"],
-                    ["KeyListener", "3 methods", "KeyAdapter"],
-                    ["WindowListener", "7 methods", "WindowAdapter"],
-                    ["FocusListener", "2 methods", "FocusAdapter"],
-                    ["ActionListener", "1 method", "None (functional interface)"],
-                ]
-            ),
+        table(
+            ["Listener Interface", "Methods", "Adapter Class"],
+            [
+                ["MouseListener", "5 methods", "MouseAdapter"],
+                ["MouseMotionListener", "2 methods", "MouseMotionAdapter"],
+                ["KeyListener", "3 methods", "KeyAdapter"],
+                ["WindowListener", "7 methods", "WindowAdapter"],
+                ["FocusListener", "2 methods", "FocusAdapter"],
+                ["ActionListener", "1 method", "None (functional interface)"],
+            ]
+        ),
 
-            code(
-                `// Without adapter — must implement ALL 7 methods
+        code(
+            `// Without adapter — must implement ALL 7 methods
 frame.addWindowListener(new WindowListener() {
     public void windowClosing(WindowEvent e) { System.exit(0); }
     public void windowOpened(WindowEvent e) {}
@@ -1011,104 +1011,104 @@ frame.addWindowListener(new WindowListener() {
 frame.addWindowListener(new WindowAdapter() {
     public void windowClosing(WindowEvent e) { System.exit(0); }
 });`,
-                "java",
-                "Adapter class vs full interface"
-            ),
+            "java",
+            "Adapter class vs full interface"
+        ),
 
-            heading("Event Object Methods"),
+        heading("Event Object Methods"),
 
-            table(
-                ["Method", "Class", "Returns"],
-                [
-                    ["getSource()", "AWTEvent", "The object that generated the event"],
-                    ["getActionCommand()", "ActionEvent", "The action command string (usually button text)"],
-                    ["getX(), getY()", "MouseEvent", "Mouse coordinates relative to the source component"],
-                    ["getClickCount()", "MouseEvent", "Number of clicks (1 = single, 2 = double)"],
-                    ["getButton()", "MouseEvent", "Which mouse button (BUTTON1, BUTTON2, BUTTON3)"],
-                    ["getKeyChar()", "KeyEvent", "The character associated with the key"],
-                    ["getKeyCode()", "KeyEvent", "The integer key code (VK_ENTER, VK_ESCAPE, etc.)"],
-                    ["isControlDown()", "InputEvent", "Whether the Ctrl key is held"],
-                ]
-            ),
+        table(
+            ["Method", "Class", "Returns"],
+            [
+                ["getSource()", "AWTEvent", "The object that generated the event"],
+                ["getActionCommand()", "ActionEvent", "The action command string (usually button text)"],
+                ["getX(), getY()", "MouseEvent", "Mouse coordinates relative to the source component"],
+                ["getClickCount()", "MouseEvent", "Number of clicks (1 = single, 2 = double)"],
+                ["getButton()", "MouseEvent", "Which mouse button (BUTTON1, BUTTON2, BUTTON3)"],
+                ["getKeyChar()", "KeyEvent", "The character associated with the key"],
+                ["getKeyCode()", "KeyEvent", "The integer key code (VK_ENTER, VK_ESCAPE, etc.)"],
+                ["isControlDown()", "InputEvent", "Whether the Ctrl key is held"],
+            ]
+        ),
 
-            note(
-                "ActionListener has only one method (actionPerformed), so it is a functional interface and can be implemented with a lambda. Listeners with multiple methods (MouseListener, WindowListener, KeyListener) cannot use lambdas directly — use adapter classes instead.",
-                "exam",
-                "Frequently Asked"
-            ),
+        note(
+            "ActionListener has only one method (actionPerformed), so it is a functional interface and can be implemented with a lambda. Listeners with multiple methods (MouseListener, WindowListener, KeyListener) cannot use lambdas directly — use adapter classes instead.",
+            "exam",
+            "Frequently Asked"
+        ),
 
-            keyPoints([
-                "Java uses the Delegation Event Model: sources generate events, listeners handle them.",
-                "Register a listener with addXxxListener(); the handler method is called when the event occurs.",
-                "ActionEvent is the most common event, generated by button clicks and menu selections.",
-                "Adapter classes provide empty implementations so you only override the methods you need.",
-                "ActionListener can use lambdas (one method); multi-method listeners need adapter classes.",
-            ]),
-  },
+        keyPoints([
+            "Java uses the Delegation Event Model: sources generate events, listeners handle them.",
+            "Register a listener with addXxxListener(); the handler method is called when the event occurs.",
+            "ActionEvent is the most common event, generated by button clicks and menu selections.",
+            "Adapter classes provide empty implementations so you only override the methods you need.",
+            "ActionListener can use lambdas (one method); multi-method listeners need adapter classes.",
+        ]),
+    ],
 
-{
-    summary:
-    "Master the Delegation Event Model, common event types and listeners, adapter classes, and event handling with interfaces, anonymous classes and lambdas.",
+    {
+        summary:
+            "Master the Delegation Event Model, common event types and listeners, adapter classes, and event handling with interfaces, anonymous classes and lambdas.",
         minutes: 13,
-            tags: ["java", "events", "actionlistener", "mouselistener", "adapter", "important"],
+        tags: ["java", "events", "actionlistener", "mouselistener", "adapter", "important"],
 
-                mcqs: [
-                    mcq(
-                        "Java's event handling architecture is called the:",
-                        ["Inheritance Event Model", "Delegation Event Model", "Observer Event Model", "Callback Event Model"],
-                        1,
-                        "Java uses the Delegation Event Model where sources generate events and listeners handle them."
-                    ),
-                    mcq(
-                        "The method that handles a button click is:",
-                        ["mouseClicked()", "actionPerformed()", "buttonPressed()", "itemStateChanged()"],
-                        1,
-                        "actionPerformed(ActionEvent e) of ActionListener handles button clicks."
-                    ),
-                    mcq(
-                        "An adapter class is useful because:",
-                        ["It is faster", "It provides empty implementations so you only override needed methods", "It handles all events automatically", "It replaces the listener interface"],
-                        1,
-                        "Adapter classes provide empty method bodies, allowing you to override only the methods you need."
-                    ),
-                    mcq(
-                        "Which listener can be implemented with a lambda expression?",
-                        ["MouseListener", "WindowListener", "ActionListener", "KeyListener"],
-                        2,
-                        "ActionListener has only one abstract method, making it a functional interface that supports lambdas."
-                    ),
-                    mcq(
-                        "getSource() on an event object returns:",
-                        ["The event type", "The object that generated the event", "The timestamp", "The listener"],
-                        1,
-                        "getSource() returns a reference to the component that generated the event."
-                    ),
-                    mcq(
-                        "MouseAdapter is an adapter for:",
-                        ["MouseListener", "ActionListener", "KeyListener", "ItemListener"],
-                        0,
-                        "MouseAdapter provides empty implementations of all MouseListener methods."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "Java's event handling architecture is called the:",
+                ["Inheritance Event Model", "Delegation Event Model", "Observer Event Model", "Callback Event Model"],
+                1,
+                "Java uses the Delegation Event Model where sources generate events and listeners handle them."
+            ),
+            mcq(
+                "The method that handles a button click is:",
+                ["mouseClicked()", "actionPerformed()", "buttonPressed()", "itemStateChanged()"],
+                1,
+                "actionPerformed(ActionEvent e) of ActionListener handles button clicks."
+            ),
+            mcq(
+                "An adapter class is useful because:",
+                ["It is faster", "It provides empty implementations so you only override needed methods", "It handles all events automatically", "It replaces the listener interface"],
+                1,
+                "Adapter classes provide empty method bodies, allowing you to override only the methods you need."
+            ),
+            mcq(
+                "Which listener can be implemented with a lambda expression?",
+                ["MouseListener", "WindowListener", "ActionListener", "KeyListener"],
+                2,
+                "ActionListener has only one abstract method, making it a functional interface that supports lambdas."
+            ),
+            mcq(
+                "getSource() on an event object returns:",
+                ["The event type", "The object that generated the event", "The timestamp", "The listener"],
+                1,
+                "getSource() returns a reference to the component that generated the event."
+            ),
+            mcq(
+                "MouseAdapter is an adapter for:",
+                ["MouseListener", "ActionListener", "KeyListener", "ItemListener"],
+                0,
+                "MouseAdapter provides empty implementations of all MouseListener methods."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "Explain the Delegation Event Model in Java.",
-                            "The Delegation Event Model, introduced in JDK 1.1, is Java's architecture for event handling. It consists of three parts: an event source (the component that generates the event, such as a JButton), an event object (containing information about the event, such as ActionEvent) and an event listener (an object that implements a listener interface to handle the event). When a user interacts with a component, the source generates an event object and dispatches it to all registered listeners. Each listener's handler method is invoked with the event object as a parameter. Listeners are registered using addXxxListener() methods. This model separates event generation from event processing, allowing multiple listeners for one source and one listener for multiple sources. It replaced the older inheritance-based model from JDK 1.0.",
-                            5
-                        ),
-                        qa(
-                            "What are adapter classes? Why are they needed? Give examples.",
-                            "Adapter classes are convenience classes that provide empty implementations of all methods in a listener interface that has more than one method. They are needed because Java requires a class implementing an interface to provide implementations for all of the interface's methods. Without adapters, you would have to write empty method bodies for every unused method. For example, WindowListener has 7 methods, but you typically only need windowClosing(). With WindowAdapter, you override only windowClosing() and ignore the rest. Other adapters include MouseAdapter (for MouseListener's 5 methods), KeyAdapter (for KeyListener's 3 methods), MouseMotionAdapter and FocusAdapter. ActionListener has only one method so it does not need an adapter — it can use a lambda instead. Adapter classes are abstract classes in the java.awt.event package.",
-                            5
-                        ),
-                        qa(
-                            "Explain three ways to handle an ActionEvent in Java.",
-                            "The first way is to implement the ActionListener interface in the class itself. The class implements actionPerformed() and registers itself using btn.addActionListener(this). This is simple but mixes GUI setup with event handling logic. The second way is to use an anonymous inner class: btn.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { /* handle */ } }). This keeps the handler close to the component but is verbose. The third and most concise way (Java 8+) is a lambda expression: btn.addActionListener(e -> label.setText('Clicked!')). This works because ActionListener is a functional interface with a single abstract method. Lambdas are the preferred modern approach for ActionListener. For listeners with multiple methods like MouseListener, lambdas cannot be used and adapter classes are preferred.",
-                            5
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "Explain the Delegation Event Model in Java.",
+                "The Delegation Event Model, introduced in JDK 1.1, is Java's architecture for event handling. It consists of three parts: an event source (the component that generates the event, such as a JButton), an event object (containing information about the event, such as ActionEvent) and an event listener (an object that implements a listener interface to handle the event). When a user interacts with a component, the source generates an event object and dispatches it to all registered listeners. Each listener's handler method is invoked with the event object as a parameter. Listeners are registered using addXxxListener() methods. This model separates event generation from event processing, allowing multiple listeners for one source and one listener for multiple sources. It replaced the older inheritance-based model from JDK 1.0.",
+                5
+            ),
+            qa(
+                "What are adapter classes? Why are they needed? Give examples.",
+                "Adapter classes are convenience classes that provide empty implementations of all methods in a listener interface that has more than one method. They are needed because Java requires a class implementing an interface to provide implementations for all of the interface's methods. Without adapters, you would have to write empty method bodies for every unused method. For example, WindowListener has 7 methods, but you typically only need windowClosing(). With WindowAdapter, you override only windowClosing() and ignore the rest. Other adapters include MouseAdapter (for MouseListener's 5 methods), KeyAdapter (for KeyListener's 3 methods), MouseMotionAdapter and FocusAdapter. ActionListener has only one method so it does not need an adapter — it can use a lambda instead. Adapter classes are abstract classes in the java.awt.event package.",
+                5
+            ),
+            qa(
+                "Explain three ways to handle an ActionEvent in Java.",
+                "The first way is to implement the ActionListener interface in the class itself. The class implements actionPerformed() and registers itself using btn.addActionListener(this). This is simple but mixes GUI setup with event handling logic. The second way is to use an anonymous inner class: btn.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { /* handle */ } }). This keeps the handler close to the component but is verbose. The third and most concise way (Java 8+) is a lambda expression: btn.addActionListener(e -> label.setText('Clicked!')). This works because ActionListener is a functional interface with a single abstract method. Lambdas are the preferred modern approach for ActionListener. For listeners with multiple methods like MouseListener, lambdas cannot be used and adapter classes are preferred.",
+                5
+            ),
+        ],
+    }
 );
 
 /* =========================================================
@@ -1343,10 +1343,10 @@ cardLayout.first(cards);           // Show first card`,
             ]
         ),
 
-        heading("Combining Layouts (Nested Panels)"],
+        heading("Combining Layouts (Nested Panels)"),
 
-    code(
-        `// Combining layouts using nested JPanels
+        code(
+            `// Combining layouts using nested JPanels
 JFrame frame = new JFrame("Combined Layouts");
 frame.setLayout(new BorderLayout());
 
@@ -1370,88 +1370,88 @@ JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 bottomPanel.add(new JButton("OK"));
 bottomPanel.add(new JButton("Cancel"));
 frame.add(bottomPanel, BorderLayout.SOUTH);`,
-        "java",
-        "Combining layouts with nested panels"
-    ),
+            "java",
+            "Combining layouts with nested panels"
+        ),
 
-    note(
-        "The most common approach in real applications is combining layouts using nested JPanels. For example, a BorderLayout on the JFrame with a FlowLayout panel in NORTH (toolbar), a BorderLayout or GridLayout panel in CENTER (main content) and a FlowLayout panel in SOUTH (status bar or buttons). This gives you the flexibility of complex layouts without the complexity of GridBagLayout.",
-        "tip",
-        "Best Practice"
-    ),
+        note(
+            "The most common approach in real applications is combining layouts using nested JPanels. For example, a BorderLayout on the JFrame with a FlowLayout panel in NORTH (toolbar), a BorderLayout or GridLayout panel in CENTER (main content) and a FlowLayout panel in SOUTH (status bar or buttons). This gives you the flexibility of complex layouts without the complexity of GridBagLayout.",
+            "tip",
+            "Best Practice"
+        ),
 
-    keyPoints([
-        "Layout managers automatically arrange components, making GUIs resolution-independent.",
-        "FlowLayout arranges left-to-right with wrapping (default for JPanel).",
-        "BorderLayout has 5 regions: NORTH, SOUTH, EAST, WEST, CENTER (default for JFrame).",
-        "GridLayout creates equal-sized cells; GridBagLayout is the most flexible but complex.",
-        "Combine layouts using nested JPanels for professional-looking interfaces.",
-    ]),
-  },
+        keyPoints([
+            "Layout managers automatically arrange components, making GUIs resolution-independent.",
+            "FlowLayout arranges left-to-right with wrapping (default for JPanel).",
+            "BorderLayout has 5 regions: NORTH, SOUTH, EAST, WEST, CENTER (default for JFrame).",
+            "GridLayout creates equal-sized cells; GridBagLayout is the most flexible but complex.",
+            "Combine layouts using nested JPanels for professional-looking interfaces.",
+        ]),
+    ],
 
-{
-    summary:
-    "Master all major layout managers: FlowLayout, BorderLayout, GridLayout, GridBagLayout, BoxLayout, CardLayout and nested panel combinations.",
+    {
+        summary:
+            "Master all major layout managers: FlowLayout, BorderLayout, GridLayout, GridBagLayout, BoxLayout, CardLayout and nested panel combinations.",
         minutes: 14,
-            tags: ["java", "layout", "flowlayout", "borderlayout", "gridlayout", "gridbaglayout", "important"],
+        tags: ["java", "layout", "flowlayout", "borderlayout", "gridlayout", "gridbaglayout", "important"],
 
-                mcqs: [
-                    mcq(
-                        "The default layout manager for JPanel is:",
-                        ["BorderLayout", "FlowLayout", "GridLayout", "null"],
-                        1,
-                        "JPanel uses FlowLayout by default, arranging components left-to-right."
-                    ),
-                    mcq(
-                        "The default layout manager for JFrame's content pane is:",
-                        ["FlowLayout", "GridLayout", "BorderLayout", "BoxLayout"],
-                        2,
-                        "JFrame's content pane uses BorderLayout by default."
-                    ),
-                    mcq(
-                        "BorderLayout has how many regions?",
-                        ["3", "4", "5", "6"],
-                        2,
-                        "BorderLayout has 5 regions: NORTH, SOUTH, EAST, WEST and CENTER."
-                    ),
-                    mcq(
-                        "In GridLayout, all components:",
-                        ["Keep their preferred size", "Are forced to the same size", "Can span multiple cells", "Are stacked"],
-                        1,
-                        "GridLayout forces all components to be the same size, filling their grid cells equally."
-                    ),
-                    mcq(
-                        "The most flexible layout manager is:",
-                        ["FlowLayout", "BorderLayout", "GridLayout", "GridBagLayout"],
-                        3,
-                        "GridBagLayout is the most flexible, allowing components to span cells and have custom constraints."
-                    ),
-                    mcq(
-                        "CardLayout is used to:",
-                        ["Arrange in a grid", "Show one of several panels at a time", "Arrange in a single row", "Fill five regions"],
-                        1,
-                        "CardLayout manages multiple components occupying the same space, showing only one at a time."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "The default layout manager for JPanel is:",
+                ["BorderLayout", "FlowLayout", "GridLayout", "null"],
+                1,
+                "JPanel uses FlowLayout by default, arranging components left-to-right."
+            ),
+            mcq(
+                "The default layout manager for JFrame's content pane is:",
+                ["FlowLayout", "GridLayout", "BorderLayout", "BoxLayout"],
+                2,
+                "JFrame's content pane uses BorderLayout by default."
+            ),
+            mcq(
+                "BorderLayout has how many regions?",
+                ["3", "4", "5", "6"],
+                2,
+                "BorderLayout has 5 regions: NORTH, SOUTH, EAST, WEST and CENTER."
+            ),
+            mcq(
+                "In GridLayout, all components:",
+                ["Keep their preferred size", "Are forced to the same size", "Can span multiple cells", "Are stacked"],
+                1,
+                "GridLayout forces all components to be the same size, filling their grid cells equally."
+            ),
+            mcq(
+                "The most flexible layout manager is:",
+                ["FlowLayout", "BorderLayout", "GridLayout", "GridBagLayout"],
+                3,
+                "GridBagLayout is the most flexible, allowing components to span cells and have custom constraints."
+            ),
+            mcq(
+                "CardLayout is used to:",
+                ["Arrange in a grid", "Show one of several panels at a time", "Arrange in a single row", "Fill five regions"],
+                1,
+                "CardLayout manages multiple components occupying the same space, showing only one at a time."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "Explain FlowLayout, BorderLayout and GridLayout with their characteristics.",
-                            "FlowLayout arranges components in a left-to-right flow, wrapping to the next line when there is no more space. Components retain their preferred size. Alignment can be LEFT, CENTER (default) or RIGHT. It is the default layout for JPanel and is simple but limited for complex interfaces. BorderLayout divides the container into five regions: NORTH, SOUTH, EAST, WEST and CENTER. Each region holds at most one component. NORTH and SOUTH get their preferred height and stretch to full width; EAST and WEST get their preferred width and stretch to remaining height; CENTER fills all remaining space. It is the default for JFrame. GridLayout arranges components in a rectangular grid of equally sized cells, added left-to-right, top-to-bottom. All components are forced to the same size regardless of their preferred size. It is useful for calculator buttons, photo galleries and forms with uniform fields.",
-                            5
-                        ),
-                        qa(
-                            "What is GridBagLayout? Explain GridBagConstraints.",
-                            "GridBagLayout is the most flexible and powerful layout manager in Java. It arranges components in a grid where each component can span multiple rows and columns, have different sizes, and have custom alignment and padding. Unlike GridLayout, cells do not have to be equal size. Each component is associated with a GridBagConstraints object that specifies its placement. Key constraints include: gridx and gridy for the column and row position, gridwidth and gridheight for how many cells the component spans, weightx and weighty for how extra space is distributed when the container is resized, fill (NONE, HORIZONTAL, VERTICAL, BOTH) for how the component fills its cell, anchor for alignment within the cell, and insets for external padding around the component. GridBagLayout is complex but essential for professional, resizable forms.",
-                            5
-                        ),
-                        qa(
-                            "How do you combine multiple layout managers in a Swing application?",
-                            "The standard approach is to use nested JPanels, each with its own layout manager. The JFrame typically uses BorderLayout as the outer layout. A JPanel with FlowLayout is placed in NORTH for a toolbar or search bar. A JPanel with GridLayout or BorderLayout is placed in CENTER for the main content. A JPanel with FlowLayout (right-aligned) is placed in SOUTH for action buttons like OK and Cancel. WEST and EAST can hold navigation panels or sidebars. This nesting can go several levels deep — a CENTER panel with BorderLayout can itself contain nested panels. This approach gives you the simplicity of basic layouts with the flexibility of complex designs, avoiding the steep learning curve of GridBagLayout for most applications. Each panel is an independent layout unit that manages its own children.",
-                            5
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "Explain FlowLayout, BorderLayout and GridLayout with their characteristics.",
+                "FlowLayout arranges components in a left-to-right flow, wrapping to the next line when there is no more space. Components retain their preferred size. Alignment can be LEFT, CENTER (default) or RIGHT. It is the default layout for JPanel and is simple but limited for complex interfaces. BorderLayout divides the container into five regions: NORTH, SOUTH, EAST, WEST and CENTER. Each region holds at most one component. NORTH and SOUTH get their preferred height and stretch to full width; EAST and WEST get their preferred width and stretch to remaining height; CENTER fills all remaining space. It is the default for JFrame. GridLayout arranges components in a rectangular grid of equally sized cells, added left-to-right, top-to-bottom. All components are forced to the same size regardless of their preferred size. It is useful for calculator buttons, photo galleries and forms with uniform fields.",
+                5
+            ),
+            qa(
+                "What is GridBagLayout? Explain GridBagConstraints.",
+                "GridBagLayout is the most flexible and powerful layout manager in Java. It arranges components in a grid where each component can span multiple rows and columns, have different sizes, and have custom alignment and padding. Unlike GridLayout, cells do not have to be equal size. Each component is associated with a GridBagConstraints object that specifies its placement. Key constraints include: gridx and gridy for the column and row position, gridwidth and gridheight for how many cells the component spans, weightx and weighty for how extra space is distributed when the container is resized, fill (NONE, HORIZONTAL, VERTICAL, BOTH) for how the component fills its cell, anchor for alignment within the cell, and insets for external padding around the component. GridBagLayout is complex but essential for professional, resizable forms.",
+                5
+            ),
+            qa(
+                "How do you combine multiple layout managers in a Swing application?",
+                "The standard approach is to use nested JPanels, each with its own layout manager. The JFrame typically uses BorderLayout as the outer layout. A JPanel with FlowLayout is placed in NORTH for a toolbar or search bar. A JPanel with GridLayout or BorderLayout is placed in CENTER for the main content. A JPanel with FlowLayout (right-aligned) is placed in SOUTH for action buttons like OK and Cancel. WEST and EAST can hold navigation panels or sidebars. This nesting can go several levels deep — a CENTER panel with BorderLayout can itself contain nested panels. This approach gives you the simplicity of basic layouts with the flexibility of complex designs, avoiding the steep learning curve of GridBagLayout for most applications. Each panel is an independent layout unit that manages its own children.",
+                5
+            ),
+        ],
+    }
 );
 
 /* =========================================================
@@ -1465,3 +1465,6 @@ export const unit4Topics = [
     eventHandling,
     layoutManagers,
 ];
+
+// Alias if index.js imports { unit4 }
+export const unit4 = unit4Topics;

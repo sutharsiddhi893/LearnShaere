@@ -14,4 +14,6 @@ const semester2Subjects = [
     softwareEngineering,
 ];
 
+export const sem2Subjects = semester2Subjects;
+
 export default semester2Subjects;
