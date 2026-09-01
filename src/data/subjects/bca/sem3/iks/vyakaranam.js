@@ -1,22 +1,35 @@
 /* =========================================================
-   BCA • SEMESTER 3 • IKS ELECTIVE
-   व्याकरणम्   (US03IKBCA07)
+   BCA • SEMESTER 3 • IKS
+   Vyakaranam   (US03IKBCA_VYAKARANAM)
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../../helpers";
-import { IKS_GROUP } from "./group";
+import { defineSubject, createUnit } from "../../../../helpers";
+import { unit1Topics, unit2Topics } from "./vyakaranam/index";
 
 export const vyakaranam = defineSubject(
-  "US03IKBCA07",
-  "व्याकरणम्",
+  "US03IKBCA_VYAKARANAM", // replace with exact official code if you have it
+  "Vyakaranam",
 
-  createUnits("bca-vyakaranam-unit", [
-    "संस्कृत वर्णमाला, शब्दरूपम्, धातुरूपम् एवं सन्धिः",
-    "समासः, विभक्तिः, वाच्यम्, प्रत्ययाः, अव्ययम् एवं उपसर्गाः",
-  ]),
+  [
+    createUnit(
+      "bca-vyakaranam-unit-1",
+      "Unit 1",
+      "Meaning, Panini and Foundations of Sanskrit Grammar",
+      { topics: unit1Topics }
+    ),
+    createUnit(
+      "bca-vyakaranam-unit-2",
+      "Unit 2",
+      "Karaka, Samasa, Philosophy of Language and Modern Relevance",
+      { topics: unit2Topics }
+    ),
+  ],
 
   {
-    code: "US03IKBCA07",
-    electiveGroup: IKS_GROUP,
+    code: "US03IKBCA_VYAKARANAM",
+    documentationId: "vyakaranam",
+    hasContent: true,
+    contentComplete: true,
+    electiveGroup: "iks",
   }
 );

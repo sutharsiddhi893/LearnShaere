@@ -1,8 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useApp } from "../../../context/AppContext";
-import CourseCard from "../../../components/CourseCard";
-import SectionHeader from "../../../components/SectionHeader";
+import { useApp } from "../../context/AppContext";
+import CourseCard from "../../components/CourseCard";
+import SectionHeader from "../../components/SectionHeader";
 import "./Courses.css";
 
 const Courses = () => {

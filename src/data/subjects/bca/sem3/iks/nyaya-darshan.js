@@ -1,22 +1,35 @@
 /* =========================================================
-   BCA • SEMESTER 3 • IKS ELECTIVE
-   Nyaya Darshan   (US03IKBCA04)
+   BCA • SEMESTER 3 • IKS
+   Nyaya Darshan   (US03IKBCA_NYAYA)
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../../helpers";
-import { IKS_GROUP } from "./group";
+import { defineSubject, createUnit } from "../../../../helpers";
+import { unit1Topics, unit2Topics } from "./nyaya-darshan/index";
 
 export const nyayaDarshan = defineSubject(
-  "US03IKBCA04",
+  "US03IKBCA_NYAYA",
   "Nyaya Darshan",
 
-  createUnits("bca-nyaya-unit", [
-    "Akshapada Gautama and the Five Elements of Nyaya",
-    "Nyaya-Vaisheshika, Nyaya Sutras and Sixteen Elements",
-  ]),
+  [
+    createUnit(
+      "bca-nyaya-unit-1",
+      "Unit 1",
+      "Introduction to Nyaya Darshan and the Four Pramanas",
+      { topics: unit1Topics }
+    ),
+    createUnit(
+      "bca-nyaya-unit-2",
+      "Unit 2",
+      "5-Membered Syllogism, Fallacies, and Relevance to Computer Science",
+      { topics: unit2Topics }
+    ),
+  ],
 
   {
-    code: "US03IKBCA04",
-    electiveGroup: IKS_GROUP,
+    code: "US03IKBCA_NYAYA",
+    documentationId: "nyaya-darshan",
+    hasContent: true,
+    contentComplete: true,
+    electiveGroup: "iks",
   }
 );

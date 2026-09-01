@@ -1,22 +1,35 @@
 /* =========================================================
-   BCA • SEMESTER 3 • IKS ELECTIVE
-   Puran   (US03IKBCA05)
+   BCA • SEMESTER 3 • IKS
+   Puran   (US03IKBCA_PURAN)
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../../helpers";
-import { IKS_GROUP } from "./group";
+import { defineSubject, createUnit } from "../../../../helpers";
+import { unit1Topics, unit2Topics } from "./puran/index";
 
 export const puran = defineSubject(
-  "US03IKBCA05",
+  "US03IKBCA_PURAN",
   "Puran",
 
-  createUnits("bca-puran-unit", [
-    "Introduction to Puranas and Major Themes",
-    "Social, Cultural and Ethical Implications of the Puranas",
-  ]),
+  [
+    createUnit(
+      "bca-puran-unit-1",
+      "Unit 1",
+      "Introduction, Pancha Lakshana, and Scientific Insights in Puranas",
+      { topics: unit1Topics }
+    ),
+    createUnit(
+      "bca-puran-unit-2",
+      "Unit 2",
+      "Moral Values, Puranic Legends, and Modern Relevance",
+      { topics: unit2Topics }
+    ),
+  ],
 
   {
-    code: "US03IKBCA05",
-    electiveGroup: IKS_GROUP,
+    code: "US03IKBCA_PURAN",
+    documentationId: "puran",
+    hasContent: true,
+    contentComplete: true,
+    electiveGroup: "iks",
   }
 );

@@ -1,20 +1,42 @@
 /* =========================================================
    BCA • SEMESTER 3
-   Discrete Mathematics   (US03AEBCA06)
+   Discrete Mathematics   (US03CBCA53)
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../helpers";
+import { defineSubject, createUnit, attachTopics } from "../../../helpers";
+
+import {
+  unit1Topics,
+  unit2Topics,
+} from "./discrete-mathematics/index";
 
 export const discreteMathematics = defineSubject(
-  "US03AEBCA06",
+  "US03CBCA53", // BCA code
   "Discrete Mathematics",
 
-  createUnits("bca-discrete-mathematics-unit", [
-    "Vectors and Matrices",
-    "Graph Theory",
-  ]),
+  [
+    attachTopics(
+      createUnit(
+        "bca-discrete-math-unit-1",
+        "Unit 1",
+        "Vectors and Matrices"
+      ),
+      unit1Topics
+    ),
+    attachTopics(
+      createUnit(
+        "bca-discrete-math-unit-2",
+        "Unit 2",
+        "Graph Theory"
+      ),
+      unit2Topics
+    ),
+  ],
 
   {
-    code: "US03AEBCA06",
+    code: "US03CBCA53",
+    documentationId: "discrete-mathematics",
+    hasContent: true,
+    contentComplete: true,
   }
 );

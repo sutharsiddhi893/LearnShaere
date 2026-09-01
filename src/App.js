@@ -6,7 +6,7 @@ import { AppProvider } from "./context/AppContext";
 import MainLayout from "./layouts/MainLayout/MainLayout";
 
 import Home from "./pages/Home/Home";
-import Courses from "./pages/Home/Courses/Courses";
+import Courses from "./pages/Courses/Courses";
 import CourseDetail from "./pages/CourseDetail/CourseDetail";
 import Quizzes from "./pages/Quizzes/Quizzes";
 import QuizPlay from "./pages/QuizPlay/QuizPlay";

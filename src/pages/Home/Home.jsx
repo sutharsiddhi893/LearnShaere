@@ -164,7 +164,7 @@ const Home = () => {
       <section className="home-quick-access-section">
         <div className="home-container">
           <div className="home-quick-access-grid">
-            <Link to="/courses" className="home-quick-access-card">
+            <Link to="/courses/bca/semester/1" className="home-quick-access-card">
               <span className="home-quick-access-icon home-quick-icon-purple">
                 <img src="/icon.png" alt="" />
               </span>

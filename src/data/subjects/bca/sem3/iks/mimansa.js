@@ -1,22 +1,34 @@
 /* =========================================================
-   BCA • SEMESTER 3 • IKS ELECTIVE
-   Mimansa (Purva and Uttara)   (US03IKBCA02)
+   BCA • SEMESTER 3 • IKS
+   Mimansa
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../../helpers";
-import { IKS_GROUP } from "./group";
+import { defineSubject, createUnit } from "../../../../helpers";
+
+import { unit1Topics, unit2Topics } from "./mimansa/index";
 
 export const mimansa = defineSubject(
-  "US03IKBCA02",
-  "Mimansa (Purva and Uttara)",
-
-  createUnits("bca-mimansa-unit", [
-    "Introduction to Mimansa Shastra and Purva Mimansa",
-    "Uttara Mimansa and Shankaracharya's Contribution to Vedanta",
-  ]),
-
+  "US03IKBCA_MIMANSA", // replace with exact code if you have it
+  "Mimansa",
+  [
+    createUnit(
+      "bca-mimansa-unit-1",
+      "Unit 1",
+      "Introduction, Meaning and Core Concepts of Mimansa",
+      { topics: unit1Topics }
+    ),
+    createUnit(
+      "bca-mimansa-unit-2",
+      "Unit 2",
+      "Interpretation, Duty and Modern Relevance",
+      { topics: unit2Topics }
+    ),
+  ],
   {
-    code: "US03IKBCA02",
-    electiveGroup: IKS_GROUP,
+    code: "US03IKBCA_MIMANSA",
+    documentationId: "mimansa",
+    hasContent: true,
+    contentComplete: true,
+    electiveGroup: "iks",
   }
 );

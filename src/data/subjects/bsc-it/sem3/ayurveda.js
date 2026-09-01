@@ -1,20 +1,38 @@
 /* =========================================================
    B.Sc IT • SEMESTER 3
-   Ayurveda (IKS Course)   (UB03IKBIT08)
+   Ayurveda   (UB03IKBIT08)
 ========================================================= */
 
-import { defineSubject, createUnits } from "../../../helpers";
+import { defineSubject, createUnit } from "../../../helpers";
+
+import {
+    unit1Topics,
+    unit2Topics,
+} from "./ayurveda/index";
 
 export const ayurveda = defineSubject(
     "UB03IKBIT08",
     "Ayurveda",
 
-    createUnits("bscit-ayurveda-unit", [
-        "Fundamentals of Ayurveda, Tridosha and Wholistic Health Care",
-        "Life Style Management and Health Care through Ayurveda",
-    ]),
+    [
+        createUnit(
+            "bscit-ayurveda-unit-1",
+            "Unit 1",
+            "Fundamentals of Ayurveda, Tridosha and Holistic Health Care",
+            { topics: unit1Topics }
+        ),
+        createUnit(
+            "bscit-ayurveda-unit-2",
+            "Unit 2",
+            "Lifestyle Management, Gunas and Contributions",
+            { topics: unit2Topics }
+        ),
+    ],
 
     {
         code: "UB03IKBIT08",
+        documentationId: "ayurveda",
+        hasContent: true,
+        contentComplete: true,
     }
 );
