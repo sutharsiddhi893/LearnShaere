@@ -4,17 +4,17 @@
 ========================================================= */
 
 import {
-  createTopic,
-  heading,
-  text,
-  list,
-  code,
-  table,
-  note,
-  definition,
-  keyPoints,
-  mcq,
-  qa,
+    createTopic,
+    heading,
+    text,
+    list,
+    code,
+    table,
+    note,
+    definition,
+    keyPoints,
+    mcq,
+    qa,
 } from "../../../../helpers";
 
 /* =========================================================
@@ -281,33 +281,33 @@ console.log(c);    // 3 (function-scoped)`,
             "var, let and const"
         ),
 
-        heading("Temporal Dead Zone (TDZ)"],
+        heading("Temporal Dead Zone (TDZ)"),
 
-    definition(
-        "Temporal Dead Zone",
-        "The period between entering a scope and the actual declaration of a let or const variable, during which accessing the variable throws a ReferenceError. Unlike var, let and const are not accessible before their declaration even though they are hoisted."
-    ),
+        definition(
+            "Temporal Dead Zone",
+            "The period between entering a scope and the actual declaration of a let or const variable, during which accessing the variable throws a ReferenceError. Unlike var, let and const are not accessible before their declaration even though they are hoisted."
+        ),
 
-    heading("Data Types"),
+        heading("Data Types"),
 
-    table(
-        ["Category", "Type", "Example", "typeof result"],
-        [
-            ["Primitive", "Number", "42, 3.14, Infinity, NaN", "\"number\""],
-            ["Primitive", "String", "\"hello\", 'world', `template`", "\"string\""],
-            ["Primitive", "Boolean", "true, false", "\"boolean\""],
-            ["Primitive", "Undefined", "undefined", "\"undefined\""],
-            ["Primitive", "Null", "null", "\"object\" (historical bug)"],
-            ["Primitive", "Symbol", "Symbol('id')", "\"symbol\""],
-            ["Primitive", "BigInt", "9007199254740991n", "\"bigint\""],
-            ["Reference", "Object", "{ name: \"Rahul\" }", "\"object\""],
-            ["Reference", "Array", "[1, 2, 3]", "\"object\""],
-            ["Reference", "Function", "function() {}", "\"function\""],
-        ]
-    ),
+        table(
+            ["Category", "Type", "Example", "typeof result"],
+            [
+                ["Primitive", "Number", "42, 3.14, Infinity, NaN", "\"number\""],
+                ["Primitive", "String", "\"hello\", 'world', `template`", "\"string\""],
+                ["Primitive", "Boolean", "true, false", "\"boolean\""],
+                ["Primitive", "Undefined", "undefined", "\"undefined\""],
+                ["Primitive", "Null", "null", "\"object\" (historical bug)"],
+                ["Primitive", "Symbol", "Symbol('id')", "\"symbol\""],
+                ["Primitive", "BigInt", "9007199254740991n", "\"bigint\""],
+                ["Reference", "Object", "{ name: \"Rahul\" }", "\"object\""],
+                ["Reference", "Array", "[1, 2, 3]", "\"object\""],
+                ["Reference", "Function", "function() {}", "\"function\""],
+            ]
+        ),
 
-    code(
-        `// typeof operator
+        code(
+            `// typeof operator
 console.log(typeof 42);          // "number"
 console.log(typeof "hello");     // "string"
 console.log(typeof true);        // "boolean"
@@ -325,14 +325,14 @@ console.log(Array.isArray({}));          // false
 const name = "Rahul";
 const marks = 85;
 console.log(\`\${name} scored \${marks} marks\`);  // Rahul scored 85 marks`,
-        "javascript",
-        "typeof and template literals"
-    ),
+            "javascript",
+            "typeof and template literals"
+        ),
 
-    heading("Type Conversion"),
+        heading("Type Conversion"),
 
-    code(
-        `// String to Number
+        code(
+            `// String to Number
 Number("42");      // 42
 parseInt("42px");  // 42
 parseFloat("3.14"); // 3.14
@@ -352,42 +352,42 @@ Boolean(NaN);      // false
 Boolean("hello");  // true
 Boolean(42);       // true
 !!value;           // shorthand double-negation to boolean`,
-        "javascript",
-        "Type conversion"
-    ),
+            "javascript",
+            "Type conversion"
+        ),
 
-    heading("Falsy Values"),
+        heading("Falsy Values"),
 
-    list([
-        "false",
-        "0 (and -0)",
-        "0n (BigInt zero)",
-        "\"\" (empty string)",
-        "null",
-        "undefined",
-        "NaN",
-    ]),
+        list([
+            "false",
+            "0 (and -0)",
+            "0n (BigInt zero)",
+            "\"\" (empty string)",
+            "null",
+            "undefined",
+            "NaN",
+        ]),
 
-    heading("Operators"),
+        heading("Operators"),
 
-    table(
-        ["Category", "Operators", "Notes"],
-        [
-            ["Arithmetic", "+, -, *, /, %, **", "** is exponentiation (ES6)"],
-            ["Assignment", "=, +=, -=, *=, /=, %=, **=", "Compound assignment"],
-            ["Comparison", "==, ===, !=, !==, >, <, >=, <=", "Always prefer === and !=="],
-            ["Logical", "&&, ||, !", "Short-circuit evaluation"],
-            ["Nullish", "??", "Returns right side only if left is null or undefined"],
-            ["Optional chaining", "?.", "Safely access nested properties"],
-            ["Ternary", "condition ? a : b", "Inline if-else"],
-            ["Spread", "...", "Expand arrays/objects"],
-        ]
-    ),
+        table(
+            ["Category", "Operators", "Notes"],
+            [
+                ["Arithmetic", "+, -, *, /, %, **", "** is exponentiation (ES6)"],
+                ["Assignment", "=, +=, -=, *=, /=, %=, **=", "Compound assignment"],
+                ["Comparison", "==, ===, !=, !==, >, <, >=, <=", "Always prefer === and !=="],
+                ["Logical", "&&, ||, !", "Short-circuit evaluation"],
+                ["Nullish", "??", "Returns right side only if left is null or undefined"],
+                ["Optional chaining", "?.", "Safely access nested properties"],
+                ["Ternary", "condition ? a : b", "Inline if-else"],
+                ["Spread", "...", "Expand arrays/objects"],
+            ]
+        ),
 
-    heading("== versus ==="),
+        heading("== versus ==="),
 
-    code(
-        `// == (loose equality) — converts types before comparing
+        code(
+            `// == (loose equality) — converts types before comparing
 5 == "5";     // true  (string converted to number)
 0 == false;   // true  (false converted to 0)
 null == undefined;  // true
@@ -399,14 +399,14 @@ null === undefined;  // false
 5 === 5;      // true
 
 // ALWAYS use === and !== in modern JavaScript`,
-        "javascript",
-        "Loose vs strict equality"
-    ),
+            "javascript",
+            "Loose vs strict equality"
+        ),
 
-    heading("Nullish Coalescing and Optional Chaining"),
+        heading("Nullish Coalescing and Optional Chaining"),
 
-    code(
-        `// Nullish coalescing (??) — fallback only for null/undefined
+        code(
+            `// Nullish coalescing (??) — fallback only for null/undefined
 const name = null ?? "Guest";     // "Guest"
 const count = 0 ?? 10;            // 0  (0 is not nullish)
 const count2 = 0 || 10;           // 10 (0 is falsy, || treats it as false)
@@ -416,88 +416,88 @@ const user = { profile: { name: "Rahul" } };
 console.log(user.profile?.name);     // "Rahul"
 console.log(user.address?.city);     // undefined (no error!)
 console.log(user.profile?.age ?? 18); // 18 (age is undefined)`,
-        "javascript",
-        "?? and ?. operators"
-    ),
+            "javascript",
+            "?? and ?. operators"
+        ),
 
-    note(
-        "Always use === (strict equality) instead of == (loose equality). The == operator performs type coercion which leads to unexpected results like 0 == false being true. ESLint and all modern style guides enforce ===.",
-        "warning",
-        "Best Practice"
-    ),
+        note(
+            "Always use === (strict equality) instead of == (loose equality). The == operator performs type coercion which leads to unexpected results like 0 == false being true. ESLint and all modern style guides enforce ===.",
+            "warning",
+            "Best Practice"
+        ),
 
-    keyPoints([
-        "Use const by default, let when reassignment is needed, and avoid var.",
-        "JavaScript has 7 primitive types plus objects (arrays and functions are objects).",
-        "typeof null returns \"object\" — a historical bug; use Array.isArray() to check arrays.",
-        "Always use === and !== for comparison to avoid type coercion surprises.",
-        "?? provides fallbacks for null/undefined; ?. safely accesses nested properties.",
-    ]),
-  ],
+        keyPoints([
+            "Use const by default, let when reassignment is needed, and avoid var.",
+            "JavaScript has 7 primitive types plus objects (arrays and functions are objects).",
+            "typeof null returns \"object\" — a historical bug; use Array.isArray() to check arrays.",
+            "Always use === and !== for comparison to avoid type coercion surprises.",
+            "?? provides fallbacks for null/undefined; ?. safely accesses nested properties.",
+        ]),
+    ],
 
-{
-    summary:
-    "Master JavaScript variables (var/let/const), data types, type conversion, operators, == vs ===, and modern operators (??, ?.).",
+    {
+        summary:
+            "Master JavaScript variables (var/let/const), data types, type conversion, operators, == vs ===, and modern operators (??, ?.).",
         minutes: 13,
-            tags: ["web", "javascript", "variables", "data-types", "operators", "important"],
+        tags: ["web", "javascript", "variables", "data-types", "operators", "important"],
 
-                mcqs: [
-                    mcq(
-                        "Which keyword declares a block-scoped variable that cannot be reassigned?",
-                        ["var", "let", "const", "static"],
-                        2,
-                        "const declares a block-scoped variable whose binding cannot be reassigned."
-                    ),
-                    mcq(
-                        "typeof null returns:",
-                        ["\"null\"", "\"undefined\"", "\"object\"", "\"boolean\""],
-                        2,
-                        "typeof null returns \"object\" due to a historical bug in JavaScript."
-                    ),
-                    mcq(
-                        "5 == \"5\" evaluates to:",
-                        ["true", "false", "undefined", "Error"],
-                        0,
-                        "== performs type coercion, converting the string \"5\" to the number 5, so they are equal."
-                    ),
-                    mcq(
-                        "5 === \"5\" evaluates to:",
-                        ["true", "false", "undefined", "Error"],
-                        1,
-                        "=== requires both value and type to match. Number 5 and string \"5\" have different types."
-                    ),
-                    mcq(
-                        "Which of the following is NOT a falsy value?",
-                        ["0", "\"\"", "\"false\"", "null"],
-                        2,
-                        "The string \"false\" is a non-empty string, which is truthy. false, 0, \"\", null, undefined and NaN are falsy."
-                    ),
-                    mcq(
-                        "The ?? operator returns the right side when the left side is:",
-                        ["Any falsy value", "null or undefined", "0 or empty string", "false"],
-                        1,
-                        "Nullish coalescing (??) only triggers for null or undefined, unlike || which triggers for any falsy value."
-                    ),
-                ],
+        mcqs: [
+            mcq(
+                "Which keyword declares a block-scoped variable that cannot be reassigned?",
+                ["var", "let", "const", "static"],
+                2,
+                "const declares a block-scoped variable whose binding cannot be reassigned."
+            ),
+            mcq(
+                "typeof null returns:",
+                ["\"null\"", "\"undefined\"", "\"object\"", "\"boolean\""],
+                2,
+                "typeof null returns \"object\" due to a historical bug in JavaScript."
+            ),
+            mcq(
+                "5 == \"5\" evaluates to:",
+                ["true", "false", "undefined", "Error"],
+                0,
+                "== performs type coercion, converting the string \"5\" to the number 5, so they are equal."
+            ),
+            mcq(
+                "5 === \"5\" evaluates to:",
+                ["true", "false", "undefined", "Error"],
+                1,
+                "=== requires both value and type to match. Number 5 and string \"5\" have different types."
+            ),
+            mcq(
+                "Which of the following is NOT a falsy value?",
+                ["0", "\"\"", "\"false\"", "null"],
+                2,
+                "The string \"false\" is a non-empty string, which is truthy. false, 0, \"\", null, undefined and NaN are falsy."
+            ),
+            mcq(
+                "The ?? operator returns the right side when the left side is:",
+                ["Any falsy value", "null or undefined", "0 or empty string", "false"],
+                1,
+                "Nullish coalescing (??) only triggers for null or undefined, unlike || which triggers for any falsy value."
+            ),
+        ],
 
-                    questions: [
-                        qa(
-                            "Compare var, let and const in JavaScript.",
-                            "var is function-scoped, can be redeclared and reassigned, and is hoisted with an initial value of undefined, meaning it can be accessed before its declaration (returning undefined). It is a legacy feature and should be avoided. let is block-scoped (limited to the nearest enclosing braces), can be reassigned but not redeclared in the same scope, and is hoisted but exists in a Temporal Dead Zone until its declaration is executed — accessing it before declaration throws a ReferenceError. const is also block-scoped and hoisted with a TDZ, but cannot be reassigned after initialisation. However, if the const value is an object or array, its contents can still be mutated. The modern best practice is to use const by default and let only when reassignment is needed.",
-                            5
-                        ),
-                        qa(
-                            "Explain == versus === and why === is preferred.",
-                            "The == operator (loose equality) compares values after performing type coercion. If the types differ, JavaScript converts them to a common type before comparing. This leads to surprising results: 5 == \"5\" is true (string converted to number), 0 == false is true (false converted to 0), and null == undefined is true. The === operator (strict equality) compares both value and type without any conversion. 5 === \"5\" is false because number and string are different types. === is preferred because it is predictable, avoids hidden type conversions, and prevents bugs. All modern JavaScript style guides and linters (ESLint) enforce === and !==. The only common exception is checking for null or undefined together using == null, which is true for both null and undefined.",
-                            5
-                        ),
-                        qa(
-                            "What are falsy values in JavaScript? How does ?? differ from ||?",
-                            "JavaScript has seven falsy values: false, 0, -0, 0n (BigInt zero), \"\" (empty string), null, undefined and NaN. Everything else is truthy, including \"false\", \"0\", [], {} and empty functions. The || (OR) operator returns the first truthy value, so 0 || 10 returns 10 because 0 is falsy. The ?? (nullish coalescing) operator returns the right side only if the left side is null or undefined, so 0 ?? 10 returns 0 because 0 is not nullish. This distinction is important when 0, empty string or false are valid values that should not be replaced by a default. Use ?? when you want a fallback only for missing values, and || when you want a fallback for any falsy value.",
-                            4
-                        ),
-                    ],
-  }
+        questions: [
+            qa(
+                "Compare var, let and const in JavaScript.",
+                "var is function-scoped, can be redeclared and reassigned, and is hoisted with an initial value of undefined, meaning it can be accessed before its declaration (returning undefined). It is a legacy feature and should be avoided. let is block-scoped (limited to the nearest enclosing braces), can be reassigned but not redeclared in the same scope, and is hoisted but exists in a Temporal Dead Zone until its declaration is executed — accessing it before declaration throws a ReferenceError. const is also block-scoped and hoisted with a TDZ, but cannot be reassigned after initialisation. However, if the const value is an object or array, its contents can still be mutated. The modern best practice is to use const by default and let only when reassignment is needed.",
+                5
+            ),
+            qa(
+                "Explain == versus === and why === is preferred.",
+                "The == operator (loose equality) compares values after performing type coercion. If the types differ, JavaScript converts them to a common type before comparing. This leads to surprising results: 5 == \"5\" is true (string converted to number), 0 == false is true (false converted to 0), and null == undefined is true. The === operator (strict equality) compares both value and type without any conversion. 5 === \"5\" is false because number and string are different types. === is preferred because it is predictable, avoids hidden type conversions, and prevents bugs. All modern JavaScript style guides and linters (ESLint) enforce === and !==. The only common exception is checking for null or undefined together using == null, which is true for both null and undefined.",
+                5
+            ),
+            qa(
+                "What are falsy values in JavaScript? How does ?? differ from ||?",
+                "JavaScript has seven falsy values: false, 0, -0, 0n (BigInt zero), \"\" (empty string), null, undefined and NaN. Everything else is truthy, including \"false\", \"0\", [], {} and empty functions. The || (OR) operator returns the first truthy value, so 0 || 10 returns 10 because 0 is falsy. The ?? (nullish coalescing) operator returns the right side only if the left side is null or undefined, so 0 ?? 10 returns 0 because 0 is not nullish. This distinction is important when 0, empty string or false are valid values that should not be replaced by a default. Use ?? when you want a fallback only for missing values, and || when you want a fallback for any falsy value.",
+                4
+            ),
+        ],
+    }
 );
 
 /* =========================================================

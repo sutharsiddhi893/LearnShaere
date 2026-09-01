@@ -1,3 +1,4 @@
+import { createSemester } from "../../../helpers";
 import oopUsingJava from "./oop-using-java";
 import webTechnology from "./web-technology";
 import practicalsII from "./practicals-2";
@@ -5,7 +6,7 @@ import machineLearning from "./machine-learning";
 import cyberSecurity from "./cyber-security";
 import softwareEngineering from "./software-engineering";
 
-const semester2Subjects = [
+const SEM2_SUBJECTS = [
     oopUsingJava,
     webTechnology,
     practicalsII,
@@ -14,6 +15,5 @@ const semester2Subjects = [
     softwareEngineering,
 ];
 
-export const sem2Subjects = semester2Subjects;
+export default SEM2_SUBJECTS;
 
-export default semester2Subjects;
