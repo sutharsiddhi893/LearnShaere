@@ -29,13 +29,13 @@ const CourseCard = ({ course, categoryName, testIdPrefix = "course-card" }) => {
 
                 <div className="course-card-meta">
                     <span>
-                        <i className="fa-regular fa-clock"></i> {course.duration}
+                        <i className="fa-regular fa-clock"></i> {course.duration || "8 Semesters"}
                     </span>
                     <span>
-                        <i className="fa-regular fa-user"></i> {course.instructor}
+                        <i className="fa-regular fa-user"></i> {course.instructor || "University"}
                     </span>
                     <span>
-                        <i className="fa-solid fa-layer-group"></i> {course.lessons.length} lessons
+                        <i className="fa-solid fa-layer-group"></i> {course.lessons ? course.lessons.length : (course.semesters ? course.semesters.length : 8)} Semesters
                     </span>
                 </div>
 

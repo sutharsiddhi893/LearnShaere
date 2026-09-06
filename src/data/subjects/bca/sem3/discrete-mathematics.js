@@ -11,7 +11,7 @@ import {
 } from "./discrete-mathematics/index";
 
 export const discreteMathematics = defineSubject(
-  "US03CBCA53", // BCA code
+  "discrete-mathematics", // stable route ID; supplied code is preserved below
   "Discrete Mathematics",
 
   [

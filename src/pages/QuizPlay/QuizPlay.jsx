@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useApp } from "../../context/AppContext";
+import { getCurriculumQuiz } from "../../data/quizCatalog";
 import Button from "../../components/Button";
 import "./QuizPlay.css";
 
 const QuizPlay = () => {
     const { quizId } = useParams();
-    const { quizzes, recordAttempt } = useApp();
+    const { recordAttempt } = useApp();
 
-    const quiz = useMemo(() => quizzes.find((q) => q.id === quizId), [quizzes, quizId]);
+    const quiz = useMemo(() => getCurriculumQuiz(quizId), [quizId]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState({}); // { questionId: selectedIndex }

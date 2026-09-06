@@ -1,4 +1,3 @@
-import { createSemester } from "../../../helpers";
 import oopUsingJava from "./oop-using-java";
 import webTechnology from "./web-technology";
 import practicalsII from "./practicals-2";

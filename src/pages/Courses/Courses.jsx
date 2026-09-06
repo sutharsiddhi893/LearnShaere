@@ -1,120 +1,69 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { useApp } from "../../context/AppContext";
-import CourseCard from "../../components/CourseCard";
-import SectionHeader from "../../components/SectionHeader";
+import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { availableCourses, coursesData } from "../../data";
 import "./Courses.css";
 
 const Courses = () => {
-    const { courses, categories } = useApp();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [search, setSearch] = useState("");
-    const initialCategory = searchParams.get("category") || "all";
-    const [activeCategory, setActiveCategory] = useState(initialCategory);
+  const [query, setQuery] = useState("");
+  const [level, setLevel] = useState("all");
 
-    useEffect(() => {
-        setActiveCategory(searchParams.get("category") || "all");
-    }, [searchParams]);
+  const courses = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return availableCourses.filter((course) => {
+      const source = coursesData[course.id];
+      const matchesLevel = level === "all" || course.level === level;
+      const matchesQuery = !normalized || [course.name, course.label, source.description]
+        .join(" ").toLowerCase().includes(normalized);
+      return matchesLevel && matchesQuery;
+    });
+  }, [level, query]);
 
-    const categoryName = (id) => categories.find((c) => c.id === id)?.name;
+  return (
+    <main className="courses">
+      <section className="courses-header container">
+        <p className="section-eyebrow">Academic library</p>
+        <h1>Choose your programme</h1>
+        <p>Browse supplied course material by semester, subject, unit, and topic.</p>
+      </section>
 
-    const handleCategoryClick = (slug) => {
-        setActiveCategory(slug);
-        if (slug === "all") {
-            searchParams.delete("category");
-        } else {
-            searchParams.set("category", slug);
-        }
-        setSearchParams(searchParams);
-    };
-
-    const filtered = useMemo(() => {
-        const q = search.trim().toLowerCase();
-        return courses.filter((c) => {
-            if (activeCategory !== "all") {
-                const cat = categories.find((cat) => cat.id === c.categoryId);
-                if (!cat || cat.slug !== activeCategory) return false;
-            }
-            if (!q) return true;
-            return (
-                c.title.toLowerCase().includes(q) ||
-                (c.subtitle || "").toLowerCase().includes(q) ||
-                (c.instructor || "").toLowerCase().includes(q)
-            );
-        });
-    }, [courses, categories, search, activeCategory]);
-
-    return (
-        <div className="courses fade-up" data-testid="courses-page">
-            <div className="container courses-header">
-                <SectionHeader
-                    eyebrow="All courses"
-                    title="Every course. One grid."
-                    description="Filter by discipline, search by title or instructor, and click through to start learning."
-                />
-            </div>
-
-            <div className="container courses-toolbar">
-                <div className="courses-search">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                    <input
-                        type="text"
-                        placeholder="Search courses, instructors..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        aria-label="Search courses"
-                        data-testid="courses-search-input"
-                    />
-                </div>
-
-                <div className="courses-filter" role="tablist" aria-label="Category filter">
-                    <button
-                        type="button"
-                        role="tab"
-                        aria-selected={activeCategory === "all"}
-                        className={`courses-filter-btn ${activeCategory === "all" ? "is-active" : ""}`}
-                        onClick={() => handleCategoryClick("all")}
-                        data-testid="courses-filter-all"
-                    >
-                        All
-                    </button>
-                    {categories.map((cat) => (
-                        <button
-                            key={cat.id}
-                            type="button"
-                            role="tab"
-                            aria-selected={activeCategory === cat.slug}
-                            className={`courses-filter-btn ${activeCategory === cat.slug ? "is-active" : ""}`}
-                            onClick={() => handleCategoryClick(cat.slug)}
-                            data-testid={`courses-filter-${cat.slug}`}
-                        >
-                            <i className={`fa-solid ${cat.icon}`}></i> {cat.name}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
-            <div className="container courses-body">
-                {filtered.length === 0 ? (
-                    <div className="courses-empty" data-testid="courses-empty">
-                        <i className="fa-solid fa-face-frown"></i>
-                        <h3>No courses match your filters.</h3>
-                        <p>Try clearing the search or picking a different category.</p>
-                    </div>
-                ) : (
-                    <div className="courses-grid" data-testid="courses-grid">
-                        {filtered.map((c) => (
-                            <CourseCard
-                                key={c.id}
-                                course={c}
-                                categoryName={categoryName(c.categoryId)}
-                            />
-                        ))}
-                    </div>
-                )}
-            </div>
+      <section className="courses-toolbar container" aria-label="Course filters">
+        <label className="courses-search">
+          <span className="visually-hidden">Search programmes</span>
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search programmes" />
+        </label>
+        <div className="courses-filter" role="group" aria-label="Programme level">
+          {[['all', 'All'], ['bachelor', "Bachelor's"], ['master', "Master's"]].map(([value, label]) => (
+            <button key={value} type="button" className={`courses-filter-btn ${level === value ? "is-active" : ""}`} onClick={() => setLevel(value)}>
+              {label}
+            </button>
+          ))}
         </div>
-    );
+      </section>
+
+      <section className="courses-body container">
+        <div className="courses-grid">
+          {courses.map((course) => {
+            const source = coursesData[course.id];
+            const subjectCount = source.semesters.reduce((total, semester) => total + semester.subjects.length, 0);
+            const hasMaterial = subjectCount > 0;
+            return (
+              <article className={`programme-card ${hasMaterial ? "" : "programme-card--soon"}`} key={course.id}>
+                <p className="programme-card__level">{course.level === "bachelor" ? "Undergraduate" : "Postgraduate"}</p>
+                <h2>{course.label}</h2>
+                <p>{source.description}</p>
+                <div className="programme-card__facts">
+                  <span>{source.semesters.length} semesters</span>
+                  <span>{subjectCount} subjects</span>
+                </div>
+                {hasMaterial ? <Link to={`/courses/${course.id}/semester/1`}>Explore course <span aria-hidden="true">→</span></Link> : <span className="programme-card__soon">Coming soon</span>}
+              </article>
+            );
+          })}
+        </div>
+        {courses.length === 0 && <div className="courses-empty"><h2>No programmes found</h2><p>Try a different search term.</p></div>}
+      </section>
+    </main>
+  );
 };
 
 export default Courses;

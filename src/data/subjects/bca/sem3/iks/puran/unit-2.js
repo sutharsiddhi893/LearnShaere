@@ -10,7 +10,6 @@ import {
     list,
     table,
     note,
-    definition,
     keyPoints,
     mcq,
     qa,

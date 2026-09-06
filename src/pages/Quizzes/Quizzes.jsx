@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useApp } from "../../context/AppContext";
+import { curriculumQuizzes } from "../../data/quizCatalog";
 import SectionHeader from "../../components/SectionHeader";
 import Button from "../../components/Button";
 import "./Quizzes.css";
 
 const Quizzes = () => {
-    const { quizzes, courses, quizAttempts } = useApp();
+    const { quizAttempts } = useApp();
+    const quizzes = curriculumQuizzes;
 
     const attemptsByQuiz = quizAttempts.reduce((acc, a) => {
         acc[a.quizId] = acc[a.quizId] || [];
@@ -19,8 +21,6 @@ const Quizzes = () => {
         if (list.length === 0) return null;
         return Math.max(...list.map((a) => a.score));
     };
-
-    const courseName = (courseId) => courses.find((c) => c.id === courseId)?.title;
 
     return (
         <div className="quizzes fade-up" data-testid="quizzes-page">
@@ -43,7 +43,6 @@ const Quizzes = () => {
                     <div className="quizzes-grid" data-testid="quizzes-grid">
                         {quizzes.map((q) => {
                             const best = bestScore(q.id);
-                            const relatedCourse = courseName(q.courseId);
                             return (
                                 <article
                                     key={q.id}
@@ -65,11 +64,7 @@ const Quizzes = () => {
                                     <h3 className="quiz-card-title">{q.title}</h3>
                                     <p className="quiz-card-description">{q.description}</p>
 
-                                    {relatedCourse && (
-                                        <div className="quiz-card-course">
-                                            <i className="fa-solid fa-book"></i> {relatedCourse}
-                                        </div>
-                                    )}
+                                    <div className="quiz-card-course"><i className="fa-solid fa-book"></i> {q.description}</div>
 
                                     <div className="quiz-card-actions">
                                         <Button

@@ -17,10 +17,12 @@ export const getSemester = (courseId, semesterNumber) => {
   const course = getCourse(courseId);
   if (!course) return null;
 
+  const targetSem = semesterNumber || 1;
+
   return (
     course.semesters.find(
-      (semester) => String(semester.number) === String(semesterNumber)
-    ) || null
+      (semester) => String(semester.number) === String(targetSem)
+    ) || course.semesters[0] || null
   );
 };
 

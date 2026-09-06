@@ -3,9 +3,9 @@ import { readFromStorage, writeToStorage, generateId } from "../utils/storage";
 import { seedCategories, seedCourses, seedQuizzes } from "../data/legacy/seed";
 
 const STORAGE_KEYS = {
-    categories: "sg.categories.v1",
-    courses: "sg.courses.v1",
-    quizzes: "sg.quizzes.v1",
+    categories: "sg.categories.v2",
+    courses: "sg.courses.v2",
+    quizzes: "sg.quizzes.v2",
     quizAttempts: "sg.attempts.v1",
 };
 

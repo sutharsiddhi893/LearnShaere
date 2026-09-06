@@ -265,7 +265,7 @@ const membershipFunctions = createTopic(
             |     /  \
             |    /    \
             |   /      \
-          0 |--/--------\---
+          0 |--/--------\\---
             a  b    c   x
 
   μ(x) = 0           if x ≤ a
@@ -299,7 +299,7 @@ const membershipFunctions = createTopic(
             |   /      \
             |  /        \
             | /          \
-          0 |/____________\---
+          0 |/____________\\---
             a  b    c  d  x
 
   μ(x) = 0           if x ≤ a
@@ -334,7 +334,7 @@ const membershipFunctions = createTopic(
             |    .'      '.
             |   /          \
             |  /            \
-          0 |-/--------------\--
+          0 |-/--------------\\--
                  c       x
 
   Parameters: c = centre, σ = spread (standard deviation)

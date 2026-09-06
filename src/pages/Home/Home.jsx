@@ -186,7 +186,7 @@ const Home = () => {
               <b>→</b>
             </Link>
 
-            <Link to="/programming-lab/javascript" className="home-quick-access-card">
+            <Link to="/programming-lab" className="home-quick-access-card">
               <span className="home-quick-access-icon home-quick-icon-orange">
                 &lt;/&gt;
               </span>

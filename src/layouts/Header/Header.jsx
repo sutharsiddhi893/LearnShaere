@@ -11,13 +11,6 @@ const courses = [
   { name: "M.Tech", path: "/courses/mtech/semester/1" },
 ];
 
-const skillCourses = [
-  { name: "Web Development", path: "/courses/course_react_fundamentals" },
-  { name: "Data Science", path: "/courses/course_python_data" },
-  { name: "Machine Learning", path: "/courses/course_ml_intro" },
-  { name: "UI/UX Design", path: "/courses/course_ui_principles" },
-];
-
 const resources = [
   { name: "Previous Papers", path: "/resources/previous-papers" },
   { name: "Question Bank", path: "/resources/question-bank" },
@@ -148,14 +141,6 @@ export default function Header() {
           />
 
           <DropdownMenu
-            label="SkillCourses"
-            items={skillCourses}
-            isOpen={activeDropdown === "skillcourses"}
-            onToggle={() => toggleDropdown("skillcourses")}
-            onClose={closeMenus}
-          />
-
-          <DropdownMenu
             label="Resources"
             items={resources}
             isOpen={activeDropdown === "resources"}
@@ -242,12 +227,6 @@ export default function Header() {
             </NavLink>
 
             <MobileMenuGroup title="Courses" items={courses} onClose={closeMenus} />
-
-            <MobileMenuGroup
-              title="Skill Courses"
-              items={skillCourses}
-              onClose={closeMenus}
-            />
 
             <MobileMenuGroup
               title="Resources"

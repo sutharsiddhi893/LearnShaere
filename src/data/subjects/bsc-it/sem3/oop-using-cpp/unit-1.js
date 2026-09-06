@@ -13,7 +13,6 @@ import {
     table,
     note,
     definition,
-    steps,
     keyPoints,
     mcq,
     qa,

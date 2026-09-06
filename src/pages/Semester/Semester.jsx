@@ -17,7 +17,8 @@ import SubjectCard from "../../components/cards/SubjectCard/SubjectCard";
 import "./Semester.css";
 
 const Semester = () => {
-  const { courseId, semesterNumber } = useParams();
+  const { courseId, semesterNumber: paramSem } = useParams();
+  const semesterNumber = paramSem || "1";
 
   const course = getCourse(courseId);
   const semester = getSemester(courseId, semesterNumber);

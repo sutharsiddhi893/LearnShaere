@@ -20,7 +20,7 @@ export const bscIt = {
   level: "bachelor",
   description:
     "Comprehensive program covering programming, web technologies, databases, networking, and emerging IT domains.",
-  totalSemesters: 6,
+  totalSemesters: 8,
   accent: "blue",
 
   semesters: [

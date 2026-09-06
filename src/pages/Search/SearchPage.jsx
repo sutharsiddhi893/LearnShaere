@@ -1,102 +1,31 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { coursesData, getAllSubjects, getSubjectTopics } from "../../data";
 import "./SearchPage.css";
 
-const searchableItems = [
-  { title: "Programming in C", category: "Notes", path: "/courses/bca/semester/1/subject/programming-in-c", description: "Foundations, syntax, pointers, and practice problems." },
-  { title: "React essentials", category: "Programming Lab", path: "/programming-lab/react", description: "Hands-on component patterns and hooks." },
-  { title: "Placement aptitude pack", category: "Placement", path: "/placement-hub", description: "Quantitative reasoning and interview prep drills." },
-  { title: "PDF notes for DBMS", category: "Resources", path: "/resources/pdf-notes", description: "Shortcut notes for SQL and database design." },
-  { title: "BCA semester 2 quiz", category: "Quizzes", path: "/quizzes", description: "Topic-based quizzes with explanations." },
-];
-
-const categoryFilters = ["All", "Notes", "Programming Lab", "Placement", "Resources", "Quizzes"];
-
-export default function SearchPage() {
+const SearchPage = () => {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [recentSearches, setRecentSearches] = useState(["Programming in C", "Placement", "React"]);
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return Object.values(coursesData).flatMap((course) => getAllSubjects(course.id).flatMap((subject) => {
+      const base = `/courses/${course.id}/semester/${subject.semesterNumber}/subject/${subject.id}`;
+      const subjectMatch = `${course.name} ${subject.name} ${subject.code || ""}`.toLowerCase().includes(q);
+      const topicMatches = getSubjectTopics(subject).filter((topic) => `${topic.title} ${topic.summary || ""} ${(topic.tags || []).join(" ")}`.toLowerCase().includes(q));
+      const items = subjectMatch ? [{ title: subject.name, detail: `${course.shortName} · ${subject.semesterTitle} · Subject`, to: base }] : [];
+      return items.concat(topicMatches.map((topic) => ({ title: topic.title, detail: `${subject.name} · ${topic.unitLabel} · Topic`, to: `${base}/topic/${topic.id}` })));
+    })).slice(0, 100);
+  }, [query]);
 
-  const filteredResults = useMemo(() => {
-    const normalized = query.trim().toLowerCase();
+  return <main className="search-page">
+    <section className="search-hero"><p className="section-eyebrow">Search the library</p><h1>Find supplied subjects and study topics.</h1>
+      <label className="visually-hidden" htmlFor="search-input">Search notes and topics</label>
+      <input id="search-input" autoFocus type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try Python, database, networking…" />
+    </section>
+    <section className="search-results" aria-live="polite">
+      {!query.trim() ? <div className="empty-state-card"><h2>Start with a keyword</h2><p>Searches the current curriculum—courses, subjects, and imported topic titles.</p></div> : results.length ? results.map((item, index) => <Link className="search-result-card" key={`${item.to}-${index}`} to={item.to}><div><p className="search-result-category">{item.detail}</p><h2>{item.title}</h2></div><span aria-hidden="true">→</span></Link>) : <div className="empty-state-card"><h2>No curriculum matches</h2><p>Try another subject name or topic.</p></div>}
+    </section>
+  </main>;
+};
 
-    return searchableItems.filter((item) => {
-      const matchesCategory = activeCategory === "All" || item.category === activeCategory;
-      const matchesQuery = !normalized || `${item.title} ${item.description}`.toLowerCase().includes(normalized);
-      return matchesCategory && matchesQuery;
-    });
-  }, [activeCategory, query]);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const trimmed = query.trim();
-    if (!trimmed) return;
-    setRecentSearches((current) => [trimmed, ...current.filter((entry) => entry !== trimmed)].slice(0, 5));
-  }
-
-  return (
-    <div className="search-page">
-      <section className="search-hero">
-        <p className="section-eyebrow">Search</p>
-        <h1>Find notes, quizzes, labs, and placement resources instantly.</h1>
-        <form className="search-form" onSubmit={handleSubmit}>
-          <label className="visually-hidden" htmlFor="search-input">
-            Search learning materials
-          </label>
-          <input
-            id="search-input"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search subjects, labs, or resources"
-          />
-          <button type="submit">Search</button>
-        </form>
-
-        <div className="search-filters" aria-label="Search filters">
-          {categoryFilters.map((category) => (
-            <button
-              key={category}
-              type="button"
-              className={`search-filter ${activeCategory === category ? "search-filter-active" : ""}`}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="search-results-section">
-        <div className="search-sidebar">
-          <h2>Recent searches</h2>
-          <ul>
-            {recentSearches.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="search-results">
-          {filteredResults.length > 0 ? (
-            filteredResults.map((item) => (
-              <Link key={item.title} to={item.path} className="search-result-card">
-                <div>
-                  <p className="search-result-category">{item.category}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-                <span>Open →</span>
-              </Link>
-            ))
-          ) : (
-            <div className="empty-state-card">
-              <h3>No matches found</h3>
-              <p>Try another keyword or switch the category filter.</p>
-            </div>
-          )}
-        </div>
-      </section>
-    </div>
-  );
-}
+export default SearchPage;

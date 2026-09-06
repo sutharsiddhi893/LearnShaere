@@ -1,35 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --background-color: #f8fafc;
-  --background: #f8fafc;
-  --bg-base: #f8fafc;
+  --background-color: #f7f5ef;
+  --background: #f7f5ef;
+  --bg-base: #f7f5ef;
   --surface-color: #ffffff;
   --bg-surface: #ffffff;
-  --surface-muted: #f1f5f9;
-  --bg-surface-elevated: #f1f5f9;
-  --bg-surface-interactive: rgba(248, 250, 252, 0.9);
-  --border-color: #e5e7eb;
-  --border: #e5e7eb;
-  --text-primary: #111827;
-  --heading: #111827;
-  --text-secondary: #4b5563;
-  --text-tertiary: #6b7280;
-  --muted-text: #6b7280;
-  --text-muted: #6b7280;
-  --muted: #6b7280;
-  --text: #4b5563;
+  --surface-muted: #eef1ed;
+  --bg-surface-elevated: #eef1ed;
+  --bg-surface-interactive: rgba(247, 245, 239, 0.9);
+  --border-color: #e3e6e2;
+  --border: #e3e6e2;
+  --text-primary: #17201d;
+  --heading: #17201d;
+  --text-secondary: #66736e;
+  --text-tertiary: #66736e;
+  --muted-text: #66736e;
+  --text-muted: #66736e;
+  --muted: #66736e;
+  --text: #66736e;
   --success: #22c55e;
-  --primary-color: #22c55e;
-  --primary: #22c55e;
-  --primary-dark: #16a34a;
-  --primary-light: #dcfce7;
-  --secondary-color: #6366f1;
-  --secondary: #10b981;
-  --accent-color: #dbeafe;
-  --accent-primary: #22c55e;
-  --accent-primary-hover: #16a34a;
-  --accent-secondary: #6366f1;
+  --primary-color: #0f766e;
+  --primary: #0f766e;
+  --primary-dark: #115e59;
+  --primary-light: #d9eeea;
+  --secondary-color: #d97706;
+  --secondary: #0f766e;
+  --accent-color: #f8e4c5;
+  --accent-primary: #0f766e;
+  --accent-primary-hover: #115e59;
+  --accent-secondary: #d97706;
   --danger-color: #ef4444;
   --font-main: "Manrope", Arial, sans-serif;
   --font-primary: "Manrope", Arial, sans-serif;
@@ -64,10 +64,7 @@ body {
   margin: 0;
   color: var(--text-primary);
   font-family: var(--font-main);
-  background:
-    radial-gradient(circle at 8% 10%, rgba(34, 197, 94, 0.12), transparent 24rem),
-    radial-gradient(circle at 92% 18%, rgba(99, 102, 241, 0.1), transparent 28rem),
-    var(--background);
+  background: var(--background);
   line-height: 1.6;
 }
 
@@ -104,7 +101,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(34, 197, 94, 0.35);
+  outline: 3px solid rgba(15, 118, 110, 0.35);
   outline-offset: 2px;
 }
 
