@@ -144,6 +144,14 @@
     position: relative;
 }
 
+.header-dropdown:hover {
+    color: var(--primary);
+    background: #f0fdf4;
+    transform: translateY(-2px);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
 .header-dropdown-menu {
     position: absolute;
     top: calc(100% + 12px);
