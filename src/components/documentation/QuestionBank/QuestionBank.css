@@ -32,7 +32,7 @@
 }
 
 .qbank__head:hover {
-    background: var(--doc-table-hover, #f8fafc);
+    background: var(--doc-table-hover, #f5f4f1);
 }
 
 .qbank__num {

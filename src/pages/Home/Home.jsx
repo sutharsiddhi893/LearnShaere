@@ -96,7 +96,7 @@ const Home = () => {
 
             <div className="home-dashboard-body">
               <div className="home-dashboard-greeting">
-                <span>Good to see you, Student</span>
+                <span>Good to see you, Siddhi</span>
                 <h2>Continue your learning journey.</h2>
               </div>
 
@@ -341,7 +341,7 @@ const Home = () => {
             </div>
             <Link
               to="/cheatsheet"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:scale-105 transition"
+              className="home-button home-button-secondary"
             >
               <Zap size={20} />
               Open Cheat Sheet

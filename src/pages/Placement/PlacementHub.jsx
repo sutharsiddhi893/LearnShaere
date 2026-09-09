@@ -1,74 +1,139 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { findSubjectByDocumentationId, getSubjectQuestions } from "../../data";
 import "./PlacementHub.css";
 
-const focusAreas = [
-  { title: "Aptitude", description: "Speed, accuracy, and confidence for quantitative rounds." },
-  { title: "Reasoning", description: "Analytical and puzzle-based questions that sharpen decision making." },
-  { title: "Resume review", description: "Craft clean, outcome-oriented resumes that stand out." },
-  { title: "HR interview", description: "Learn how to answer common behavioral and situational questions." },
+const extraQuestions = [
+  "How is an array stored in memory?",
+  "What is the difference between a static and dynamic data structure?",
+  "What is a circular queue and where is it useful?",
+  "What is a deque? Explain its operations.",
+  "What is stack overflow and stack underflow?",
+  "How can a stack be implemented using an array?",
+  "How can a queue be implemented using a linked list?",
+  "What is a singly linked list? Explain insertion and deletion.",
+  "What is a doubly linked list? What are its advantages?",
+  "What is a circular linked list?",
+  "How do you reverse a singly linked list?",
+  "How can you detect a cycle in a linked list?",
+  "What is a binary tree?",
+  "What is a binary search tree (BST)?",
+  "What is the difference between a binary tree and a BST?",
+  "What is the height of a tree?",
+  "Explain preorder, inorder and postorder traversal.",
+  "How can you find the minimum and maximum value in a BST?",
+  "What is a balanced tree?",
+  "What is a graph data structure?",
+  "Differentiate between directed and undirected graphs.",
+  "What is an adjacency matrix?",
+  "What is an adjacency list?",
+  "When would you prefer an adjacency list over an adjacency matrix?",
+  "What is a connected graph?",
+  "What is a cycle in a graph?",
+  "What is the time complexity of linear search?",
+  "What is the prerequisite for binary search?",
+  "Compare linear search and binary search.",
+  "What is the best, average and worst-case complexity of bubble sort?",
 ];
 
-const roadmapSteps = [
-  "Build a solid resume and LinkedIn profile.",
-  "Practice aptitude and logical reasoning every week.",
-  "Prepare stories and STAR answers for interviews.",
-  "Create projects that show practical problem-solving.",
-];
+const categoryFor = (question) => {
+  const text = question.toLowerCase();
+  if (/tree|bst|binary search tree|traversal|height of a tree|balanced tree/.test(text)) return "Trees";
+  if (/graph|adjacency|connected graph|cycle in a graph|directed|undirected/.test(text)) return "Graphs";
+  if (/linked list|singly|doubly|circular linked|reverse.*list|cycle.*list/.test(text)) return "Linked Lists";
+  if (/stack|queue|deque|overflow|underflow/.test(text)) return "Stacks & Queues";
+  if (/search|sort|bubble|binary search|linear search/.test(text)) return "Searching & Sorting";
+  return "Foundations";
+};
 
-export default function PlacementHubPage() {
+const PlacementHubPage = () => {
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("All");
+  const dsaSubject = findSubjectByDocumentationId("bca", "fundamentals-of-data-structure");
+  const sourceQuestions = getSubjectQuestions(dsaSubject);
+
+  const questions = useMemo(() => {
+    const source = sourceQuestions.map((item) => ({ question: item.question }));
+    const combined = [...source, ...extraQuestions.map((question) => ({ question }))];
+    const seen = new Set();
+    return combined.filter((item) => {
+      const key = item.question.trim().toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, 50).map((item) => ({ ...item, category: categoryFor(item.question) }));
+  }, [sourceQuestions]);
+
+  const categories = ["All", ...new Set(questions.map((item) => item.category))];
+  const filtered = questions.filter((item) => {
+    const matchesCategory = category === "All" || item.category === category;
+    const normalizedQuery = query.trim().toLowerCase().replace(/\s+/g, " ");
+    const normalizedQuestion = item.question.toLowerCase().replace(/\s+/g, " ");
+    const matchesSearch = !normalizedQuery || normalizedQuestion.includes(normalizedQuery);
+    return matchesCategory && matchesSearch;
+  });
+
   return (
-    <div className="placement-page">
-      <section className="placement-hero">
-        <div>
-          <p className="section-eyebrow">Placement hub</p>
-          <h1>Prepare for internships, interviews, and career opportunities.</h1>
+    <main className="placement-page">
+      <section className="placement-hero placement-reveal">
+        <div className="placement-hero-copy">
+          <span className="placement-kicker">Placement preparation</span>
+          <h1>DSA questions that sharpen your interview thinking.</h1>
           <p>
-            LearnSphere gives you a focused preparation path for aptitude, interview prep, resume building, and company-specific question practice.
+            A focused practice space built around the Data Structure material already
+            present in LearnSphere. No OJT clutter, no random placement dashboard.
           </p>
           <div className="placement-hero-actions">
-            <Link to="/resources/question-bank" className="button-primary">
-              Explore question bank
-            </Link>
-            <Link to="/programming-lab/react" className="button-secondary">
-              Strengthen coding skills
-            </Link>
+            <a href="#dsa-questions" className="placement-primary-btn">Start practicing ↓</a>
+            <Link to="/resources/question-bank" className="placement-secondary-btn">Question bank ↗</Link>
           </div>
         </div>
-
-        <div className="placement-summary-card">
-          <h2>Focused prep for 2026</h2>
-          <ul>
-            <li>Weekly aptitude drills</li>
-            <li>Interview answer frameworks</li>
-            <li>Resume building checklist</li>
-            <li>Company-wise practice sets</li>
-          </ul>
+        <div className="placement-orbit-card">
+          <span>DSA</span>
+          <strong>{questions.length}</strong>
+          <small>practice questions</small>
+          <div className="placement-orbit">⌁</div>
         </div>
       </section>
 
-      <section className="placement-grid">
-        <div className="placement-card">
-          <h2>Core focus areas</h2>
-          <div className="focus-list">
-            {focusAreas.map((area) => (
-              <article key={area.title} className="focus-item">
-                <h3>{area.title}</h3>
-                <p>{area.description}</p>
-              </article>
+      <section id="dsa-questions" className="placement-card placement-reveal">
+        <div className="placement-section-heading">
+          <div>
+            <span className="placement-kicker">Interview drill</span>
+            <h2>50 DSA questions</h2>
+          </div>
+          <span className="placement-count">{filtered.length}/50</span>
+        </div>
+
+        <div className="placement-controls">
+          <label className="placement-search">
+            <span>⌕</span>
+            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search a DSA question..." />
+          </label>
+          <div className="placement-filters">
+            {categories.map((item) => (
+              <button key={item} className={category === item ? "active" : ""} onClick={() => setCategory(item)}>
+                {item}
+              </button>
             ))}
           </div>
         </div>
 
-        <div className="placement-card">
-          <h2>Placement roadmap</h2>
-          <ol className="roadmap-list">
-            {roadmapSteps.map((step, index) => (
-              <li key={step}>0{index + 1}. {step}</li>
-            ))}
-          </ol>
+        <div className="placement-question-grid">
+          {filtered.map((item, index) => (
+            <article className="placement-question-card" key={`${item.question}-${index}`}>
+              <div className="placement-question-top">
+                <span className="placement-question-number">{String(questions.indexOf(item) + 1).padStart(2, "0")}</span>
+                <span className="placement-question-tag">{item.category}</span>
+              </div>
+              <h3>{item.question}</h3>
+              <span className="placement-practice-label">Interview practice</span>
+            </article>
+          ))}
         </div>
       </section>
-    </div>
+    </main>
   );
-}
+};
+
+export default PlacementHubPage;

@@ -43,7 +43,7 @@
     justify-content: center;
     overflow: hidden;
     border-radius: 14px;
-    background: #ecfdf5;
+    background: #eee8f0;
     box-shadow: 0 8px 20px rgba(34, 197, 94, 0.14);
 }
 
@@ -113,18 +113,32 @@
 .header-nav-link-active,
 .header-nav-button-active {
     color: var(--primary);
-    background: #ecfdf5;
+    background: #eee8f0;
 }
 
-.header-nav-link-active::after {
+.header-nav-link::before,
+.header-nav-button::before {
     content: "";
     position: absolute;
+    left: 13px;
     right: 13px;
     bottom: 4px;
-    left: 13px;
     height: 2px;
-    border-radius: 10px;
+    border-radius: 99px;
     background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .25s ease;
+}
+
+.header-nav-link:hover::before,
+.header-nav-button:hover::before {
+    transform: scaleX(1);
+}
+
+.header-nav-link-active::before,
+.header-nav-button-active::before {
+    transform: scaleX(1);
 }
 
 .header-chevron {
@@ -146,7 +160,7 @@
 
 .header-dropdown:hover {
     color: var(--primary);
-    background: #f0fdf4;
+    background: #f3f1ec;
     transform: translateY(-2px);
     border-radius: 10px;
     transition: all 0.25s ease;
@@ -194,7 +208,7 @@
 
 .header-dropdown-link:hover {
     color: var(--primary);
-    background: #f0fdf4;
+    background: #f3f1ec;
     transform: translateX(3px);
 }
 
@@ -206,7 +220,7 @@
     flex-shrink: 0;
     border-radius: 8px;
     color: var(--primary);
-    background: #ecfdf5;
+    background: #eee8f0;
     font-size: 0.8rem;
 }
 
@@ -240,7 +254,7 @@
 .header-search-button:hover {
     color: var(--primary);
     border-color: var(--primary);
-    background: #f0fdf4;
+    background: #f3f1ec;
 }
 
 .header-search-icon {
@@ -340,7 +354,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     color: var(--muted);
-    background: #f8fafc;
+    background: #f5f4f1;
     font-size: 0.86rem;
     text-decoration: none;
 }
@@ -370,7 +384,7 @@
 .mobile-profile-link:hover,
 .mobile-nav-link-active {
     color: var(--primary);
-    background: #ecfdf5;
+    background: #eee8f0;
 }
 
 .mobile-menu-group {

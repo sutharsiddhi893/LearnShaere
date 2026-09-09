@@ -97,11 +97,9 @@
 .language-sidebar-link-active {
   border-color: rgba(34, 197, 94, 0.28);
   color: #15803d;
-  background: linear-gradient(
-    90deg,
-    rgba(34, 197, 94, 0.13),
-    rgba(34, 197, 94, 0.04)
-  );
+  background: linear-gradient(90deg,
+      rgba(34, 197, 94, 0.13),
+      rgba(34, 197, 94, 0.04));
   box-shadow: inset 3px 0 0 var(--primary-color);
 }
 
@@ -142,11 +140,9 @@
 }
 
 .language-python {
-  background: linear-gradient(
-    135deg,
-    #3978a8 50%,
-    #ffd343 50%
-  );
+  background: linear-gradient(135deg,
+      #3978a8 50%,
+      #ffd343 50%);
 }
 
 .language-java {
@@ -201,11 +197,9 @@
   border: 1px solid rgba(34, 197, 94, 0.18);
   border-radius: 11px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(34, 197, 94, 0.08),
-    rgba(34, 197, 94, 0.03)
-  );
+  background: linear-gradient(135deg,
+      rgba(34, 197, 94, 0.08),
+      rgba(34, 197, 94, 0.03));
 }
 
 .language-sidebar-tip-icon {

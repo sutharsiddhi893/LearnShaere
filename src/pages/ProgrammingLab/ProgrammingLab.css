@@ -8,16 +8,12 @@
   min-height: calc(100dvh - 82px);
   color: var(--text-primary);
   background:
-    radial-gradient(
-      circle at 10% 5%,
+    radial-gradient(circle at 10% 5%,
       rgba(34, 197, 94, 0.08),
-      transparent 24rem
-    ),
-    radial-gradient(
-      circle at 92% 12%,
+      transparent 24rem),
+    radial-gradient(circle at 92% 12%,
       rgba(16, 185, 129, 0.05),
-      transparent 26rem
-    ),
+      transparent 26rem),
     var(--background);
 }
 
@@ -72,21 +68,15 @@
   border-radius: 20px;
 
   background:
-    radial-gradient(
-      circle at 90% 10%,
+    radial-gradient(circle at 90% 10%,
       rgba(34, 197, 94, 0.12),
-      transparent 18rem
-    ),
-    radial-gradient(
-      circle at 10% 100%,
+      transparent 18rem),
+    radial-gradient(circle at 10% 100%,
       rgba(16, 185, 129, 0.06),
-      transparent 20rem
-    ),
-    linear-gradient(
-      180deg,
+      transparent 20rem),
+    linear-gradient(180deg,
       #ffffff 0%,
-      #f8fffa 100%
-    );
+      #f8fffa 100%);
 
   box-shadow:
     0 12px 35px rgba(15, 23, 42, 0.06);
@@ -155,11 +145,9 @@
   font-weight: 800;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #22c55e,
-      #16a34a
-    );
+      #16a34a);
 
   box-shadow:
     0 10px 22px rgba(34, 197, 94, 0.20);
@@ -171,8 +159,8 @@
   gap: 5px;
 }
 
-.programming-lab-language-brand div > span,
-.programming-lab-section-title > div > span {
+.programming-lab-language-brand div>span,
+.programming-lab-section-title>div>span {
   color: #16a34a;
 
   font-family: var(--font-mono);
@@ -199,7 +187,7 @@
    HERO DESCRIPTION
 ========================================================= */
 
-.programming-lab-hero > p {
+.programming-lab-hero>p {
   position: relative;
   z-index: 1;
 
@@ -278,7 +266,7 @@
   letter-spacing: -0.7px;
 }
 
-.programming-lab-section-title > p {
+.programming-lab-section-title>p {
   max-width: 430px;
 
   margin: 0;
@@ -370,11 +358,9 @@
   border-color: rgba(34, 197, 94, 0.55);
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(34, 197, 94, 0.08),
-      rgba(255, 255, 255, 1)
-    );
+      rgba(255, 255, 255, 1));
 
   box-shadow:
     0 12px 25px rgba(34, 197, 94, 0.09);
@@ -443,8 +429,7 @@
     transform 0.2s ease;
 }
 
-.programming-lab-challenge-card:hover
-.programming-lab-challenge-arrow {
+.programming-lab-challenge-card:hover .programming-lab-challenge-arrow {
   color: #16a34a;
 
   transform: translateX(3px);
@@ -491,7 +476,7 @@
   flex: 1;
 }
 
-.programming-lab-selected-challenge div > span {
+.programming-lab-selected-challenge div>span {
   color: #16a34a;
 
   font-size: 10px;
@@ -609,7 +594,7 @@
   background: rgba(34, 197, 94, 0.07);
 }
 
-.programming-lab-learning-grid article > span {
+.programming-lab-learning-grid article>span {
   color: #16a34a;
 
   font-family: var(--font-mono);
@@ -682,6 +667,7 @@
 }
 
 @media (max-width: 850px) {
+
   .programming-lab-workspace,
   .programming-lab-challenges-section,
   .programming-lab-learning-section {
@@ -753,15 +739,16 @@
 }
 
 .programming-lab-selected-challenge-icon img {
-    width: 42px;
-    height: 42px;
+  width: 42px;
+  height: 42px;
 
-    max-width: 42px;
-    max-height: 42px;
+  max-width: 42px;
+  max-height: 42px;
 
-    display: block;
-    object-fit: contain;
+  display: block;
+  object-fit: contain;
 }
+
 /* =========================================================
    LANGUAGE-AWARE IDE
 ========================================================= */
@@ -769,7 +756,7 @@
 .programming-lab-ide {
   --ide-frame: #0f172a;
   --ide-titlebar: #111827;
-  --ide-title-text: #f8fafc;
+  --ide-title-text: #f5f4f1;
   --ide-menu: #1f2937;
   --ide-menu-text: #cbd5e1;
   --ide-tabs: #111827;
@@ -815,12 +802,12 @@
   font-size: 11px;
 }
 
-.programming-lab-ide-titlebar > strong {
+.programming-lab-ide-titlebar>strong {
   text-align: center;
   font-weight: 700;
 }
 
-.programming-lab-ide-titlebar > span {
+.programming-lab-ide-titlebar>span {
   color: var(--ide-muted);
   text-align: right;
 }
@@ -845,7 +832,7 @@
 }
 
 .programming-lab-ide-window-dots i:nth-child(2) {
-  background: #f59e0b;
+  background: #8b7355;
 }
 
 .programming-lab-ide-window-dots i:nth-child(3) {
@@ -886,11 +873,9 @@
 
 .programming-lab-ide-menu span:hover {
   color: var(--ide-title-text);
-  background: color-mix(
-    in srgb,
-    var(--ide-accent) 20%,
-    transparent
-  );
+  background: color-mix(in srgb,
+      var(--ide-accent) 20%,
+      transparent);
 }
 
 /* =========================================================
@@ -981,18 +966,15 @@
 
 .programming-lab-editor-host textarea::selection {
   color: var(--ide-editor-text);
-  background: color-mix(
-    in srgb,
-    var(--ide-accent) 35%,
-    transparent
-  );
+  background: color-mix(in srgb,
+      var(--ide-accent) 35%,
+      transparent);
 }
 
 /* Output panel */
 
 .programming-lab-editor-host .code-editor-output,
-.programming-lab-editor-host
-[class*="output"] {
+.programming-lab-editor-host [class*="output"] {
   color: var(--ide-editor-text) !important;
   background: var(--ide-output) !important;
 
@@ -1072,13 +1054,11 @@
     9px 9px 0 rgba(0, 0, 0, 0.28);
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-.programming-lab-ide-window-dots {
+.programming-lab-ide[data-editor-theme="turbo-c"] .programming-lab-ide-window-dots {
   display: none;
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-.programming-lab-ide-titlebar {
+.programming-lab-ide[data-editor-theme="turbo-c"] .programming-lab-ide-titlebar {
   grid-template-columns: 80px 1fr 80px;
 
   font-family:
@@ -1089,27 +1069,23 @@
   text-transform: uppercase;
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-.programming-lab-ide-menu span {
+.programming-lab-ide[data-editor-theme="turbo-c"] .programming-lab-ide-menu span {
   border-radius: 0;
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-.programming-lab-ide-menu span:hover {
+.programming-lab-ide[data-editor-theme="turbo-c"] .programming-lab-ide-menu span:hover {
   color: #ffff00;
   background: #0000a8;
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-.programming-lab-ide-tab-active {
+.programming-lab-ide[data-editor-theme="turbo-c"] .programming-lab-ide-tab-active {
   border-top-color: #ffff00;
 
   color: #ffff00;
   background: #0000a8;
 }
 
-.programming-lab-ide[data-editor-theme="turbo-c"]
-textarea {
+.programming-lab-ide[data-editor-theme="turbo-c"] textarea {
   font-family:
     "Courier New",
     monospace !important;
@@ -1318,7 +1294,7 @@ textarea {
   --ide-output: #041d1e;
   --ide-editor-text: #e6fffb;
   --ide-accent: #2dd4bf;
-  --ide-border: #0f766e;
+  --ide-border: #3f2b4d;
   --ide-status: #008184;
 }
 

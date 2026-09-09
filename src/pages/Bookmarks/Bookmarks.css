@@ -111,6 +111,7 @@
 }
 
 @media (max-width: 800px) {
+
   .bookmarks-hero,
   .bookmark-item {
     flex-direction: column;

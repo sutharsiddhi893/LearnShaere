@@ -222,11 +222,9 @@
 .admin-tab-active {
   border-color: rgba(143, 127, 255, 0.23);
   color: #f6f7ff;
-  background: linear-gradient(
-    135deg,
-    rgba(112, 93, 255, 0.25),
-    rgba(38, 162, 229, 0.07)
-  );
+  background: linear-gradient(135deg,
+      rgba(112, 93, 255, 0.25),
+      rgba(38, 162, 229, 0.07));
 }
 
 .admin-tab span {
@@ -453,7 +451,7 @@
   border-bottom: 1px solid rgba(142, 155, 198, 0.13);
 }
 
-.admin-list-card-heading > div > span {
+.admin-list-card-heading>div>span {
   display: block;
   margin-bottom: 5px;
   color: #a99fff;

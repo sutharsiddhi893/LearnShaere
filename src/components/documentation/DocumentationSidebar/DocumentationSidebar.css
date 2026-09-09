@@ -55,7 +55,7 @@
 }
 
 .doc-sidebar__unit-head:hover {
-  background: var(--doc-table-hover, #f8fafc);
+  background: var(--doc-table-hover, #f5f4f1);
 }
 
 .doc-sidebar__unit-label {
@@ -111,7 +111,7 @@
 
 .doc-sidebar__topic:hover {
   color: var(--doc-heading, #0f172a);
-  background: var(--doc-table-hover, #f8fafc);
+  background: var(--doc-table-hover, #f5f4f1);
 }
 
 .doc-sidebar__topic.is-active {

@@ -125,7 +125,7 @@ h5.doc-heading {
     border: 1px solid var(--doc-border, #e2e8f0);
     border-radius: 10px;
     overflow: hidden;
-    background: var(--doc-output-bg, #f8fafc);
+    background: var(--doc-output-bg, #f5f4f1);
 }
 
 .doc-output__label {
@@ -195,7 +195,7 @@ h5.doc-heading {
 }
 
 .doc-table tbody tr:hover {
-    background: var(--doc-table-hover, #f8fafc);
+    background: var(--doc-table-hover, #f5f4f1);
 }
 
 /* ---------------- NOTE ---------------- */
@@ -217,13 +217,13 @@ h5.doc-heading {
 }
 
 .doc-note--tip {
-    --note-bg: #f0fdf4;
+    --note-bg: #f3f1ec;
     --note-accent: #22c55e;
 }
 
 .doc-note--warning {
     --note-bg: #fffbeb;
-    --note-accent: #f59e0b;
+    --note-accent: #8b7355;
 }
 
 .doc-note--exam {

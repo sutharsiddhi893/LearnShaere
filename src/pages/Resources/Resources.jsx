@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { BookOpen, CheckCircle2, Download, FileText, Search, X } from "lucide-react";
+import { BookOpen, CheckCircle2, Code2, Download, FileText, Search, X, GraduationCap } from "lucide-react";
 import previousPapers from "../../data/resources/previousPapers";
-import { coursesData, getAllSubjects, getSubjectQuestions } from "../../data";
+import { coursesData, getAllSubjects, getSubjectCheatsheet, getSubjectQuestions, getSubjectTopics } from "../../data";
+import { downloadPDF } from "../../utils/pdf";
 import "./Resources.css";
 
 const RESOURCE_CATEGORIES = [
@@ -171,6 +172,266 @@ function QuestionBank() {
   );
 }
 
+function CheatSheets() {
+  const [course, setCourse] = useState("bca");
+  const [subjectId, setSubjectId] = useState("");
+  const [query, setQuery] = useState("");
+
+  const subjects = useMemo(
+    () => getAllSubjects(course).filter((item) => item.hasContent !== false),
+    [course]
+  );
+
+  const selectedSubject = subjects.find((item) => item.id === subjectId) || subjects[0] || null;
+  const topics = useMemo(() => getSubjectCheatsheet(selectedSubject), [selectedSubject]);
+  const filteredTopics = useMemo(() => {
+    const q = normalise(query);
+    if (!q) return topics;
+    return topics.filter((topic) =>
+      [topic.title, topic.summary, ...(topic.tags || []), ...topic.definitions.flatMap((item) => [item.term, item.meaning]), ...topic.keyPoints]
+        .some((value) => normalise(value).includes(q))
+    );
+  }, [topics, query]);
+
+  return (
+    <div className="resource-content">
+      <div className="resource-heading">
+        <div>
+          <p className="section-eyebrow">Derived from existing notes</p>
+          <h2>Cheatsheet</h2>
+          <p>Quick revision cards are generated directly from the selected subject topics. Nothing is copied into a second content database.</p>
+        </div>
+        <div className="resource-count"><strong>{filteredTopics.length}</strong><span>topics</span></div>
+      </div>
+
+      <div className="question-filters cheatsheet-filters">
+        <select value={course} onChange={(event) => { setCourse(event.target.value); setSubjectId(""); }} aria-label="Cheatsheet course">
+          {COURSE_ORDER.map((id) => <option key={id} value={id}>{coursesData[id]?.shortName}</option>)}
+        </select>
+        <select value={selectedSubject?.id || ""} onChange={(event) => setSubjectId(event.target.value)} aria-label="Cheatsheet subject">
+          {subjects.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
+        </select>
+        <label className="resource-search">
+          <Search size={18} />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search this cheatsheet..." />
+        </label>
+      </div>
+
+      {selectedSubject && filteredTopics.length ? (
+        <div className="cheatsheet-list">
+          {filteredTopics.map((topic) => (
+            <article className="cheatsheet-card" key={topic.id}>
+              <div className="cheatsheet-card-head">
+                <div>
+                  <span className="cheatsheet-topic-label">Quick revision</span>
+                  <h3>{topic.title}</h3>
+                </div>
+                {topic.tags?.length ? <div className="cheatsheet-tags">{topic.tags.map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
+              </div>
+              {topic.summary ? <p className="cheatsheet-summary">{topic.summary}</p> : null}
+
+              {topic.definitions.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4>Definitions</h4>
+                  <div className="cheatsheet-definitions">
+                    {topic.definitions.map((item, index) => <div key={`${item.term}-${index}`}><strong>{item.term}</strong><span>{item.meaning}</span></div>)}
+                  </div>
+                </div>
+              ) : null}
+
+              {topic.keyPoints.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4>Key points</h4>
+                  <ul>{topic.keyPoints.map((point, index) => <li key={`${topic.id}-point-${index}`}>{point}</li>)}</ul>
+                </div>
+              ) : null}
+
+              {topic.notes.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4>Notes</h4>
+                  {topic.notes.map((note, index) => <div className="cheatsheet-note" key={`${topic.id}-note-${index}`}><strong>{note.title || note.variant || "Note"}</strong><span>{note.value}</span></div>)}
+                </div>
+              ) : null}
+
+              {topic.quickFacts?.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4>Quick facts</h4>
+                  <div className="cheatsheet-quick-facts">
+                    {topic.quickFacts.map((fact, index) => fact.type === "heading" ? (
+                      <strong key={`${topic.id}-fact-${index}`}>{fact.text}</strong>
+                    ) : fact.type === "text" ? (
+                      <p key={`${topic.id}-fact-${index}`}>{fact.text}</p>
+                    ) : (
+                      <ul key={`${topic.id}-fact-${index}`}>{fact.items.map((item, itemIndex) => <li key={`${topic.id}-fact-${index}-${itemIndex}`}>{item}</li>)}</ul>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {topic.tables?.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4>Reference tables</h4>
+                  {topic.tables.map((table, index) => (
+                    <div className="cheatsheet-table-wrap" key={`${topic.id}-table-${index}`}>
+                      {table.caption ? <strong>{table.caption}</strong> : null}
+                      <table><thead><tr>{table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{table.rows.map((row, rowIndex) => <tr key={`${topic.id}-row-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${topic.id}-${rowIndex}-${cellIndex}`}>{cell}</td>)}</tr>)}</tbody></table>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              {topic.codeExamples.length ? (
+                <div className="cheatsheet-section-block">
+                  <h4><Code2 size={16} /> Code</h4>
+                  {topic.codeExamples.map((example, index) => (
+                    <pre className="cheatsheet-code" key={`${topic.id}-code-${index}`}><code>{example.value}</code></pre>
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <EmptyResource title="No cheatsheet content yet" description="This subject does not currently contain extractable definitions, key points, notes, or code blocks in its existing content." />
+      )}
+    </div>
+  );
+}
+
+
+function buildSyllabusLines(course) {
+  const lines = [
+    course.name,
+    `${course.shortName} — Syllabus`,
+    "",
+    course.description || "",
+    "",
+  ];
+
+  course.semesters.forEach((semester) => {
+    lines.push(semester.title);
+    if (semester.description) lines.push(semester.description);
+    semester.subjects.forEach((subject) => lines.push(`• ${subject.name}`));
+    lines.push("");
+  });
+
+  return lines;
+}
+
+function buildNotesLines(subject) {
+  const lines = [
+    subject.name,
+    "Study Notes — generated from the existing subject content",
+    "",
+  ];
+
+  getSubjectTopics(subject).forEach((topic) => {
+    lines.push(topic.title);
+    if (topic.summary) lines.push(topic.summary);
+
+    (topic.blocks || []).forEach((block) => {
+      if (block.type === "heading") lines.push(block.text);
+      if (block.type === "text") lines.push(block.value);
+      if (block.type === "definition") lines.push(`Definition — ${block.term}: ${block.meaning}`);
+      if (block.type === "list" || block.type === "steps" || block.type === "keyPoints") {
+        (block.items || []).forEach((item, index) => lines.push(`${block.ordered || block.type === "steps" ? `${index + 1}.` : "•"} ${item}`));
+      }
+      if (block.type === "note") lines.push(`${block.title || "Note"}: ${block.value}`);
+      if (block.type === "code") {
+        if (block.caption) lines.push(block.caption);
+        lines.push(block.value);
+      }
+      if (block.type === "output") lines.push(`Output: ${block.value}`);
+      if (block.type === "table") {
+        if (block.caption) lines.push(block.caption);
+        lines.push((block.headers || []).join(" | "));
+        (block.rows || []).forEach((row) => lines.push(row.join(" | ")));
+      }
+    });
+    lines.push("");
+  });
+
+  return lines;
+}
+
+function Syllabus() {
+  const [courseId, setCourseId] = useState("bca");
+  const course = coursesData[courseId];
+
+  return (
+    <div className="resource-content">
+      <div className="resource-heading">
+        <div>
+          <p className="section-eyebrow">Derived from existing curriculum</p>
+          <h2>Syllabus</h2>
+          <p>The syllabus is generated directly from the existing course and semester data. No separate subject list is maintained.</p>
+        </div>
+        <div className="resource-count"><strong>{course?.semesters?.filter((semester) => semester.subjects.length).length || 0}</strong><span>populated semesters</span></div>
+      </div>
+
+      <div className="resource-tool-row">
+        <select value={courseId} onChange={(event) => setCourseId(event.target.value)} aria-label="Syllabus course">
+          {COURSE_ORDER.map((id) => <option key={id} value={id}>{coursesData[id]?.shortName}</option>)}
+        </select>
+        <button type="button" className="resource-action-button" onClick={() => downloadPDF(`${course.shortName}-syllabus.pdf`, `${course.shortName} — Syllabus`, buildSyllabusLines(course))}>
+          <Download size={17} /> Download syllabus PDF
+        </button>
+      </div>
+
+      <div className="syllabus-grid">
+        {course?.semesters?.map((semester) => (
+          <article className="syllabus-card" key={semester.number}>
+            <div className="syllabus-card-head"><span>Semester {semester.number}</span><b>{semester.subjects.length} subjects</b></div>
+            <h3>{semester.title}</h3>
+            {semester.description ? <p>{semester.description}</p> : null}
+            {semester.subjects.length ? <ul>{semester.subjects.map((subject) => <li key={subject.id}>{subject.name}</li>)}</ul> : <div className="syllabus-empty">Coming soon — no subjects are currently added.</div>}
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PDFNotes() {
+  const [courseId, setCourseId] = useState("bca");
+  const [subjectId, setSubjectId] = useState("");
+  const subjects = useMemo(() => getAllSubjects(courseId).filter((item) => item.hasContent !== false && getSubjectTopics(item).length), [courseId]);
+  const selectedSubject = subjects.find((item) => item.id === subjectId) || subjects[0] || null;
+  const topics = selectedSubject ? getSubjectTopics(selectedSubject) : [];
+
+  return (
+    <div className="resource-content">
+      <div className="resource-heading">
+        <div>
+          <p className="section-eyebrow">Generated from existing notes</p>
+          <h2>PDF Notes</h2>
+          <p>Downloadable revision PDFs are generated from the existing subject topics and content blocks. The original notes remain the single source of truth.</p>
+        </div>
+        <div className="resource-count"><strong>{topics.length}</strong><span>topics</span></div>
+      </div>
+
+      <div className="resource-tool-row">
+        <select value={courseId} onChange={(event) => { setCourseId(event.target.value); setSubjectId(""); }} aria-label="PDF notes course">
+          {COURSE_ORDER.map((id) => <option key={id} value={id}>{coursesData[id]?.shortName}</option>)}
+        </select>
+        <select value={selectedSubject?.id || ""} onChange={(event) => setSubjectId(event.target.value)} aria-label="PDF notes subject">
+          {subjects.map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
+        </select>
+        <button type="button" className="resource-action-button" disabled={!selectedSubject} onClick={() => selectedSubject && downloadPDF(`${selectedSubject.name.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "")}-notes.pdf`, `${selectedSubject.name} — Study Notes`, buildNotesLines(selectedSubject))}>
+          <Download size={17} /> Download PDF notes
+        </button>
+      </div>
+
+      {selectedSubject ? (
+        <div className="pdf-notes-preview">
+          <div className="pdf-notes-preview-head"><GraduationCap size={20} /><div><strong>{selectedSubject.name}</strong><span>{topics.length} topics available from the existing subject data</span></div></div>
+          <div className="pdf-topic-list">{topics.map((topic) => <span key={topic.id}>{topic.title}</span>)}</div>
+        </div>
+      ) : <EmptyResource title="No PDF-note content yet" description="This course does not currently have subject topics available for PDF generation." />}
+    </div>
+  );
+}
+
 function ResourcePlaceholder({ title, description }) {
   return <EmptyResource title={`${title} is not added yet`} description={description} />;
 }
@@ -217,15 +478,15 @@ export default function ResourcesPage() {
               <Link to={`/resources/${category.slug}`} className="resource-overview-card" key={category.slug}>
                 <FileText size={22} />
                 <h3>{category.title}</h3>
-                <p>{category.slug === "previous-papers" ? `${totalPapers} unique PDFs ready to browse.` : category.slug === "question-bank" ? "Uses existing subject questions directly." : "Waiting for the real source material to be added."}</p>
+                <p>{category.slug === "previous-papers" ? `${totalPapers} unique PDFs ready to browse.` : category.slug === "question-bank" ? "Uses existing subject questions directly." : category.slug === "cheat-sheets" ? "Generated from existing subject content without duplicate data." : "Waiting for the real source material to be added."}</p>
               </Link>
             ))}
           </div>
         ) : null}
         {activeSlug === "e-books" ? <ResourcePlaceholder title="E-Books" description="No e-book files were supplied in the current project/resource collection, so no placeholder books are being invented." /> : null}
-        {activeSlug === "cheat-sheets" ? <ResourcePlaceholder title="Cheatsheet" description="Cheatsheets will appear here when actual source material is added." /> : null}
-        {activeSlug === "syllabus" ? <ResourcePlaceholder title="Syllabus" description="The course data remains the source of truth. Dedicated syllabus files are not added until real syllabus documents are supplied." /> : null}
-        {activeSlug === "pdf-notes" ? <ResourcePlaceholder title="PDF Notes" description="PDF notes will appear here when actual note PDFs are supplied. Existing subject notes are not duplicated into another database." /> : null}
+        {activeSlug === "cheat-sheets" ? <CheatSheets /> : null}
+        {activeSlug === "syllabus" ? <Syllabus /> : null}
+        {activeSlug === "pdf-notes" ? <PDFNotes /> : null}
       </section>
     </div>
   );

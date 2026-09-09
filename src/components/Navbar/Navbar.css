@@ -115,9 +115,11 @@
 .navbar-toggle.is-open .navbar-toggle-bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .navbar-toggle.is-open .navbar-toggle-bar:nth-child(2) {
     opacity: 0;
 }
+
 .navbar-toggle.is-open .navbar-toggle-bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
@@ -138,15 +140,18 @@
         transform: translateY(-120%);
         transition: transform 0.3s ease;
     }
+
     .navbar-links.is-open {
         display: flex;
         transform: translateY(0);
     }
+
     .navbar-link {
         width: 100%;
         padding: 1rem 0;
         border-bottom: 1px solid var(--border-color);
     }
+
     .navbar-link:last-child {
         border-bottom: none;
     }
@@ -156,6 +161,7 @@
     .navbar-links {
         display: flex;
     }
+
     .navbar-toggle {
         display: none;
     }

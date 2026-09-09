@@ -1,35 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --background-color: #f7f5ef;
-  --background: #f7f5ef;
-  --bg-base: #f7f5ef;
+  --background-color: #f5f4f1;
+  --background: #f5f4f1;
+  --bg-base: #f5f4f1;
   --surface-color: #ffffff;
   --bg-surface: #ffffff;
-  --surface-muted: #eef1ed;
-  --bg-surface-elevated: #eef1ed;
+  --surface-muted: #eceae5;
+  --bg-surface-elevated: #eceae5;
   --bg-surface-interactive: rgba(247, 245, 239, 0.9);
-  --border-color: #e3e6e2;
-  --border: #e3e6e2;
-  --text-primary: #17201d;
-  --heading: #17201d;
-  --text-secondary: #66736e;
-  --text-tertiary: #66736e;
-  --muted-text: #66736e;
-  --text-muted: #66736e;
-  --muted: #66736e;
-  --text: #66736e;
-  --success: #22c55e;
-  --primary-color: #0f766e;
-  --primary: #0f766e;
-  --primary-dark: #115e59;
-  --primary-light: #d9eeea;
-  --secondary-color: #d97706;
-  --secondary: #0f766e;
-  --accent-color: #f8e4c5;
-  --accent-primary: #0f766e;
-  --accent-primary-hover: #115e59;
-  --accent-secondary: #d97706;
+  --border-color: #dedbd4;
+  --border: #dedbd4;
+  --text-primary: #17151a;
+  --heading: #17151a;
+  --text-secondary: #6b6870;
+  --text-tertiary: #6b6870;
+  --muted-text: #6b6870;
+  --text-muted: #6b6870;
+  --muted: #6b6870;
+  --text: #6b6870;
+  --success: #557c65;
+  --primary-color: #3f2b4d;
+  --primary: #3f2b4d;
+  --primary-dark: #2f203a;
+  --primary-light: #ebe5dd;
+  --secondary-color: #8b7355;
+  --secondary: #3f2b4d;
+  --accent-color: #e6ddd1;
+  --accent-primary: #3f2b4d;
+  --accent-primary-hover: #2f203a;
+  --accent-secondary: #8b7355;
   --danger-color: #ef4444;
   --font-main: "Manrope", Arial, sans-serif;
   --font-primary: "Manrope", Arial, sans-serif;
@@ -38,11 +38,11 @@
   --foreground: #111827;
   --muted-foreground: #4b5563;
   --white: #ffffff;
-  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 15px 40px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 25px 60px rgba(15, 23, 42, 0.12);
-  --shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
-  --card-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 6px 18px rgba(23, 21, 26, .06);
+  --shadow-md: 0 15px 40px rgba(23, 21, 26, .08);
+  --shadow-lg: 0 25px 60px rgba(23, 21, 26, .12);
+  --shadow: 0 15px 40px rgba(23, 21, 26, .08);
+  --card-shadow: 0 6px 18px rgba(23, 21, 26, .06);
   --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -101,7 +101,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.35);
+  outline: 3px solid rgba(63, 43, 77, .28);
   outline-offset: 2px;
 }
 
@@ -179,4 +179,43 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
+}
+
+/* LearnSphere — global professional visual system */
+:root {
+  --brand-ink: #17151a;
+  --brand-plum: #3f2b4d;
+  --brand-stone: #8b7355;
+  --brand-sand: #e6ddd1;
+  --brand-bg: #f5f4f1;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(63, 43, 77, .055), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(139, 115, 85, .05), transparent 24%),
+    var(--background);
+}
+
+::selection {
+  background: var(--brand-plum);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-main>* {
+    animation: pageEnter .42s ease both;
+  }
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

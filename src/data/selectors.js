@@ -186,6 +186,76 @@ export const getSubjectQuestions = (subject) =>
     }))
   );
 
+/** Derive a revision cheatsheet directly from existing topic content.
+ *
+ * Every supported content block is read from the canonical topic data so the
+ * resource page never needs a second cheatsheet database.
+ */
+export const getSubjectCheatsheet = (subject) =>
+  getSubjectTopics(subject)
+    .map((topic) => {
+      const blocks = topic.blocks || [];
+      const definitions = blocks
+        .filter((block) => block.type === "definition")
+        .map((block) => ({ term: block.term, meaning: block.meaning }));
+
+      const keyPoints = blocks
+        .filter((block) => block.type === "keyPoints")
+        .flatMap((block) => block.items || []);
+
+      const notes = blocks
+        .filter((block) => block.type === "note")
+        .map((block) => ({ title: block.title, value: block.value, variant: block.variant }));
+
+      const codeExamples = blocks
+        .filter((block) => block.type === "code")
+        .map((block) => ({ language: block.language, caption: block.caption, value: block.value }));
+
+      const quickFacts = blocks
+        .filter((block) => ["heading", "text", "list", "steps", "output"].includes(block.type))
+        .map((block) => {
+          if (block.type === "heading") return { type: "heading", text: block.text };
+          if (block.type === "text") return { type: "text", text: block.value };
+          if (block.type === "output") return { type: "text", text: `Output: ${block.value}` };
+          return {
+            type: block.type === "steps" ? "steps" : "list",
+            items: block.items || [],
+          };
+        });
+
+      const tables = blocks
+        .filter((block) => block.type === "table")
+        .map((block) => ({
+          caption: block.caption,
+          headers: block.headers || [],
+          rows: block.rows || [],
+        }));
+
+      return {
+        id: topic.id,
+        title: topic.title,
+        summary: topic.summary || "",
+        tags: topic.tags || [],
+        definitions,
+        keyPoints,
+        notes,
+        codeExamples,
+        quickFacts,
+        tables,
+        hasRevisionContent: Boolean(
+          topic.title ||
+          topic.summary ||
+          definitions.length ||
+          keyPoints.length ||
+          notes.length ||
+          codeExamples.length ||
+          quickFacts.length ||
+          tables.length
+        ),
+      };
+    })
+    .filter((topic) => topic.hasRevisionContent);
+
 /* =========================================================
    PROGRESS
 ========================================================= */
